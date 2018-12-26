@@ -1,0 +1,13 @@
+@charset "utf-8";
+
+$num: 10;
+@for $i from 0 through 10 {
+    .u-mgn-btm-#{$i*$num} {
+        margin-bottom: #{$i*$num}px !important;
+    }
+
+    .u-mgn-lft-#{$i*$num} {
+        margin-left: #{$i*$num}px !important;
+    }
+}
+

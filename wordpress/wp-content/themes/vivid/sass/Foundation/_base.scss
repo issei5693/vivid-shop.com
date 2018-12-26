@@ -1,0 +1,112 @@
+@charset "utf-8";
+
+// ==========================================================================
+// variables
+// ==========================================================================
+
+// -----------------------------------------------------------------
+// color
+// -----------------------------------------------------------------
+
+$color_base:    #ffffff; // サイトの背景色
+$color_main:    #add8e6; // メインカラー
+$color_accent:  #48d1cc; // アクセントカラー
+$color_font:    #444444; // フォントカラー
+$color_link:    #444444; // リンクカラー
+$color_gray:    #aaaaaa; // テキスト、ぼーたー
+$color_t_gray:  #eeeeee; // ボーダー、背景色
+
+// -----------------------------------------------------------------
+// font-size
+// -----------------------------------------------------------------
+$font_xl: 1.5rem;
+$font_lg: 1.3rem;
+$font_md: 14px; // px指定
+$font_sm: 0.85rem;
+$font_xs: 0.7rem;
+
+// -----------------------------------------------------------------
+// font-style
+// -----------------------------------------------------------------
+$font_style_base: "Montserrat","游ゴシック",YuGothic,"ヒラギノ角ゴ ProN W3","Hiragino Kaku Gothic ProN","メイリオ",Meiryo,sans-serif;
+
+
+// -----------------------------------------------------------------
+// icon-size
+// -----------------------------------------------------------------
+$font_xl: 3rem; // px 
+$icon_lg: 2.85rem; // 40px
+$icon_md: 2.28rem; // 32px
+$icon_sm: 1.78rem; // 25px
+$font_xs: 1.5rem; // px 
+
+// -----------------------------------------------------------------
+// layout
+// -----------------------------------------------------------------
+$content_width: 980px;
+
+// -----------------------------------------------------------------
+// breakpoint
+// -----------------------------------------------------------------
+// iPhone SE:  0~320px
+// Android:    321px~360px
+// iPhone8, iPhone XS: 361px~375px    
+// Android:    376px~412px
+// iPhone8 Plus, iPhone XR, iPhone XS Max: 413~414px
+// PC1: 415px~
+// PC2:
+$breakpoint_sm:     320px !default; 
+$breakpoint_md:     375px !default; 
+$breakpoint_lg:     414px !default; 
+$breakpoint_default:    736px !default; // 1つだけブレークポイントを設けるならここ。736~768px
+
+$breakpoints: (
+    'sm' : 'screen and (min-width: #{$breakpoint_sm})',
+    'md' : 'screen and (min-width: #{$breakpoint-md})',
+    'lg' : 'screen and (min-width: #{$breakpoint-lg})',
+    'default' : 'screen and (min-width: #{$breakpoint-default})',
+) !default;
+
+// ==========================================================================
+// mixin
+// ==========================================================================
+@mixin mq($breakpoint: default){
+    @media #{map-get($breakpoints,$breakpoint)} {
+        @content;
+    }
+}
+
+// -----------------------------------------------------------------
+// other_variables
+// -----------------------------------------------------------------
+
+// ==========================================================================
+// element
+// ==========================================================================
+
+html {
+    font-size: $font_md;
+}
+
+body {
+    color: $color_font;
+    background-color: $color_base;
+    font-family: $font_style_base;
+}
+
+a {
+    color: $color_link;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+p {
+    line-height: 1.3;
+}
+
+img {
+    vertical-align: bottom;
+}
