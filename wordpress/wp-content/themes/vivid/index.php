@@ -13,20 +13,44 @@
 
 <div id="wrapper">
     <header class="l-header">
-        <figure>
-            <a href=""><img src="<?php echo get_template_directory_uri(); ?>/img/logo.png"></a>
-        </figure>
-        <div class="p-header-sub-nav">
-            <ul>
-                <li>サーチフォーム</li>
-                <li>買い物かごを見る</li>
+        <div class="l-header__primary">
+            <div class="l-header__primary-first">
+                <a class="c-logo" href="#">
+                    <!-- <img class="c-logo__img" src="<?php echo get_template_directory_uri(); ?>/img/logo.png"> -->
+                    <img class="c-logo__img" src="https://placehold.jp/200x80.png?text=Vivid-shop">
+
+                </a>
+            </div>
+            <div class="l-header__primary-second">
+                <ul class="p-sp-header-nav-list">
+                    <li class="p-sp-header-nav-list__item">
+                        <a href="" class="p-sp-header-nav-list__link">
+                            <img class="p-sp-header-nav-list__img" src="https://placehold.jp/42x42.png" alt="買い物かごを見る">
+                            <span class="p-sp-header-nav-list__ruby">買い物かご</span>
+                        </a>
+                    </li>
+                    <li class="p-sp-header-nav-list__item">
+                        <a href="" class="p-sp-header-nav-list__link">
+                            <img class="p-sp-header-nav-list__img" src="https://placehold.jp/42x42.png" alt="商品を探す">
+                            <span class="p-sp-header-nav-list__ruby">検索</span>
+                        </a>
+                    </li>
+                    <li class="p-sp-header-nav-list__item">
+                        <a href="" class="p-sp-header-nav-list__link">
+                            <img class="p-sp-header-nav-list__img" src="https://placehold.jp/42x42.png" alt="メニュー">
+                            <span class="p-sp-header-nav-list__ruby">メニュー</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="l-header__secondary">
+            <ul class="p-global-nav-list">
+                <li><a href="">TOP</a></li>
+                <li><a href="">ブランドから探す</a></li>
+                <li><a href="">カテゴリから探す</a></li>
             </ul>
         </div>
-        <ul>
-            <li><a href="">TOP</a></li>
-            <li><a href="">ブランドから探す</a></li>
-            <li><a href="">カテゴリから探す</a></li>
-        </ul>
     </header>
 
     <main class="l-main">

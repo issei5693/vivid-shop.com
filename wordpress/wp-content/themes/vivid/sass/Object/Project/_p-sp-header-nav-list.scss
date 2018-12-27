@@ -1,0 +1,32 @@
+@charset "utf-8";
+
+.p-sp-header-nav-list {
+    width: 150px;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    
+
+    &__item {
+        justify-content: space-between;
+    }
+
+    &__link {
+        display: block;
+    }
+
+    &__img {
+        display: block;
+        margin: 0 auto 3px;
+    }
+
+    &__ruby {
+        display: block;
+        font-size: $font_xs;
+        text-align: center;
+    }
+
+    @include mq(){
+
+    }
+}

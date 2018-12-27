@@ -1,0 +1,16 @@
+@charset "utf-8";
+
+.c-logo {
+    display: block;
+    max-width: 200px;
+    min-width: 120px;
+
+    &__img {
+        width: 100%;
+    }
+
+    @include mq(){
+
+    }
+
+}
