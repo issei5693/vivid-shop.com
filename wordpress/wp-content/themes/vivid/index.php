@@ -15,11 +15,14 @@
     <header class="l-header">
         <div class="l-header__primary">
             <div class="l-header__primary-first">
-                <a class="c-logo" href="#">
-                    <!-- <img class="c-logo__img" src="<?php echo get_template_directory_uri(); ?>/img/logo.png"> -->
-                    <img class="c-logo__img" src="https://placehold.jp/200x80.png?text=Vivid-shop">
+                <figure class="c-logo">
+                    <a class="c-logo__link" href="#">
+                        <!-- <img class="c-logo__img" src="<?php echo get_template_directory_uri(); ?>/img/logo.png"> -->
+                        <img class="c-logo__img" src="https://placehold.jp/200x80.png?text=Vivid-shop">
 
-                </a>
+                    </a>
+                    <span class="c-logo__sub-text">化粧品ディスカウント</span>
+                </figure>
             </div>
             <div class="l-header__primary-second">
                 <ul class="p-sp-header-nav-list">
@@ -46,9 +49,9 @@
         </div>
         <div class="l-header__secondary">
             <ul class="p-global-nav-list">
-                <li><a href="">TOP</a></li>
-                <li><a href="">ブランドから探す</a></li>
-                <li><a href="">カテゴリから探す</a></li>
+                <li class="p-global-nav-list__item"><a class="p-global-nav-list__link" href="">TOP</a></li>
+                <li class="p-global-nav-list__item"><a class="p-global-nav-list__link" href="">ブランドから探す</a></li>
+                <li class="p-global-nav-list__item"><a class="p-global-nav-list__link" href="">カテゴリから探す</a></li>
             </ul>
         </div>
     </header>

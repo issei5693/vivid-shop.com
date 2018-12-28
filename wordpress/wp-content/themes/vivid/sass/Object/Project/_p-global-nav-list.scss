@@ -1,0 +1,33 @@
+@charset "utf-8";
+
+.p-global-nav-list {
+    display: flex;
+    border: {
+        top: solid 1px $color_gray;
+        bottom: solid 1px $color_gray;
+    }
+
+    &__item {
+        display: block;
+        width: 33.3%;
+        border-right: solid 1px $color_gray;
+
+        &:last-child {
+            border-right: 0;
+        }
+
+    }
+
+
+
+    &__link {
+        display: block;
+        text-align: center;
+        font-size: $font_sm;
+        padding: 10px 0;
+    }
+
+    @include mq(){
+
+    }
+}

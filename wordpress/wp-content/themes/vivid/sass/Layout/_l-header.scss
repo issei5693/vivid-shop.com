@@ -1,22 +1,16 @@
 @charset "utf-8";
 
 .l-header {
-    
-    border-bottom: solid 1px $color_gray;
-    
+
     &__primary {
         display: flex;
     }
 
     &__primary-first {
-        width: 30%;
     }
 
     &__primary-second {
-        display: flex;
-        flex-direction: row-reverse;
-        width: 70%;
-        
+        margin-left:auto;
     }
 
     &__secondary {
