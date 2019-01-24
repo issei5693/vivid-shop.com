@@ -164,7 +164,7 @@
                 </ul>
             </div>
 
-            <div class="l-footer__secondary-secondary">
+            <div class="l-footer__secondary-second">
                 <figure>
                     <a href=""><img src="<?php echo get_template_directory_uri(); ?>/img/logo.png"></a>
                 </figure>
@@ -172,7 +172,7 @@
         </div>
 
         <div class="l-footer__tertiary">
-            <small class="p-copyright">&copy;<a href=""><?php echo bloginfo('name'); ?></a><small>
+            <small class="p-copyright">&copy;<a href=""><?php echo bloginfo('name'); ?></a></small>
         </div>
     </footer>
 </div>
