@@ -1,0 +1,13 @@
+@charset "utf-8";
+
+.p-informations-list {
+
+    &__item {
+        border-bottom: dotted 1px $color_gray;
+        
+    }
+
+    @include mq(){
+
+    }
+}

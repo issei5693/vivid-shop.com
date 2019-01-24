@@ -80,21 +80,21 @@
 
                     <div class="p-banners">
                         <ul>
-                            <li><a href=""><img src="" alt="バナー"></a></li>
-                            <li><a href=""><img src="" alt="バナー"></a></li>
+                            <li><a href=""><img style="width:100%" src="https://placehold.jp/820x50.png"" alt="バナー"></a></li>
+                            <li><a href=""><img style="width:100%" src="https://placehold.jp/820x50.png"" alt="バナー"></a></li>
                         </ul>
                     </div>
                 </div>
 
                 <section class="l-main__content-primary-second">
                     <h2>新着情報</h2>
-                    <ul>
-                        <li><a href="">新着情報</a></li>
-                        <li><a href="">新着情報</a></li>
-                        <li><a href="">新着情報</a></li>
-                        <li><a href="">新着情報</a></li>
-                        <li><a href="">新着情報</a></li>
-                        <li><a href="">新着情報</a></li>
+                    <ul class="p-informations-list">
+                        <li class="p-informations-list__item"><a href="">YYYY.MM.DD テキストテキスト</a></li>
+                        <li><a href="">YYYY.MM.DD テキストテキスト</a></li>
+                        <li><a href="">YYYY.MM.DD テキストテキスト</a></li>
+                        <li><a href="">YYYY.MM.DD テキストテキスト</a></li>
+                        <li><a href="">YYYY.MM.DD テキストテキスト</a></li>
+                        <li><a href="">YYYY.MM.DD テキストテキスト</a></li>
                     </ul>
 
                     <a href="">もっと見る</a>
