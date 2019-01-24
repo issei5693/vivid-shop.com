@@ -62,7 +62,20 @@
 
                 <div class="l-main__content-primary-first">
                     <div class="p-first-view">
-                        <p>スライダー画像エリア</p>
+                        <div class="swiper-container">
+                            <ul class="swiper-wrapper">
+                                <li class="swiper-slide"><img style="width:100%" src="https://placehold.jp/820x400.png" alt="スライダー画像"></li>
+                                <li class="swiper-slide"><img style="width:100%" src="https://placehold.jp/820x400.png" alt="スライダー画像"></li>
+                                <li class="swiper-slide"><img style="width:100%" src="https://placehold.jp/820x400.png" alt="スライダー画像"></li>
+                                <li class="swiper-slide"><img style="width:100%" src="https://placehold.jp/820x400.png" alt="スライダー画像"></li>
+                            </ul>
+
+                            <div class="swiper-pagination"></div>
+
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                        </div>
+
                     </div>
 
                     <div class="p-banners">
