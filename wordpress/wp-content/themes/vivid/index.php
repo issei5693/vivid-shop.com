@@ -80,28 +80,31 @@
 
                     <div class="p-banners">
                         <ul>
-                            <li><a href=""><img style="width:100%" src="https://placehold.jp/820x50.png"" alt="バナー"></a></li>
-                            <li><a href=""><img style="width:100%" src="https://placehold.jp/820x50.png"" alt="バナー"></a></li>
+                            <li style="margin-bottom: 5px;"><a href=""><img style="width:100%" src="https://placehold.jp/820x100.png"" alt="バナー"></a></li>
+                            <li style="margin-bottom: 5px;"><a href=""><img style="width:100%" src="https://placehold.jp/820x100.png"" alt="バナー"></a></li>
                         </ul>
                     </div>
                 </div>
 
                 <section class="l-main__content-primary-second">
-                    <h2>新着情報</h2>
-                    <ul class="p-informations-list">
-                        <li class="p-informations-list__item"><a href="">YYYY.MM.DD テキストテキスト</a></li>
-                        <li><a href="">YYYY.MM.DD テキストテキスト</a></li>
-                        <li><a href="">YYYY.MM.DD テキストテキスト</a></li>
-                        <li><a href="">YYYY.MM.DD テキストテキスト</a></li>
-                        <li><a href="">YYYY.MM.DD テキストテキスト</a></li>
-                        <li><a href="">YYYY.MM.DD テキストテキスト</a></li>
+                    <h2 class="c-icon-header">新着情報</h2>
+                    <ul class="p-information-list">
+                        <li class="p-information-list__item"><a href="">YYYY.MM.DD テキストテキスト</a></li>
+                        <li class="p-information-list__item"><a href="">YYYY.MM.DD テキストテキスト</a></li>
+                        <li class="p-information-list__item"><a href="">YYYY.MM.DD テキストテキスト</a></li>
+                        <li class="p-information-list__item"><a href="">YYYY.MM.DD テキストテキスト</a></li>
+                        <li class="p-information-list__item"><a href="">YYYY.MM.DD テキストテキスト</a></li>
+                        <li class="p-information-list__item"><a href="">YYYY.MM.DD テキストテキスト</a></li>
                     </ul>
+                    
+                    <p class="c-button u-txt-algn-center">
+                        <a  class="c-button__link" href="">もっと見る</a>
+                    </p>
 
-                    <a href="">もっと見る</a>
                 </section>
 
                 <section class="l-main__content-primary-third">
-                    <h2>今月のおすすめ商品</h2>
+                    <h2 class="c-icon-header">今月のおすすめ商品</h2>
                     <ul>
                         <li><a href=""><img src="" alt="今月のおすすめ商品"></a></li>
                         <li><a href=""><img src="" alt="今月のおすすめ商品"></a></li>
@@ -113,7 +116,7 @@
                 </section>
 
                 <section class="l-main__content-primary-fourth">
-                    <h2>人気商品ランキング</h2>
+                    <h2 class="c-icon-header">人気商品ランキング</h2>
                     <ul>
                         <li><a href=""><img src="" alt="人気商品ランキング"></a></li>
                         <li><a href=""><img src="" alt="人気商品ランキング"></a></li>
@@ -125,9 +128,9 @@
                 </section>
 
             </div>
-            <aside class="l-main__content-secondry">
-                <section class="l-main__content-secondry-first">
-                    <h2>取扱ブランド一覧</h2>
+            <aside class="l-main__content-secondary">
+                <section class="l-main__content-secondary-first">
+                    <h2 class="c-icon-header">取扱ブランド一覧</h2>
                     <ul>
                         <li><a href="">取扱ブランド</a></li>
                         <li><a href="">取扱ブランド</a></li>
@@ -138,8 +141,8 @@
                     </ul>
                 </section>
                 
-                <section class="l-main__content-secondry-second">
-                    <h2>カテゴリ一覧</h2>
+                <section class="l-main__content-secondary-second">
+                    <h2 class="c-icon-header">カテゴリ一覧</h2>
                     <ul>
                         <li><a href="">カテゴリ</a></li>
                         <li><a href="">カテゴリ</a></li>
@@ -150,7 +153,7 @@
                     </ul>
                 </section>
 
-                <div class="l-main__content-secondry-third">
+                <div class="l-main__content-secondary-third">
                     <ul>
                         <li><a href=""><img src="" alt="サイドバーバナー"></a></li>
                     </ul>

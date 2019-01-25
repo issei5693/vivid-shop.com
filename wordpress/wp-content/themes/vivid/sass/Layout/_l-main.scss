@@ -2,6 +2,39 @@
 
 .l-main {
 
+    // l-main__content-primary
+
+    &__content-primary-first {
+        margin-bottom: 10px;
+    }
+
+    &__content-primary-second {
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+
+    &__content-primary-third {
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+
+    &__content-primary-fourth {
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+
+    // l-main__content-secondry
+
+    &__content-secondary-first {
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+
+    &__content-secondary-second {
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+
     @include mq() {
 
     }

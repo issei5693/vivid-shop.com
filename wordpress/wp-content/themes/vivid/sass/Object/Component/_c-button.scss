@@ -1,0 +1,22 @@
+@charset "utf-8";
+
+.c-button {
+
+    &__link {
+        display: inline-block;
+        padding: 10px 15px;
+        border-radius: 5px;
+        background-color: $color-accent;
+
+        &:hover {
+            text-decoration: none;
+            opacity: 0.8;
+        }
+
+    }
+    
+    @include mq(){
+
+    }
+
+}

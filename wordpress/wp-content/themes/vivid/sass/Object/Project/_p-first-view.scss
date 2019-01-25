@@ -1,0 +1,9 @@
+@charset "utf-8";
+
+.p-first-view {
+    margin-bottom: 10px;
+
+    @include mq(){
+
+    }
+}
