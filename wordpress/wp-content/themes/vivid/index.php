@@ -62,20 +62,20 @@
 
                 <div class="l-main__content-primary-first">
                     <div class="p-first-view">
-                        <div class="swiper-container">
+                        <div class="swiper-container swiper-firstview">
                             <ul class="swiper-wrapper">
-                                <li class="swiper-slide"><img style="width:100%" src="https://placehold.jp/820x400.png" alt="スライダー画像"></li>
-                                <li class="swiper-slide"><img style="width:100%" src="https://placehold.jp/820x400.png" alt="スライダー画像"></li>
-                                <li class="swiper-slide"><img style="width:100%" src="https://placehold.jp/820x400.png" alt="スライダー画像"></li>
-                                <li class="swiper-slide"><img style="width:100%" src="https://placehold.jp/820x400.png" alt="スライダー画像"></li>
+                                <li class="swiper-slide"><img style="width:100%" src="https://placehold.jp/7f7fff/fefefe/820x400.png" alt="スライダー画像"></li>
+                                <li class="swiper-slide"><img style="width:100%" src="https://placehold.jp/7fbfff/fefefe/820x400.png" alt="スライダー画像"></li>
+                                <li class="swiper-slide"><img style="width:100%" src="https://placehold.jp/7fffff/fefefe/820x400.png" alt="スライダー画像"></li>
+                                <li class="swiper-slide"><img style="width:100%" src="https://placehold.jp/7fffbf/fefefe/820x400.png" alt="スライダー画像"></li>
                             </ul>
 
                             <div class="swiper-pagination"></div>
 
                             <div class="swiper-button-prev"></div>
                             <div class="swiper-button-next"></div>
-                        </div>
 
+                        </div>
                     </div>
 
                     <div class="p-banners">
@@ -105,26 +105,38 @@
 
                 <section class="l-main__content-primary-third">
                     <h2 class="c-icon-header">今月のおすすめ商品</h2>
-                    <ul>
-                        <li><a href=""><img src="" alt="今月のおすすめ商品"></a></li>
-                        <li><a href=""><img src="" alt="今月のおすすめ商品"></a></li>
-                        <li><a href=""><img src="" alt="今月のおすすめ商品"></a></li>
-                        <li><a href=""><img src="" alt="今月のおすすめ商品"></a></li>
-                        <li><a href=""><img src="" alt="今月のおすすめ商品"></a></li>
-                        <li><a href=""><img src="" alt="今月のおすすめ商品"></a></li>
-                    </ul>
+                    <div class="swiper-container swiper-itemlist">
+                        <ul class="swiper-wrapper">
+                            <li class="swiper-slide"><a href=""><img style="width: 100%" src="https://placehold.jp/150x150.png" alt="今月のおすすめ商品"></a></li>
+                            <li class="swiper-slide"><a href=""><img style="width: 100%" src="https://placehold.jp/150x150.png" alt="今月のおすすめ商品"></a></li>
+                            <li class="swiper-slide"><a href=""><img style="width: 100%" src="https://placehold.jp/150x150.png" alt="今月のおすすめ商品"></a></li>
+                            <li class="swiper-slide"><a href=""><img style="width: 100%" src="https://placehold.jp/150x150.png" alt="今月のおすすめ商品"></a></li>
+                            <li class="swiper-slide"><a href=""><img style="width: 100%" src="https://placehold.jp/150x150.png" alt="今月のおすすめ商品"></a></li>
+                            <li class="swiper-slide"><a href=""><img style="width: 100%" src="https://placehold.jp/150x150.png" alt="今月のおすすめ商品"></a></li>
+                        </ul>
+                        <div class="swiper-pagination"></div>
+
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
                 </section>
 
                 <section class="l-main__content-primary-fourth">
                     <h2 class="c-icon-header">人気商品ランキング</h2>
-                    <ul>
-                        <li><a href=""><img src="" alt="人気商品ランキング"></a></li>
-                        <li><a href=""><img src="" alt="人気商品ランキング"></a></li>
-                        <li><a href=""><img src="" alt="人気商品ランキング"></a></li>
-                        <li><a href=""><img src="" alt="人気商品ランキング"></a></li>
-                        <li><a href=""><img src="" alt="人気商品ランキング"></a></li>
-                        <li><a href=""><img src="" alt="人気商品ランキング"></a></li>
-                    </ul>
+                    <div class="swiper-container swiper-itemlist">
+                        <ul class="swiper-wrapper">
+                            <li class="swiper-slide"><a href=""><img style="width: 100%" src="https://placehold.jp/150x150.png" alt="人気商品ランキング"></a></li>
+                            <li class="swiper-slide"><a href=""><img style="width: 100%" src="https://placehold.jp/150x150.png" alt="人気商品ランキング"></a></li>
+                            <li class="swiper-slide"><a href=""><img style="width: 100%" src="https://placehold.jp/150x150.png" alt="人気商品ランキング"></a></li>
+                            <li class="swiper-slide"><a href=""><img style="width: 100%" src="https://placehold.jp/150x150.png" alt="人気商品ランキング"></a></li>
+                            <li class="swiper-slide"><a href=""><img style="width: 100%" src="https://placehold.jp/150x150.png" alt="人気商品ランキング"></a></li>
+                            <li class="swiper-slide"><a href=""><img style="width: 100%" src="https://placehold.jp/150x150.png" alt="人気商品ランキング"></a></li>
+                        </ul>
+                        <div class="swiper-pagination"></div>
+
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
                 </section>
 
             </div>
