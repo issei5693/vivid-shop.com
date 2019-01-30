@@ -1,0 +1,42 @@
+@charset "utf-8";
+
+.p-footer-menu-list {
+    display: flex;
+    flex-wrap: wrap;
+
+    &__item {
+        position: relative;
+        width: 50%;
+        border-bottom: dotted 1px $color_gray;
+
+        &::after {
+            position: absolute;
+            top: 10px;
+            right: 0;
+            display: block;
+            content : '';
+            width: 1px;
+            height: 15px;
+            background-color: $color_gray;
+
+        }
+
+        &:nth-child(2n)::after {
+            display: none;
+        }
+
+    }
+    
+
+    &__link {
+        display: block;
+        text-align: center;
+        padding: 10px;
+        
+
+    }
+
+    @include mq(){
+
+    }
+}

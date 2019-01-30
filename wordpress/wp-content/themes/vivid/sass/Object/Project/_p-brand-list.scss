@@ -1,0 +1,19 @@
+@charset "utf-8";
+
+.p-brand-list {
+    font-size: 0;
+
+    &__item {
+        font-size: $font_md;
+        display: block;
+        margin: {
+            right: 5px;
+            bottom: 5px;
+        }
+
+    }
+
+    @include mq(){
+
+    }
+}

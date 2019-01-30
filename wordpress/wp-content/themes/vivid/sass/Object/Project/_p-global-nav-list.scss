@@ -3,14 +3,16 @@
 .p-global-nav-list {
     display: flex;
     border: {
-        top: solid 1px $color_gray;
-        bottom: solid 1px $color_gray;
+        top: solid 1px $color_main;
+        bottom: solid 1px $color_main;
     }
+    margin-bottom: 5px;
 
     &__item {
         display: block;
         width: 33.3%;
-        border-right: solid 1px $color_gray;
+        background: linear-gradient($color_base, $color_main);
+        border-right: solid 1px $color_main;
 
         &:last-child {
             border-right: 0;

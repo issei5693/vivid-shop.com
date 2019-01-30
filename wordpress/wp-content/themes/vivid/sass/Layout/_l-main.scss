@@ -35,6 +35,11 @@
         margin-bottom: 30px;
     }
 
+    &__content-secondary-third {
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+
     @include mq() {
 
     }

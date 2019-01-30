@@ -1,0 +1,19 @@
+@charset "utf-8";
+
+.p-category-list {
+    font-size: 0;
+
+    &__item {
+        font-size: $font_md;
+        display: inline-block;
+        margin: {
+            right: 5px;
+            bottom: 5px;
+        }
+
+    }
+
+    @include mq(){
+
+    }
+}

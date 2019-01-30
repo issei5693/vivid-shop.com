@@ -16,7 +16,7 @@
         <div class="l-header__primary">
             <div class="l-header__primary-first">
                 <figure class="c-logo">
-                    <a class="c-logo__link" href="#">
+                    <a class="c-logo__link--sm" href="#">
                         <!-- <img class="c-logo__img" src="<?php echo get_template_directory_uri(); ?>/img/logo.png"> -->
                         <img class="c-logo__img" src="https://placehold.jp/200x80.png?text=Vivid-shop">
 
@@ -143,31 +143,35 @@
             <aside class="l-main__content-secondary">
                 <section class="l-main__content-secondary-first">
                     <h2 class="c-icon-header">取扱ブランド一覧</h2>
-                    <ul>
-                        <li><a href="">取扱ブランド</a></li>
-                        <li><a href="">取扱ブランド</a></li>
-                        <li><a href="">取扱ブランド</a></li>
-                        <li><a href="">取扱ブランド</a></li>
-                        <li><a href="">取扱ブランド</a></li>
-                        <li><a href="">取扱ブランド</a></li>
+                    <ul class="p-brand-list">
+                        <li class="p-brand-list__item"><a class="c-play-button" href="">アルソア</a></li>
+                        <li class="p-brand-list__item"><a class="c-play-button" href="">ミキモト</a></li>
+                        <li class="p-brand-list__item"><a class="c-play-button" href="">メナード</a></li>
+                        <li class="p-brand-list__item"><a class="c-play-button" href="">アイビー</a></li>
+                        <li class="p-brand-list__item"><a class="c-play-button" href="">アクセーヌ</a></li>
+                        <li class="p-brand-list__item"><a class="c-play-button" href="">イオン化粧品</a></li>
                     </ul>
                 </section>
                 
                 <section class="l-main__content-secondary-second">
                     <h2 class="c-icon-header">カテゴリ一覧</h2>
-                    <ul>
-                        <li><a href="">カテゴリ</a></li>
-                        <li><a href="">カテゴリ</a></li>
-                        <li><a href="">カテゴリ</a></li>
-                        <li><a href="">カテゴリ</a></li>
-                        <li><a href="">カテゴリ</a></li>
-                        <li><a href="">カテゴリ</a></li>
+                    <ul class="p-category-list">
+                        <li class="p-category-list__item"><a class="c-label" href="">ボディソープ</a></li>
+                        <li class="p-category-list__item"><a class="c-label" href="">シャンプー</a></li>
+                        <li class="p-category-list__item"><a class="c-label" href="">リンス</a></li>
+                        <li class="p-category-list__item"><a class="c-label" href="">フェイシャルケア</a></li>
+                        <li class="p-category-list__item"><a class="c-label" href="">トリートメント</a></li>
+                        <li class="p-category-list__item"><a class="c-label" href="">アフターバス</a></li>
                     </ul>
                 </section>
 
                 <div class="l-main__content-secondary-third">
-                    <ul>
-                        <li><a href=""><img src="" alt="サイドバーバナー"></a></li>
+                    <ul class="p-sidebar-banner-list">
+                        <li class="p-sidebar-banner-list__item">
+                            <a href="p-sidebar-banner-list__link">
+                                <img class="p-sidebar-banner-list__img" src="https://placehold.jp/320x100.png" alt="サイドバーバナー">
+                            </a>
+                        </li>
                     </ul>
                 </div>
 
@@ -184,23 +188,37 @@
 
         <div class="l-footer__secondary">
             <div class="l-footer__secondary-first">
-                <ul>
-                    <li><a href="">フッターナビ1</a></li>
-                    <li><a href="">フッターナビ1</a></li>
-                    <li><a href="">フッターナビ1</a></li>
-                    <li><a href="">フッターナビ1</a></li>
+                <ul class="p-footer-menu-list">
+                    <li class="p-footer-menu-list__item">
+                        <a class="p-footer-menu-list__link" href="">ブランドから探す</a>
+                    </li>
+                    <li class="p-footer-menu-list__item">
+                        <a class="p-footer-menu-list__link" href="">カテゴリから探す</a>
+                    </li>
+                    <li class="p-footer-menu-list__item">
+                        <a class="p-footer-menu-list__link" href="">ご注文方法</a>
+                    </li>
+                    <li class="p-footer-menu-list__item">
+                        <a class="p-footer-menu-list__link" href="">お支払い方法</a>
+                    </li>
+                    <li class="p-footer-menu-list__item">
+                        <a class="p-footer-menu-list__link" href="">特定商取引法表記</a>
+                    </li>
+                    <li class="p-footer-menu-list__item">
+                        <a class="p-footer-menu-list__link" href="">お問い合わせ</a>
+                    </li>
                 </ul>
             </div>
-
             <div class="l-footer__secondary-second">
-                <figure>
-                    <a href=""><img src="<?php echo get_template_directory_uri(); ?>/img/logo.png"></a>
+                <figure class="c-logo">
+                    <a class="c-logo__link--lg u-blck-cntrng" href="">
+                        <img class="c-logo__img" src="<?php echo get_template_directory_uri(); ?>/img/logo.png"></a>
                 </figure>
             </div>
         </div>
 
         <div class="l-footer__tertiary">
-            <small class="p-copyright">&copy;<a href=""><?php echo bloginfo('name'); ?></a></small>
+            <small class="p-copyright">&copy;<?php echo date('Y'); ?>&nbsp;<a href=""><?php echo bloginfo('name'); ?>&nbsp;all&nbsp;rights&nbsp;reserved</a></small>
         </div>
     </footer>
 </div>

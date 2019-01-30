@@ -1,0 +1,13 @@
+@charset "utf-8";
+
+.c-label {
+    display: inline-block;
+    background-color: $color_main;
+    border-radius: 3px;
+    padding: 10px;
+    
+    @include mq(){
+
+    }
+
+}

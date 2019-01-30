@@ -2,11 +2,25 @@
 
 .c-logo {
     display: block;
-    max-width: 120px;
     padding: 5px;
 
-    &__link {
+    %__link {
         display: block;
+    }
+
+    &__link {
+        @extend %__link;
+        max-width: 150px;
+
+        &--sm {
+            @extend %__link;
+            max-width: 120px;
+        }
+
+        &--lg {
+            @extend %__link;
+            max-width: 180px;
+        }
     }
 
     &__img {
