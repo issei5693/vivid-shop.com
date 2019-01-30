@@ -1,0 +1,37 @@
+@charset "utf-8";
+
+.c-icon {
+    display: block;
+
+    %__img {
+        display: block;
+        margin: 0 auto 3px;
+        
+    }
+
+    &__img--sm {
+        @extend %__img;
+        width: 30px; 
+    }
+
+    &__img {
+        @extend %__img;
+        width: 40px; 
+    }
+
+    &__img--lg {
+        @extend %__img;
+        width: 50px; 
+    }
+
+    &__ruby {
+        display: block;
+        font-size: $font_xs;
+        text-align: center;
+    }
+    
+    @include mq(){
+
+    }
+
+}

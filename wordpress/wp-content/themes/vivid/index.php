@@ -16,9 +16,9 @@
         <div class="l-header__primary">
             <div class="l-header__primary-first">
                 <figure class="c-logo">
-                    <a class="c-logo__link--sm" href="#">
+                    <a class="c-logo__link" href="#">
                         <!-- <img class="c-logo__img" src="<?php echo get_template_directory_uri(); ?>/img/logo.png"> -->
-                        <img class="c-logo__img" src="https://placehold.jp/200x80.png?text=Vivid-shop">
+                        <img class="c-logo__img--sm" src="https://placehold.jp/200x80.png?text=Vivid-shop">
 
                     </a>
                     <span class="c-logo__sub-text">化粧品ディスカウント</span>
@@ -27,21 +27,21 @@
             <div class="l-header__primary-second">
                 <ul class="p-sp-header-nav-list">
                     <li class="p-sp-header-nav-list__item">
-                        <a href="" class="p-sp-header-nav-list__link">
-                            <img class="p-sp-header-nav-list__img" src="https://placehold.jp/42x42.png" alt="買い物かごを見る">
-                            <span class="p-sp-header-nav-list__ruby">買い物かご</span>
+                        <a href="" class="c-icon">
+                            <img class="c-icon__img--sm" src="<?php echo get_template_directory_uri(); ?>/img/icon-cart.png" alt="買い物かごを見る">
+                            <span class="c-icon__ruby">買い物かご</span>
                         </a>
                     </li>
                     <li class="p-sp-header-nav-list__item">
-                        <a href="" class="p-sp-header-nav-list__link">
-                            <img class="p-sp-header-nav-list__img" src="https://placehold.jp/42x42.png" alt="商品を探す">
-                            <span class="p-sp-header-nav-list__ruby">検索</span>
+                        <a href="" class=c-icon>
+                            <img class="c-icon__img--sm" src="<?php echo get_template_directory_uri(); ?>/img/icon-search.png" alt="商品を探す">
+                            <span class="c-icon__ruby">検索</span>
                         </a>
                     </li>
                     <li class="p-sp-header-nav-list__item">
-                        <a href="" class="p-sp-header-nav-list__link">
-                            <img class="p-sp-header-nav-list__img" src="https://placehold.jp/42x42.png" alt="メニュー">
-                            <span class="p-sp-header-nav-list__ruby">メニュー</span>
+                        <a href="" class="c-icon">
+                            <img class="c-icon__img--sm" src="<?php echo get_template_directory_uri(); ?>/img/icon-menu.png" alt="メニュー">
+                            <span class="c-icon__ruby">メニュー</span>
                         </a>
                     </li>
                 </ul>
@@ -211,8 +211,8 @@
             </div>
             <div class="l-footer__secondary-second">
                 <figure class="c-logo">
-                    <a class="c-logo__link--lg u-blck-cntrng" href="">
-                        <img class="c-logo__img" src="<?php echo get_template_directory_uri(); ?>/img/logo.png"></a>
+                    <a class="c-logo__link u-txt-algn-center" href="">
+                        <img class="c-logo__img--lg" src="<?php echo get_template_directory_uri(); ?>/img/logo.png"></a>
                 </figure>
             </div>
         </div>

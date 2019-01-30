@@ -11,21 +11,6 @@
         justify-content: space-between;
     }
 
-    &__link {
-        display: block;
-    }
-
-    &__img {
-        display: block;
-        margin: 0 auto 3px;
-    }
-
-    &__ruby {
-        display: block;
-        font-size: $font_xs;
-        text-align: center;
-    }
-
     @include mq(){
 
     }
