@@ -17,8 +17,8 @@
             <div class="l-header__primary-first">
                 <figure class="c-logo">
                     <a class="c-logo__link" href="#">
-                        <!-- <img class="c-logo__img" src="<?php echo get_template_directory_uri(); ?>/img/logo.png"> -->
-                        <img class="c-logo__img--sm" src="https://placehold.jp/200x80.png?text=Vivid-shop">
+                        <img class="c-logo__img" src="<?php echo get_template_directory_uri(); ?>/img/logo.png">
+                        <!-- <img class="c-logo__img--sm" src="https://placehold.jp/200x80.png?text=Vivid-shop"> -->
 
                     </a>
                     <span class="c-logo__sub-text">化粧品ディスカウント</span>
@@ -107,12 +107,39 @@
                     <h2 class="c-icon-header">今月のおすすめ商品</h2>
                     <div class="swiper-container swiper-itemlist">
                         <ul class="swiper-wrapper">
-                            <li class="swiper-slide"><a href=""><img style="width: 100%" src="https://placehold.jp/150x150.png" alt="今月のおすすめ商品"></a></li>
-                            <li class="swiper-slide"><a href=""><img style="width: 100%" src="https://placehold.jp/150x150.png" alt="今月のおすすめ商品"></a></li>
-                            <li class="swiper-slide"><a href=""><img style="width: 100%" src="https://placehold.jp/150x150.png" alt="今月のおすすめ商品"></a></li>
-                            <li class="swiper-slide"><a href=""><img style="width: 100%" src="https://placehold.jp/150x150.png" alt="今月のおすすめ商品"></a></li>
-                            <li class="swiper-slide"><a href=""><img style="width: 100%" src="https://placehold.jp/150x150.png" alt="今月のおすすめ商品"></a></li>
-                            <li class="swiper-slide"><a href=""><img style="width: 100%" src="https://placehold.jp/150x150.png" alt="今月のおすすめ商品"></a></li>
+                            <li class="swiper-slide c-card">
+                                <img class="c-card__img" src="<?php echo get_template_directory_uri(); ?>/img/dammy_125x124.jpg" alt="今月のおすすめ商品">
+                                <div class="c-card__content-wrap">
+                                    <h3 class="c-card__title">
+                                        <span class="c-card__brand-name">アルソア</span>
+                                        <span class="c-card__item-name">クイーンシルバー（リフィル）</span>
+                                    </h3>
+                                    <p class="c-card__off">30% OFF</p>
+                                    <span class="c-card__price">¥10,000円</span><s class="c-card__strikethrough">15,000円</s>
+                                </div>
+                            </li>
+                            <li class="swiper-slide c-card">
+                                <img class="c-card__img" src="<?php echo get_template_directory_uri(); ?>/img/dammy_125x124.jpg" alt="今月のおすすめ商品">
+                                <div class="c-card__content-wrap">
+                                    <h3 class="c-card__title">
+                                        <span class="c-card__brand-name">アルソア</span>
+                                        <span class="c-card__item-name">クイーンシルバー（リフィル）</span>
+                                    </h3>
+                                    <p class="c-card__off">30% OFF</p>
+                                    <span class="c-card__price">¥10,000円</span><s class="c-card__strikethrough">15,000円</s>
+                                </div>
+                            </li>
+                            <li class="swiper-slide c-card">
+                                <img class="c-card__img" src="<?php echo get_template_directory_uri(); ?>/img/dammy_125x124.jpg" alt="今月のおすすめ商品">
+                                <div class="c-card__content-wrap">
+                                    <h3 class="c-card__title">
+                                        <span class="c-card__brand-name">アルソア</span>
+                                        <span class="c-card__item-name">クイーンシルバー（リフィル）</span>
+                                    </h3>
+                                    <p class="c-card__off">30% OFF</p>
+                                    <span class="c-card__price">¥10,000円</span><s class="c-card__strikethrough">15,000円</s>
+                                </div>
+                            </li>
                         </ul>
                         <div class="swiper-pagination"></div>
 
@@ -125,12 +152,39 @@
                     <h2 class="c-icon-header">人気商品ランキング</h2>
                     <div class="swiper-container swiper-itemlist">
                         <ul class="swiper-wrapper">
-                            <li class="swiper-slide"><a href=""><img style="width: 100%" src="https://placehold.jp/150x150.png" alt="人気商品ランキング"></a></li>
-                            <li class="swiper-slide"><a href=""><img style="width: 100%" src="https://placehold.jp/150x150.png" alt="人気商品ランキング"></a></li>
-                            <li class="swiper-slide"><a href=""><img style="width: 100%" src="https://placehold.jp/150x150.png" alt="人気商品ランキング"></a></li>
-                            <li class="swiper-slide"><a href=""><img style="width: 100%" src="https://placehold.jp/150x150.png" alt="人気商品ランキング"></a></li>
-                            <li class="swiper-slide"><a href=""><img style="width: 100%" src="https://placehold.jp/150x150.png" alt="人気商品ランキング"></a></li>
-                            <li class="swiper-slide"><a href=""><img style="width: 100%" src="https://placehold.jp/150x150.png" alt="人気商品ランキング"></a></li>
+                            <li class="swiper-slide c-card">
+                                <img class="c-card__img" src="<?php echo get_template_directory_uri(); ?>/img/dammy_125x124.jpg" alt="今月のおすすめ商品">
+                                <div class="c-card__content-wrap">
+                                    <h3 class="c-card__title">
+                                        <span class="c-card__brand-name">アルソア</span>
+                                        <span class="c-card__item-name">クイーンシルバー（リフィル）</span>
+                                    </h3>
+                                    <p class="c-card__off">30% OFF</p>
+                                    <span class="c-card__price">¥10,000円</span><s class="c-card__strikethrough">15,000円</s>
+                                </div>
+                            </li>
+                            <li class="swiper-slide c-card">
+                                <img class="c-card__img" src="<?php echo get_template_directory_uri(); ?>/img/dammy_125x124.jpg" alt="今月のおすすめ商品">
+                                <div class="c-card__content-wrap">
+                                    <h3 class="c-card__title">
+                                        <span class="c-card__brand-name">アルソア</span>
+                                        <span class="c-card__item-name">クイーンシルバー（リフィル）</span>
+                                    </h3>
+                                    <p class="c-card__off">30% OFF</p>
+                                    <span class="c-card__price">¥10,000円</span><s class="c-card__strikethrough">15,000円</s>
+                                </div>
+                            </li>
+                            <li class="swiper-slide c-card">
+                                <img class="c-card__img" src="<?php echo get_template_directory_uri(); ?>/img/dammy_125x124.jpg" alt="今月のおすすめ商品">
+                                <div class="c-card__content-wrap">
+                                    <h3 class="c-card__title">
+                                        <span class="c-card__brand-name">アルソア</span>
+                                        <span class="c-card__item-name">クイーンシルバー（リフィル）</span>
+                                    </h3>
+                                    <p class="c-card__off">30% OFF</p>
+                                    <span class="c-card__price">¥10,000円</span><s class="c-card__strikethrough">15,000円</s>
+                                </div>
+                            </li>
                         </ul>
                         <div class="swiper-pagination"></div>
 
@@ -169,7 +223,7 @@
                     <ul class="p-sidebar-banner-list">
                         <li class="p-sidebar-banner-list__item">
                             <a href="p-sidebar-banner-list__link">
-                                <img class="p-sidebar-banner-list__img" src="https://placehold.jp/320x100.png" alt="サイドバーバナー">
+                                <img class="p-sidebar-banner-list__img" src="<?php echo get_template_directory_uri(); ?>/img/banner-buy.png" alt="化粧品高価買取実施中">
                             </a>
                         </li>
                     </ul>
