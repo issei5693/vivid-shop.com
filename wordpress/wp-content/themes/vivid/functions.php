@@ -26,3 +26,24 @@ $args = array(
     'post',
 );
 add_theme_support( 'post-thumbnails', $args );
+
+/**
+ * ウィジットエリアの追加
+ */
+register_sidebar(array(
+    'name' => '新着情報' ,
+    'id' => 'news' ,
+    'description' => '新着情報をHTMLで編集します。',
+    'before_widget' => '',
+    'after_widget' => '',
+    'before_title' => '',
+    'after_title' => ''
+));
+
+/**
+ * ウィジットタイトルの無効化
+ */
+function remove_widget_title_all( $widget_title ) {
+    return;
+}
+add_filter( 'widget_title', 'remove_widget_title_all' );

@@ -22,7 +22,7 @@
     });
 
     var itemListSwiper = new Swiper ('.swiper-itemlist', {
-        slidesPerView: 1.5,
+        slidesPerView: 1.8,
         spaceBetween: 10,
         centeredSlides : true,
         navigation: {

@@ -88,14 +88,7 @@
 
                 <section class="l-main__content-primary-second">
                     <h2 class="c-icon-header">新着情報</h2>
-                    <ul class="p-information-list">
-                        <li class="p-information-list__item"><a href="">YYYY.MM.DD テキストテキスト</a></li>
-                        <li class="p-information-list__item"><a href="">YYYY.MM.DD テキストテキスト</a></li>
-                        <li class="p-information-list__item"><a href="">YYYY.MM.DD テキストテキスト</a></li>
-                        <li class="p-information-list__item"><a href="">YYYY.MM.DD テキストテキスト</a></li>
-                        <li class="p-information-list__item"><a href="">YYYY.MM.DD テキストテキスト</a></li>
-                        <li class="p-information-list__item"><a href="">YYYY.MM.DD テキストテキスト</a></li>
-                    </ul>
+                    <?php dynamic_sidebar('news'); ?>
                     
                     <p class="c-button u-txt-algn-center">
                         <a  class="c-button__link" href="">もっと見る</a>
@@ -187,7 +180,6 @@
                             </li>
                         </ul>
                         <div class="swiper-pagination"></div>
-
                         <div class="swiper-button-prev"></div>
                         <div class="swiper-button-next"></div>
                     </div>
