@@ -5,6 +5,7 @@
     // l-main__content-primary
 
     &__content-primary-first {
+        padding: 10px;
         margin-bottom: 10px;
     }
 
@@ -54,6 +55,10 @@
     
         &__content-secondary {
             width: 30%
+        }
+
+        &__content-primary-first {
+            padding: 0;
         }
 
     }
