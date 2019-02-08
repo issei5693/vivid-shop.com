@@ -12,6 +12,17 @@
 <body>
 
 <div id="wrapper">
+    <div id="gnavctr">
+        <ul class="p-slide-gnav-list">
+            <li class="p-slide-gnav-list__close-button"><span id="gnavctr-switch-cls"><img src="<?php echo get_template_directory_uri(); ?>/img/icon-cross.png"></span></li>
+            <li class="p-slide-gnav-list__item"><a class="p-slide-gnav-list__link" href="">TOP</a></li>
+            <li class="p-slide-gnav-list__item"><a class="p-slide-gnav-list__link" href="">ブランドから探す</a></li>
+            <li class="p-slide-gnav-list__item"><a class="p-slide-gnav-list__link" href="">カテゴリから探す</a></li>
+            <li class="p-slide-gnav-list__item"><a class="p-slide-gnav-list__link" href="">ご注文方法</a></li>
+            <li class="p-slide-gnav-list__item"><a class="p-slide-gnav-list__link" href="">特定商取引法</a></li>
+            <li class="p-slide-gnav-list__item"><a class="p-slide-gnav-list__link" href="">お問い合わせ</a></li>
+        </ul>
+    </div>
     <header class="l-header">
         <div class="l-header__primary">
             <div class="l-header__primary-first">
@@ -25,6 +36,10 @@
                 </figure>
             </div>
             <div class="l-header__primary-second">
+                <form  class="p-pc-search-area" method="get" action="<?php echo home_url('/'); ?>">
+                    <input class="p-pc-search-area__input" type="search" name="s" placeholder="キーワードを入力してください">
+                    <button class="p-pc-search-area__submit" type="submit">検索</button>
+                </form>
                 <ul class="p-sp-header-nav-list">
                     <li class="p-sp-header-nav-list__item">
                         <a href="" class="c-icon">
@@ -33,13 +48,13 @@
                         </a>
                     </li>
                     <li class="p-sp-header-nav-list__item">
-                        <a href="" class=c-icon>
+                        <a href="javascript:void(0);" class=c-icon id="dynamic-search-area-switch">
                             <img class="c-icon__img--sm" src="<?php echo get_template_directory_uri(); ?>/img/icon-search.png" alt="商品を探す">
                             <span class="c-icon__ruby">検索</span>
                         </a>
                     </li>
                     <li class="p-sp-header-nav-list__item">
-                        <a href="" class="c-icon">
+                        <a href="javascript:void(0);" class="c-icon" id="gnavctr-switch-opn">
                             <img class="c-icon__img--sm" src="<?php echo get_template_directory_uri(); ?>/img/icon-menu.png" alt="メニュー">
                             <span class="c-icon__ruby">メニュー</span>
                         </a>
@@ -47,11 +62,19 @@
                 </ul>
             </div>
         </div>
+        <div id="dynamic-search-area">
+            <form class="p-sp-serach-area" method="get" action="<?php echo home_url('/'); ?>">
+                <input class="p-sp-serach-area__input" type="search" name="s" placeholder="キーワードを入力してください">
+                <button class="p-sp-serach-area__submit" type="submit">検索</button>
+            </form>
+        </div>
         <div class="l-header__secondary">
             <ul class="p-global-nav-list">
                 <li class="p-global-nav-list__item"><a class="p-global-nav-list__link" href="">TOP</a></li>
                 <li class="p-global-nav-list__item"><a class="p-global-nav-list__link" href="">ブランドから探す</a></li>
                 <li class="p-global-nav-list__item"><a class="p-global-nav-list__link" href="">カテゴリから探す</a></li>
+                <li class="p-global-nav-list__item"><a class="p-global-nav-list__link" href="">グロナビ項目</a></li>
+                <li class="p-global-nav-list__item"><a class="p-global-nav-list__link" href="">グロナビ項目</a></li>
             </ul>
         </div>
     </header>
@@ -64,10 +87,10 @@
                     <div class="p-first-view">
                         <div class="swiper-container swiper-firstview">
                             <ul class="swiper-wrapper">
-                                <li class="swiper-slide"><img style="width:100%" src="https://placehold.jp/7f7fff/fefefe/820x400.png" alt="スライダー画像"></li>
-                                <li class="swiper-slide"><img style="width:100%" src="https://placehold.jp/7fbfff/fefefe/820x400.png" alt="スライダー画像"></li>
-                                <li class="swiper-slide"><img style="width:100%" src="https://placehold.jp/7fffff/fefefe/820x400.png" alt="スライダー画像"></li>
-                                <li class="swiper-slide"><img style="width:100%" src="https://placehold.jp/7fffbf/fefefe/820x400.png" alt="スライダー画像"></li>
+                                <li class="swiper-slide"><img style="width:100%" src="<?php echo get_template_directory_uri(); ?>/img/dammy-img-blue-820x400.png" alt="スライダー画像"></li>
+                                <li class="swiper-slide"><img style="width:100%" src="<?php echo get_template_directory_uri(); ?>/img/dammy-img-lime-820x400.png" alt="スライダー画像"></li>
+                                <li class="swiper-slide"><img style="width:100%" src="<?php echo get_template_directory_uri(); ?>/img/dammy-img-skyblue-820x400.png" alt="スライダー画像"></li>
+                                <li class="swiper-slide"><img style="width:100%" src="<?php echo get_template_directory_uri(); ?>/img/dammy-img-lime-820x400.png" alt="スライダー画像"></li>
                             </ul>
 
                             <div class="swiper-pagination"></div>
@@ -89,48 +112,88 @@
                 <section class="l-main__content-primary-second">
                     <h2 class="c-icon-header">新着情報</h2>
                     <?php dynamic_sidebar('news'); ?>
-                    
-                    <p class="c-button u-txt-algn-center">
-                        <a  class="c-button__link" href="">もっと見る</a>
-                    </p>
-
                 </section>
 
                 <section class="l-main__content-primary-third">
                     <h2 class="c-icon-header">今月のおすすめ商品</h2>
-                    <div class="swiper-container swiper-itemlist">
-                        <ul class="swiper-wrapper">
-                            <li class="swiper-slide c-card">
-                                <img class="c-card__img" src="<?php echo get_template_directory_uri(); ?>/img/dammy_125x124.jpg" alt="今月のおすすめ商品">
-                                <div class="c-card__content-wrap">
-                                    <h3 class="c-card__title">
-                                        <span class="c-card__brand-name">アルソア</span>
-                                        <span class="c-card__item-name">クイーンシルバー（リフィル）</span>
-                                    </h3>
-                                    <p class="c-card__off">30% OFF</p>
-                                    <span class="c-card__price">¥10,000円</span><s class="c-card__strikethrough">15,000円</s>
+                    <div class="swiper-container swiper-recommend-itemlist">
+                        <ul class="swiper-wrapper p-recommend-list">
+                            <li class="swiper-slide p-recommend-list__item">
+                                <div class="c-card">
+                                    <img class="c-card__img" src="<?php echo get_template_directory_uri(); ?>/img/dammy_125x124.jpg" alt="今月のおすすめ商品">
+                                    <div class="c-card__content-wrap">
+                                        <h3 class="c-card__title">
+                                            <span class="c-card__brand-name">アルソア</span>
+                                            <span class="c-card__item-name">クイーンシルバー（リフィル）</span>
+                                        </h3>
+                                        <p class="c-card__off">30% OFF</p>
+                                        <span class="c-card__price">¥10,000円</span><s class="c-card__strikethrough">15,000円</s>
+                                    </div>
                                 </div>
                             </li>
-                            <li class="swiper-slide c-card">
-                                <img class="c-card__img" src="<?php echo get_template_directory_uri(); ?>/img/dammy_125x124.jpg" alt="今月のおすすめ商品">
-                                <div class="c-card__content-wrap">
-                                    <h3 class="c-card__title">
-                                        <span class="c-card__brand-name">アルソア</span>
-                                        <span class="c-card__item-name">クイーンシルバー（リフィル）</span>
-                                    </h3>
-                                    <p class="c-card__off">30% OFF</p>
-                                    <span class="c-card__price">¥10,000円</span><s class="c-card__strikethrough">15,000円</s>
+                            <li class="swiper-slide p-recommend-list__item">
+                                <div class="c-card">
+                                    <img class="c-card__img" src="<?php echo get_template_directory_uri(); ?>/img/dammy_125x124.jpg" alt="今月のおすすめ商品">
+                                    <div class="c-card__content-wrap">
+                                        <h3 class="c-card__title">
+                                            <span class="c-card__brand-name">アルソア</span>
+                                            <span class="c-card__item-name">クイーンシルバー（リフィル）</span>
+                                        </h3>
+                                        <p class="c-card__off">30% OFF</p>
+                                        <span class="c-card__price">¥10,000円</span><s class="c-card__strikethrough">15,000円</s>
+                                    </div>
                                 </div>
                             </li>
-                            <li class="swiper-slide c-card">
-                                <img class="c-card__img" src="<?php echo get_template_directory_uri(); ?>/img/dammy_125x124.jpg" alt="今月のおすすめ商品">
-                                <div class="c-card__content-wrap">
-                                    <h3 class="c-card__title">
-                                        <span class="c-card__brand-name">アルソア</span>
-                                        <span class="c-card__item-name">クイーンシルバー（リフィル）</span>
-                                    </h3>
-                                    <p class="c-card__off">30% OFF</p>
-                                    <span class="c-card__price">¥10,000円</span><s class="c-card__strikethrough">15,000円</s>
+                            <li class="swiper-slide p-recommend-list__item">
+                                <div class="c-card">
+                                    <img class="c-card__img" src="<?php echo get_template_directory_uri(); ?>/img/dammy_125x124.jpg" alt="今月のおすすめ商品">
+                                    <div class="c-card__content-wrap">
+                                        <h3 class="c-card__title">
+                                            <span class="c-card__brand-name">アルソア</span>
+                                            <span class="c-card__item-name">クイーンシルバー（リフィル）</span>
+                                        </h3>
+                                        <p class="c-card__off">30% OFF</p>
+                                        <span class="c-card__price">¥10,000円</span><s class="c-card__strikethrough">15,000円</s>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="swiper-slide p-recommend-list__item">
+                                <div class="c-card">
+                                    <img class="c-card__img" src="<?php echo get_template_directory_uri(); ?>/img/dammy_125x124.jpg" alt="今月のおすすめ商品">
+                                    <div class="c-card__content-wrap">
+                                        <h3 class="c-card__title">
+                                            <span class="c-card__brand-name">アルソア</span>
+                                            <span class="c-card__item-name">クイーンシルバー（リフィル）</span>
+                                        </h3>
+                                        <p class="c-card__off">30% OFF</p>
+                                        <span class="c-card__price">¥10,000円</span><s class="c-card__strikethrough">15,000円</s>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="swiper-slide p-recommend-list__item">
+                                <div class="c-card">
+                                    <img class="c-card__img" src="<?php echo get_template_directory_uri(); ?>/img/dammy_125x124.jpg" alt="今月のおすすめ商品">
+                                    <div class="c-card__content-wrap">
+                                        <h3 class="c-card__title">
+                                            <span class="c-card__brand-name">アルソア</span>
+                                            <span class="c-card__item-name">クイーンシルバー（リフィル）</span>
+                                        </h3>
+                                        <p class="c-card__off">30% OFF</p>
+                                        <span class="c-card__price">¥10,000円</span><s class="c-card__strikethrough">15,000円</s>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="swiper-slide p-recommend-list__item">
+                                <div class="c-card">
+                                    <img class="c-card__img" src="<?php echo get_template_directory_uri(); ?>/img/dammy_125x124.jpg" alt="今月のおすすめ商品">
+                                    <div class="c-card__content-wrap">
+                                        <h3 class="c-card__title">
+                                            <span class="c-card__brand-name">アルソア</span>
+                                            <span class="c-card__item-name">クイーンシルバー（リフィル）</span>
+                                        </h3>
+                                        <p class="c-card__off">30% OFF</p>
+                                        <span class="c-card__price">¥10,000円</span><s class="c-card__strikethrough">15,000円</s>
+                                    </div>
                                 </div>
                             </li>
                         </ul>
@@ -143,39 +206,97 @@
 
                 <section class="l-main__content-primary-fourth">
                     <h2 class="c-icon-header">人気商品ランキング</h2>
-                    <div class="swiper-container swiper-itemlist">
-                        <ul class="swiper-wrapper">
-                            <li class="swiper-slide c-card">
-                                <img class="c-card__img" src="<?php echo get_template_directory_uri(); ?>/img/dammy_125x124.jpg" alt="今月のおすすめ商品">
-                                <div class="c-card__content-wrap">
-                                    <h3 class="c-card__title">
-                                        <span class="c-card__brand-name">アルソア</span>
-                                        <span class="c-card__item-name">クイーンシルバー（リフィル）</span>
-                                    </h3>
-                                    <p class="c-card__off">30% OFF</p>
-                                    <span class="c-card__price">¥10,000円</span><s class="c-card__strikethrough">15,000円</s>
+                    <div class="swiper-container swiper-popular-itemlist">
+                        <ul class="swiper-wrapper p-popular-list">
+                            <li class="swiper-slide p-popular-list__item">
+                                <div class="c-card">
+                                    <img class="c-card__img" src="<?php echo get_template_directory_uri(); ?>/img/dammy_125x124.jpg" alt="今月のおすすめ商品">
+                                    <div class="c-card__content-wrap">
+                                        <h3 class="c-card__title">
+                                            <span class="c-card__brand-name">アルソア</span>
+                                            <span class="c-card__item-name">クイーンシルバー（リフィル）</span>
+                                        </h3>
+                                        <p class="c-card__off">30% OFF</p>
+                                        <span class="c-card__price">¥10,000円</span><s class="c-card__strikethrough">15,000円</s>
+                                    </div>
                                 </div>
                             </li>
-                            <li class="swiper-slide c-card">
-                                <img class="c-card__img" src="<?php echo get_template_directory_uri(); ?>/img/dammy_125x124.jpg" alt="今月のおすすめ商品">
-                                <div class="c-card__content-wrap">
-                                    <h3 class="c-card__title">
-                                        <span class="c-card__brand-name">アルソア</span>
-                                        <span class="c-card__item-name">クイーンシルバー（リフィル）</span>
-                                    </h3>
-                                    <p class="c-card__off">30% OFF</p>
-                                    <span class="c-card__price">¥10,000円</span><s class="c-card__strikethrough">15,000円</s>
+                            <li class="swiper-slide p-popular-list__item">
+                                <div class="c-card">
+                                    <img class="c-card__img" src="<?php echo get_template_directory_uri(); ?>/img/dammy_125x124.jpg" alt="今月のおすすめ商品">
+                                    <div class="c-card__content-wrap">
+                                        <h3 class="c-card__title">
+                                            <span class="c-card__brand-name">アルソア</span>
+                                            <span class="c-card__item-name">クイーンシルバー（リフィル）</span>
+                                        </h3>
+                                        <p class="c-card__off">30% OFF</p>
+                                        <span class="c-card__price">¥10,000円</span><s class="c-card__strikethrough">15,000円</s>
+                                    </div>
                                 </div>
                             </li>
-                            <li class="swiper-slide c-card">
-                                <img class="c-card__img" src="<?php echo get_template_directory_uri(); ?>/img/dammy_125x124.jpg" alt="今月のおすすめ商品">
-                                <div class="c-card__content-wrap">
-                                    <h3 class="c-card__title">
-                                        <span class="c-card__brand-name">アルソア</span>
-                                        <span class="c-card__item-name">クイーンシルバー（リフィル）</span>
-                                    </h3>
-                                    <p class="c-card__off">30% OFF</p>
-                                    <span class="c-card__price">¥10,000円</span><s class="c-card__strikethrough">15,000円</s>
+                            <li class="swiper-slide p-popular-list__item">
+                                <div class="c-card">
+                                    <img class="c-card__img" src="<?php echo get_template_directory_uri(); ?>/img/dammy_125x124.jpg" alt="今月のおすすめ商品">
+                                    <div class="c-card__content-wrap">
+                                        <h3 class="c-card__title">
+                                            <span class="c-card__brand-name">アルソア</span>
+                                            <span class="c-card__item-name">クイーンシルバー（リフィル）</span>
+                                        </h3>
+                                        <p class="c-card__off">30% OFF</p>
+                                        <span class="c-card__price">¥10,000円</span><s class="c-card__strikethrough">15,000円</s>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="swiper-slide p-popular-list__item">
+                                <div class="c-card">
+                                    <img class="c-card__img" src="<?php echo get_template_directory_uri(); ?>/img/dammy_125x124.jpg" alt="今月のおすすめ商品">
+                                    <div class="c-card__content-wrap">
+                                        <h3 class="c-card__title">
+                                            <span class="c-card__brand-name">アルソア</span>
+                                            <span class="c-card__item-name">クイーンシルバー（リフィル）</span>
+                                        </h3>
+                                        <p class="c-card__off">30% OFF</p>
+                                        <span class="c-card__price">¥10,000円</span><s class="c-card__strikethrough">15,000円</s>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="swiper-slide p-popular-list__item">
+                                <div class="c-card">
+                                    <img class="c-card__img" src="<?php echo get_template_directory_uri(); ?>/img/dammy_125x124.jpg" alt="今月のおすすめ商品">
+                                    <div class="c-card__content-wrap">
+                                        <h3 class="c-card__title">
+                                            <span class="c-card__brand-name">アルソア</span>
+                                            <span class="c-card__item-name">クイーンシルバー（リフィル）</span>
+                                        </h3>
+                                        <p class="c-card__off">30% OFF</p>
+                                        <span class="c-card__price">¥10,000円</span><s class="c-card__strikethrough">15,000円</s>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="swiper-slide p-popular-list__item">
+                                <div class="c-card">
+                                    <img class="c-card__img" src="<?php echo get_template_directory_uri(); ?>/img/dammy_125x124.jpg" alt="今月のおすすめ商品">
+                                    <div class="c-card__content-wrap">
+                                        <h3 class="c-card__title">
+                                            <span class="c-card__brand-name">アルソア</span>
+                                            <span class="c-card__item-name">クイーンシルバー（リフィル）</span>
+                                        </h3>
+                                        <p class="c-card__off">30% OFF</p>
+                                        <span class="c-card__price">¥10,000円</span><s class="c-card__strikethrough">15,000円</s>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="swiper-slide p-popular-list__item">
+                                <div class="c-card">
+                                    <img class="c-card__img" src="<?php echo get_template_directory_uri(); ?>/img/dammy_125x124.jpg" alt="今月のおすすめ商品">
+                                    <div class="c-card__content-wrap">
+                                        <h3 class="c-card__title">
+                                            <span class="c-card__brand-name">アルソア</span>
+                                            <span class="c-card__item-name">クイーンシルバー（リフィル）</span>
+                                        </h3>
+                                        <p class="c-card__off">30% OFF</p>
+                                        <span class="c-card__price">¥10,000円</span><s class="c-card__strikethrough">15,000円</s>
+                                    </div>
                                 </div>
                             </li>
                         </ul>

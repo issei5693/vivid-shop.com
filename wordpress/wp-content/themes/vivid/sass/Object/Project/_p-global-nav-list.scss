@@ -2,15 +2,14 @@
 
 .p-global-nav-list {
     display: flex;
+    margin-bottom: 5px;
     border: {
         top: solid 1px $color_main;
         bottom: solid 1px $color_main;
     }
-    margin-bottom: 5px;
 
     &__item {
-        display: block;
-        width: 33.3%;
+        flex-grow: 1;
         background: linear-gradient($color_base, $color_main);
         border-right: solid 1px $color_main;
 
@@ -28,6 +27,40 @@
     }
 
     @include mq(){
+        flex-wrap: nowrap;
+        width: $site_width;
+        margin: 0 auto;
+        border: 0;
 
+        &__item {
+            position: relative;
+            flex-grow: 0;
+            border: 0;
+
+            &::after {
+                content: '';
+                width: 1px;
+                height: 70%;
+                position: absolute;
+                top: 8px;
+                right: 0;
+                background-color: $color_gray;
+                
+            }
+
+            &:last-child::after {
+                display: none;
+            }
+        }
+
+        &__link {
+            padding: 15px 20px;
+            font-size: $font_md * 1.1;
+
+            &:hover {
+                background-color: rgba(212, 170, 255, 0.3);
+                text-decoration: none;
+            }
+        }
     }
 }

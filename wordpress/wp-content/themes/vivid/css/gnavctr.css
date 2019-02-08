@@ -1,0 +1,30 @@
+@charset "utf-8";
+
+body {
+    overflow-x: hidden;
+}
+
+#gnavctr {
+    position: fixed;
+    z-index: 99;
+    width: 85%;
+    top: 0;
+    left: 15%;
+    bottom: 0;
+    transform: translateX(100%);
+    overflow-y: scroll;
+}
+
+.gnavctr-open {
+    transition: 0.1s;
+    transform: translateX(0%) !important;
+    box-shadow: 0 0 20px 5px #444;
+}
+
+.gnavctr-close {
+    transition: 0.2s;
+}
+
+.gnavctr-remove {
+    display :none;
+}

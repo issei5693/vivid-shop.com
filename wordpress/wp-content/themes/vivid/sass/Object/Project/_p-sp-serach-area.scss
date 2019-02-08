@@ -1,0 +1,31 @@
+@charset "utf-8";
+
+.p-sp-serach-area {
+    border: {
+        top: solid 1px $color_thin_gray;
+        bottom: olid 1px $color_thin_gray;
+    }
+    padding: 5px;
+    
+    &__input {
+        font-size: $font_md;
+        border: solid 1px $color_thin_gray;
+        padding: 5px 10px;
+        width: 80%;
+        border-radius: 3px;
+
+    }
+
+    &__submit {
+        background-color: $color_accent;
+        padding: 5px 10px;
+        border-radius: 3px;
+        color: $color_base;
+        border: 0;
+    }
+
+    @include mq(){
+        display: none;
+
+    }
+}

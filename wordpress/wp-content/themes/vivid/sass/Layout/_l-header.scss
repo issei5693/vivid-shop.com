@@ -1,6 +1,7 @@
 @charset "utf-8";
 
 .l-header {
+    padding-top: 20px;
 
     &__primary {
         display: flex;
@@ -14,12 +15,26 @@
     }
 
     &__secondary {
-
+        background: linear-gradient($color_base, $color_main);
     }
 
 
     @include mq(){
 
+        margin-bottom: 20px;
+        
+        &__primary {
+            max-width: $site_width;
+            margin: 0 auto;
+        }
+
+        &__secondary {
+            border: {
+                top: solid 0.5px $color_thin_gray;
+                bottom: solid 3px $color_accent;
+            }
+        }
+        
     }
 
 }

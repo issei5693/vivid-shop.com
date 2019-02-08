@@ -4,12 +4,13 @@
     background-color: $color_main;
 
     &__primary {
-        
+        max-width: $site_width;
+        margin: 0 auto;
     }
 
     &__secondary {
-
-        
+        max-width: $site_width;
+        margin: 0 auto;
     }
 
     &__secondary-first {

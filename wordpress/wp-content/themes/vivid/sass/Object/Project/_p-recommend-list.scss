@@ -1,0 +1,24 @@
+@charset "utf-8";
+
+.p-recommend-list {
+    
+    @include mq(){
+        display: flex !important;
+        flex-wrap: wrap;
+   
+        &__item {
+            width: 24% !important;
+            height: auto !important;
+            margin: {
+                right: 1.2%;
+                bottom: 30px;
+            }
+
+            &:nth-child(4n) {
+                margin-right: 0;
+            }
+
+        }
+    }
+
+}

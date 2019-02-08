@@ -1,0 +1,16 @@
+@charset "utf-8";
+
+#dynamic-search-area {
+    height: 0;
+    transition: .5s;
+    overflow: hidden;
+}
+
+.dynamic-search-area-open {
+    height: 40px !important;
+    transition: .5s;
+}
+
+.dynamic-search-area-remove {
+    display :none;
+}

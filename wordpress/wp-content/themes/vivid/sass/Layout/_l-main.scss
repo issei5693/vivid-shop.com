@@ -41,6 +41,21 @@
 
     @include mq() {
 
+        &__content {
+            display: flex;
+            max-width: $site_width;
+            margin: 0 auto;
+            flex-direction: row-reverse;
+        }
+
+        &__content-primary {
+            width: 70%
+        }
+    
+        &__content-secondary {
+            width: 30%
+        }
+
     }
 
 }

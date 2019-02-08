@@ -1,0 +1,32 @@
+@charset "utf-8";
+
+.p-slide-gnav-list {
+    height: 100%; // スクロールするほどメニューが多くなるようであればheightはautoにする
+    background-color: rgba(212, 170, 255, 0.9);
+    // background-color: $color_accent; (212,170,255)
+    
+    &__close-button {
+        padding: 10px;
+    }
+
+    &__item {
+        font-size: $font_lg;
+        border-top: solid 1px $color_thin_gray;
+    }
+
+    &__item:last-child {
+        border-bottom: solid 1px $color_thin_gray;
+    }
+
+    &__link {
+        display: block;
+        padding: 15px 10px;
+    }
+    
+
+
+
+    @include mq(){
+
+    }
+}
