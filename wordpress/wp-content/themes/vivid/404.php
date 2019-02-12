@@ -9,21 +9,9 @@
                 下記ページより該当のページが存在するかご確認いただけきますようお願い申し上げます。</p>
         </div>
 
-        <section class="l-main__content-primary-second">
-            <h2 class="c-icon-header">カテゴリーページ</h2>
-        </section>
-
-        <section class="l-main__content-primary-third">
-            <h2 class="c-icon-header">カテゴリーページ</h2>
-        </section>
-
-        <section class="l-main__content-primary-fourth">
-            <h2 class="c-icon-header">カテゴリーページ</h2>
-        </section>
-
     </div>
     <aside class="l-main__content-secondary">
-        <?php get_sidebar( $name ); ?>
+        <?php get_sidebar(); ?>
     </aside>
 </div>
 

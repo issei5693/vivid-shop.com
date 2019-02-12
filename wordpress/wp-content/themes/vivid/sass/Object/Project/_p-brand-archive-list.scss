@@ -1,0 +1,35 @@
+@charset "utf-8";
+
+.p-brand-archive-list {
+
+    &__item {
+        display: table;
+        border: solid 1px $color_thin_gray;
+        box-shadow: 0 0 3px 1px $color_thin_gray;
+        padding: 5px;
+        margin-bottom: 10px;
+    }
+
+    &__img-link {
+        display: table-cell;
+        width: 30%;
+    }
+
+    &__img {
+        width: 100%;
+    }
+
+    &__text-link {
+        display: table-cell;
+        width: 70%;
+        vertical-align: middle;
+        padding-left: 10px;
+        font-weight: bold;
+    }
+
+
+    @include mq(){
+
+    }
+
+}

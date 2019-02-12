@@ -15,8 +15,8 @@
     <div id="gnavctr">
         <ul class="p-slide-gnav-list">
             <li class="p-slide-gnav-list__close-button"><span id="gnavctr-switch-cls"><img src="<?php echo get_template_directory_uri(); ?>/img/icon-cross.png"></span></li>
-            <li class="p-slide-gnav-list__item"><a class="p-slide-gnav-list__link" href="">TOP</a></li>
-            <li class="p-slide-gnav-list__item"><a class="p-slide-gnav-list__link" href="">ブランドから探す</a></li>
+            <li class="p-slide-gnav-list__item"><a class="p-slide-gnav-list__link" href="<?php echo home_url(); ?>">TOP</a></li>
+            <li class="p-slide-gnav-list__item"><a class="p-slide-gnav-list__link" href="<?php echo home_url(); ?>/brand-list">ブランドから探す</a></li>
             <li class="p-slide-gnav-list__item"><a class="p-slide-gnav-list__link" href="">カテゴリから探す</a></li>
             <li class="p-slide-gnav-list__item"><a class="p-slide-gnav-list__link" href="">ご注文方法</a></li>
             <li class="p-slide-gnav-list__item"><a class="p-slide-gnav-list__link" href="">特定商取引法</a></li>
@@ -27,7 +27,7 @@
         <div class="l-header__primary">
             <div class="l-header__primary-first">
                 <figure class="c-logo">
-                    <a class="c-logo__link" href="#">
+                    <a class="c-logo__link" href="<?php echo home_url(); ?>">
                         <img class="c-logo__img" src="<?php echo get_template_directory_uri(); ?>/img/logo.png">
                         <!-- <img class="c-logo__img--sm" src="https://placehold.jp/200x80.png?text=Vivid-shop"> -->
 
@@ -70,11 +70,11 @@
         </div>
         <div class="l-header__secondary">
             <ul class="p-global-nav-list">
-                <li class="p-global-nav-list__item"><a class="p-global-nav-list__link" href="">TOP</a></li>
-                <li class="p-global-nav-list__item"><a class="p-global-nav-list__link" href="">ブランドから探す</a></li>
+                <li class="p-global-nav-list__item"><a class="p-global-nav-list__link" href="<?php echo home_url(); ?>">TOP</a></li>
+                <li class="p-global-nav-list__item"><a class="p-global-nav-list__link" href="<?php echo home_url(); ?>/brand-list">ブランドから探す</a></li>
                 <li class="p-global-nav-list__item"><a class="p-global-nav-list__link" href="">カテゴリから探す</a></li>
-                <li class="p-global-nav-list__item"><a class="p-global-nav-list__link" href="">グロナビ項目</a></li>
-                <li class="p-global-nav-list__item"><a class="p-global-nav-list__link" href="">グロナビ項目</a></li>
+                <!-- <li class="p-global-nav-list__item"><a class="p-global-nav-list__link" href="">グロナビ項目</a></li>
+                <li class="p-global-nav-list__item"><a class="p-global-nav-list__link" href="">グロナビ項目</a></li> -->
             </ul>
         </div>
     </header>

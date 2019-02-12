@@ -2,8 +2,9 @@
 
     <footer class="l-footer">
         <div class="l-footer__primary">
-            <div class="p-footer-banner">
-            </div>
+            <figure class="p-footer-banner">
+                <img style="width:100%" src="https://placehold.jp/820x200.png"" alt="バナー">
+            </figure>
         </div>
 
         <div class="l-footer__secondary">

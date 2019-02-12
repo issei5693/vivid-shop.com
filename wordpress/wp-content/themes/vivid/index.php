@@ -228,7 +228,7 @@
 
     </div>
     <aside class="l-main__content-secondary">
-        <?php get_sidebar( $name ); ?>
+        <?php get_sidebar(); ?>
     </aside>
 </div>
 

@@ -4,8 +4,7 @@
     background-color: $color_main;
 
     &__primary {
-        max-width: $site_width;
-        margin: 0 auto;
+        display: none;
     }
 
     &__secondary {
@@ -28,7 +27,24 @@
     }
 
     @include mq(){
+        &__primary {
+            display: block;
+        }
+        &__secondary {
+            overflow: hidden;
+            margin-bottom: 30px;
+            padding-top: 20px;
+        }
 
+        &__secondary-first {
+            width: 50%;
+            float: left;
+        }
+
+        &__secondary-second {
+            width: 50%;
+            float: right;
+        }
     }
 
 }

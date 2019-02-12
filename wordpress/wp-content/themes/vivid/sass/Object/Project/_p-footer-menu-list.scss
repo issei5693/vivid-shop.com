@@ -37,6 +37,23 @@
     }
 
     @include mq(){
+        
 
+        &__item {
+            border: 0;
+            text-align: center;
+            padding: 20px 0;
+
+            &::after {
+                display: none;
+            }
+        }
+
+        &__link { 
+            display: inline;
+        }
+
+        
     }
+
 }
