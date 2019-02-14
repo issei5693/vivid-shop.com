@@ -1,24 +1,34 @@
 <section class="l-main__content-secondary-first">
     <h2 class="c-icon-header">取扱ブランド一覧</h2>
     <ul class="p-brand-list">
-        <li class="p-brand-list__item"><a class="c-play-button" href="">アルソア</a></li>
-        <li class="p-brand-list__item"><a class="c-play-button" href="">ミキモト</a></li>
-        <li class="p-brand-list__item"><a class="c-play-button" href="">メナード</a></li>
-        <li class="p-brand-list__item"><a class="c-play-button" href="">アイビー</a></li>
-        <li class="p-brand-list__item"><a class="c-play-button" href="">アクセーヌ</a></li>
-        <li class="p-brand-list__item"><a class="c-play-button" href="">イオン化粧品</a></li>
+        <?php
+
+            $args = array(
+                'orderby' => 'name',
+                'parent' => 0
+            );
+
+            $categories = get_categories($args);
+
+            foreach($categories as $category) : ?>
+
+        <li class="p-brand-list__item">
+            <a class="c-play-button" href="<?php echo get_category_link($category->term_id); ?>"><?php echo $category->name; ?></a>
+        </li>
+        <?php endforeach; ?>
     </ul>
 </section>
 
 <section class="l-main__content-secondary-second">
     <h2 class="c-icon-header">カテゴリ一覧</h2>
     <ul class="p-category-list">
-        <li class="p-category-list__item"><a class="c-label" href="">ボディソープ</a></li>
-        <li class="p-category-list__item"><a class="c-label" href="">シャンプー</a></li>
-        <li class="p-category-list__item"><a class="c-label" href="">リンス</a></li>
-        <li class="p-category-list__item"><a class="c-label" href="">フェイシャルケア</a></li>
-        <li class="p-category-list__item"><a class="c-label" href="">トリートメント</a></li>
-        <li class="p-category-list__item"><a class="c-label" href="">アフターバス</a></li>
+    <?php
+    $tags = get_tags();
+    foreach($tags as $tag): ?>
+        <li class="p-category-list__item">
+            <a class="c-label" href="<?php echo get_term_link( $tag, 'tag' ); ?>"><?php echo $tag->name; ?></a>
+        </li>
+    <?php endforeach;?>
     </ul>
 </section>
 

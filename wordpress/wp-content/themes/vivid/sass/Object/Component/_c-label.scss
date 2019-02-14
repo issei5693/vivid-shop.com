@@ -1,10 +1,19 @@
 @charset "utf-8";
 
-.c-label {
+%c-label {
     display: inline-block;
     background-color: $color_main;
     border-radius: 3px;
     padding: 10px;
+}
+
+.c-label {
+    @extend %c-label;
+
+    &--active {
+        @extend %c-label;
+        background-color: $color_accent;
+    }
     
     @include mq(){
 

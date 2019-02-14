@@ -1,0 +1,23 @@
+@charset "utf-8";
+
+.p-item-list {
+    
+    @include mq(){
+        display: flex;
+        flex-wrap: wrap;
+   
+        &__item {
+            width: 24%;
+            margin: {
+                right: 1.2%;
+                bottom: 30px;
+            }
+
+            &:nth-child(4n) {
+                margin-right: 0;
+            }
+
+        }
+    }
+
+}
