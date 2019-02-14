@@ -20,8 +20,6 @@ Template Name: ブランドリストページ
 
                 $categories = get_categories($args);
 
-                // var_dump($categories);
-
                 foreach($categories as $category) : ?>
                     <li class="p-brand-archive-list__item">
                         <a class="p-brand-archive-list__img-link" href="<?php echo get_category_link($category->term_id); ?>">

@@ -38,6 +38,28 @@
             <h2 class="c-icon-header">今月のおすすめ商品</h2>
             <div class="swiper-container swiper-recommend-itemlist">
                 <ul class="swiper-wrapper p-recommend-list">
+
+                    <li class="swiper-slide p-recommend-list__item">
+
+                            <div class="c-card">
+                                <a class="c-card__link">
+                                    <figure class="c-card__image">
+                                        <img class="c-card__img" src="<?php echo get_template_directory_uri(); ?>/img/dammy_125x124.jpg" alt="今月のおすすめ商品"å>
+                                    </figure>
+                                    <h3 class="c-card__title">
+                                        <span class="c-card__section">アルソア</span>
+                                        <span class="c-card__section">クイーンシルバー（リフィル）</span>
+                                    </h3>
+                                    <p class="c-card__content">
+                                        <span class="c-card__section">30% OFF</span>
+                                        <span class="c-card__price">¥10,000円</span>
+                                        <s>¥15,000円</s>
+                                    </p>
+                                </a>
+                            </div>
+
+                    </li>
+
                     <li class="swiper-slide p-recommend-list__item">
                         <div class="c-card">
                             <img class="c-card__img" src="<?php echo get_template_directory_uri(); ?>/img/dammy_125x124.jpg" alt="今月のおすすめ商品">
@@ -47,7 +69,7 @@
                                     <span class="c-card__item-name">クイーンシルバー（リフィル）</span>
                                 </h3>
                                 <p class="c-card__off">30% OFF</p>
-                                <span class="c-card__price">¥10,000円</span><s class="c-card__strikethrough">15,000円</s>
+                                <span class="c-card__price">¥10,000円</span><s>15,000円</s>
                             </div>
                         </div>
                     </li>
@@ -60,7 +82,7 @@
                                     <span class="c-card__item-name">クイーンシルバー（リフィル）</span>
                                 </h3>
                                 <p class="c-card__off">30% OFF</p>
-                                <span class="c-card__price">¥10,000円</span><s class="c-card__strikethrough">15,000円</s>
+                                <span class="c-card__price">¥10,000円</span><s>15,000円</s>
                             </div>
                         </div>
                     </li>
@@ -73,7 +95,7 @@
                                     <span class="c-card__item-name">クイーンシルバー（リフィル）</span>
                                 </h3>
                                 <p class="c-card__off">30% OFF</p>
-                                <span class="c-card__price">¥10,000円</span><s class="c-card__strikethrough">15,000円</s>
+                                <span class="c-card__price">¥10,000円</span><s>15,000円</s>
                             </div>
                         </div>
                     </li>
@@ -86,7 +108,7 @@
                                     <span class="c-card__item-name">クイーンシルバー（リフィル）</span>
                                 </h3>
                                 <p class="c-card__off">30% OFF</p>
-                                <span class="c-card__price">¥10,000円</span><s class="c-card__strikethrough">15,000円</s>
+                                <span class="c-card__price">¥10,000円</span><s>15,000円</s>
                             </div>
                         </div>
                     </li>
@@ -99,7 +121,7 @@
                                     <span class="c-card__item-name">クイーンシルバー（リフィル）</span>
                                 </h3>
                                 <p class="c-card__off">30% OFF</p>
-                                <span class="c-card__price">¥10,000円</span><s class="c-card__strikethrough">15,000円</s>
+                                <span class="c-card__price">¥10,000円</span><s>15,000円</s>
                             </div>
                         </div>
                     </li>
@@ -112,7 +134,7 @@
                                     <span class="c-card__item-name">クイーンシルバー（リフィル）</span>
                                 </h3>
                                 <p class="c-card__off">30% OFF</p>
-                                <span class="c-card__price">¥10,000円</span><s class="c-card__strikethrough">15,000円</s>
+                                <span class="c-card__price">¥10,000円</span><s>15,000円</s>
                             </div>
                         </div>
                     </li>
@@ -137,7 +159,7 @@
                                     <span class="c-card__item-name">クイーンシルバー（リフィル）</span>
                                 </h3>
                                 <p class="c-card__off">30% OFF</p>
-                                <span class="c-card__price">¥10,000円</span><s class="c-card__strikethrough">15,000円</s>
+                                <span class="c-card__price">¥10,000円</span><s>15,000円</s>
                             </div>
                         </div>
                     </li>
@@ -150,7 +172,7 @@
                                     <span class="c-card__item-name">クイーンシルバー（リフィル）</span>
                                 </h3>
                                 <p class="c-card__off">30% OFF</p>
-                                <span class="c-card__price">¥10,000円</span><s class="c-card__strikethrough">15,000円</s>
+                                <span class="c-card__price">¥10,000円</span><s>15,000円</s>
                             </div>
                         </div>
                     </li>
@@ -163,7 +185,7 @@
                                     <span class="c-card__item-name">クイーンシルバー（リフィル）</span>
                                 </h3>
                                 <p class="c-card__off">30% OFF</p>
-                                <span class="c-card__price">¥10,000円</span><s class="c-card__strikethrough">15,000円</s>
+                                <span class="c-card__price">¥10,000円</span><s>15,000円</s>
                             </div>
                         </div>
                     </li>
@@ -176,7 +198,7 @@
                                     <span class="c-card__item-name">クイーンシルバー（リフィル）</span>
                                 </h3>
                                 <p class="c-card__off">30% OFF</p>
-                                <span class="c-card__price">¥10,000円</span><s class="c-card__strikethrough">15,000円</s>
+                                <span class="c-card__price">¥10,000円</span><s>15,000円</s>
                             </div>
                         </div>
                     </li>
@@ -189,7 +211,7 @@
                                     <span class="c-card__item-name">クイーンシルバー（リフィル）</span>
                                 </h3>
                                 <p class="c-card__off">30% OFF</p>
-                                <span class="c-card__price">¥10,000円</span><s class="c-card__strikethrough">15,000円</s>
+                                <span class="c-card__price">¥10,000円</span><s>15,000円</s>
                             </div>
                         </div>
                     </li>
@@ -202,7 +224,7 @@
                                     <span class="c-card__item-name">クイーンシルバー（リフィル）</span>
                                 </h3>
                                 <p class="c-card__off">30% OFF</p>
-                                <span class="c-card__price">¥10,000円</span><s class="c-card__strikethrough">15,000円</s>
+                                <span class="c-card__price">¥10,000円</span><s>15,000円</s>
                             </div>
                         </div>
                     </li>
@@ -215,7 +237,7 @@
                                     <span class="c-card__item-name">クイーンシルバー（リフィル）</span>
                                 </h3>
                                 <p class="c-card__off">30% OFF</p>
-                                <span class="c-card__price">¥10,000円</span><s class="c-card__strikethrough">15,000円</s>
+                                <span class="c-card__price">¥10,000円</span><s>15,000円</s>
                             </div>
                         </div>
                     </li>
