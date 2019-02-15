@@ -220,7 +220,7 @@ function get_wp_query_pagenation( $the_query, $number_display=5 ){
 /**
  * 
  */
-function get_display_post_number(){
+function get_display_post_number($wp_query){
 
     global $paged;
     global $posts_per_page;
@@ -230,12 +230,12 @@ function get_display_post_number(){
     $end_num   = '';
 
     if($paged == 1){
-        $start_num = 1;
+        $start_num = 1;   
     } else {
-        $start_num = $paged * $posts_per_page + 1 ;
+        $start_num = ($paged-1) * $posts_per_page + 1;
     }
 
-    $end_num = $start_num + $posts_per_page -1 ;
+    $end_num = $start_num + $wp_query->post_count -1;
 
     return $start_num . '〜' . $end_num;
 

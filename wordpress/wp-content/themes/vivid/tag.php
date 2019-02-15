@@ -23,7 +23,7 @@
 
                 $the_query = new WP_Query($args); ?>
 
-                <h2 class="c-icon-header">「<?php echo $tag->name; ?>」のカテゴリの商品一覧(<?php echo $the_query->found_posts; ?>件)。</h2>
+                <h2 class="c-icon-header">「<?php echo $tag->name; ?>」のカテゴリの商品一覧&nbsp;<?php echo get_display_post_number($the_query); ?>件を表示中&nbsp;(全<?php echo $the_query->found_posts; ?>件)</h2>
 
                 <ul class="p-item-list">
                 <?php

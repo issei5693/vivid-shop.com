@@ -42,10 +42,10 @@
                 if( $child_categories) : ?>
 
                 <section class="l-main__content-primary-second">
-                    <h2 class="c-icon-header">このブランドのシリーズ</h2>
-                        <ul class="p-brand-list">
+                    <h2 class="c-icon-header">シリーズ展開</h2>
+                        <ul class="p-series-list">
                             <?php foreach( $child_categories as $child_category ): ?>
-                            <li class="p-brand-list__item">
+                            <li class="p-series-list__item">
                                 <a class="c-label" href="<?php echo get_category_link($child_category->term_id); ?>">
                                     <?php echo $child_category->name; ?>
                                 </a>
@@ -66,9 +66,9 @@
 
             <section class="l-main__content-primary-third">
                 <h2 class="c-icon-header">カテゴリで検索</h2>
-                    <ul class="p-category-list">
+                    <ul class="p-category-with-count-list">
                         <?php foreach($tags as $tag) : ?>
-                            <li class="p-category-list__item">
+                            <li class="p-category-with-count-list__item">
                                 <a
                                     href="<?php echo get_category_link($cat) . '?category=' . $tag->term_id; ?>"
                                     class="c-label<?php if($_GET['category']==$tag->term_id) echo '--active'; ?>"
@@ -99,7 +99,7 @@
 
                 $the_query = new WP_Query($args); ?>
 
-                <h2 class="c-icon-header">該当商品一覧(<?php echo get_display_post_number(); ?>/<?php echo $the_query->found_posts; ?>件)</h2>
+                <h2 class="c-icon-header">該当商品一覧&nbsp;<?php echo get_display_post_number($the_query); ?>件を表示中&nbsp;(全<?php echo $the_query->found_posts; ?>件)</h2>
 
                 <ul class="p-item-list">
                 <?php
