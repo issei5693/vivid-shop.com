@@ -27,7 +27,7 @@ Template Name: ブランドリストページ
                             if( !empty( get_field('brand_thumbnail', $category->taxonomy.'_'.$category->term_id)) ) :?>
                                 <img class="p-brand-archive-list__img" src="<?php echo get_field('brand_thumbnail', $category->taxonomy.'_'.$category->term_id); ?>" alt="" >
                             <?php else: ?>
-                                <img class="p-brand-archive-list__img" src="https://placehold.jp/200x100.png?text=Vivid-shop">
+                                <img class="p-brand-archive-list__img" src="<?php echo get_template_directory_uri(); ?>/img/160x100.png">
                             <?php endif; ?>
                         </a>
                         <a class="p-brand-archive-list__text-link" href="<?php echo get_category_link($category->term_id); ?>">

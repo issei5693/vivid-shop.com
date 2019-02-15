@@ -23,8 +23,8 @@
 
             <div class="p-banners">
                 <ul>
-                    <li style="margin-bottom: 5px;"><a href=""><img style="width:100%" src="https://placehold.jp/820x100.png"" alt="バナー"></a></li>
-                    <li style="margin-bottom: 5px;"><a href=""><img style="width:100%" src="https://placehold.jp/820x100.png"" alt="バナー"></a></li>
+                    <li style="margin-bottom: 5px;"><a href=""><img style="width:100%" src="<?php echo get_template_directory_uri(); ?>/img/820x100.png" alt="バナー"></a></li>
+                    <li style="margin-bottom: 5px;"><a href=""><img style="width:100%" src="<?php echo get_template_directory_uri(); ?>/img/820x100.png" alt="バナー"></a></li>
                 </ul>
             </div>
         </div>
