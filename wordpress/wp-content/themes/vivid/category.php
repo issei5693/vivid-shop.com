@@ -19,7 +19,7 @@
                     if( !empty( get_field('brand_thumbnail', $category->taxonomy.'_'.$category->term_id)) ) :?>
                         <img class="c-card-lisence__img" src="<?php echo get_field('brand_thumbnail', $category->taxonomy.'_'.$category->term_id); ?>" alt="" >
                     <?php else: ?>
-                        <img class="c-card-lisence__img" src="https://placehold.jp/200x100.png?text=Vivid-shop">
+                        <img class="c-card-lisence__img" src="<?php echo get_template_directory_uri(); ?>/img/160x100.png">
                     <?php endif; ?>
                 </figure>
                 <?php
@@ -42,10 +42,10 @@
                 if( $child_categories) : ?>
 
                 <section class="l-main__content-primary-second">
-                    <h2 class="c-icon-header">このブランドのシリーズ</h2>
-                        <ul class="p-brand-list">
+                    <h2 class="c-icon-header">シリーズ展開</h2>
+                        <ul class="p-series-list">
                             <?php foreach( $child_categories as $child_category ): ?>
-                            <li class="p-brand-list__item">
+                            <li class="p-series-list__item">
                                 <a class="c-label" href="<?php echo get_category_link($child_category->term_id); ?>">
                                     <?php echo $child_category->name; ?>
                                 </a>
@@ -66,9 +66,9 @@
 
             <section class="l-main__content-primary-third">
                 <h2 class="c-icon-header">カテゴリで検索</h2>
-                    <ul class="p-category-list">
+                    <ul class="p-category-with-count-list">
                         <?php foreach($tags as $tag) : ?>
-                            <li class="p-category-list__item">
+                            <li class="p-category-with-count-list__item">
                                 <a
                                     href="<?php echo get_category_link($cat) . '?category=' . $tag->term_id; ?>"
                                     class="c-label<?php if($_GET['category']==$tag->term_id) echo '--active'; ?>"
@@ -99,7 +99,7 @@
 
                 $the_query = new WP_Query($args); ?>
 
-                <h2 class="c-icon-header"><?php echo $the_query->found_posts; ?>件の商品があります。</h2>
+                <h2 class="c-icon-header">該当商品一覧&nbsp;<?php echo get_display_post_number($the_query); ?>件を表示中&nbsp;(全<?php echo $the_query->found_posts; ?>件)</h2>
 
                 <ul class="p-item-list">
                 <?php
@@ -116,7 +116,7 @@
                                         </figure>
                                 <?php else: ?>
                                         <figure class="c-lisence-card__image">
-                                            <img class="c-lisence-card__img" src="https://placehold.jp/150x150.png?text=Vivid-shop" alt="<?php the_title(); ?>">    
+                                            <img class="c-lisence-card__img" src="<?php echo get_stylesheet_directory_uri(); ?>/img/150x150.png" alt="<?php the_title(); ?>">    
                                         </figure>
                                 <?php endif;  ?>
                             
@@ -142,14 +142,11 @@
                     endif;
                 ?>
             </ul>
+            <?php 
+                echo get_wp_query_pagenation($the_query);
+                wp_reset_postdata();
+            ?>
         </section>
-
-        <div>
-        <?php 
-            echo get_wp_query_pagenation($the_query);
-            wp_reset_postdata();
-        ?>
-        </div>
 
     </div>
     <aside class="l-main__content-secondary">

@@ -1,0 +1,48 @@
+@charset "utf-8";
+
+.p-pagenation {
+    padding: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+
+    %inner {
+        display: block;
+        padding: 15px;
+        border: solid 1px $color-main;
+        margin-bottom: 5px;
+    }
+
+    &__link {
+        @extend %inner;
+        &:hover {
+            background-color: $color-main;
+        }
+    }
+
+    &__active {
+        @extend %inner;
+        background-color: $color-main;
+    }
+
+    &__dot {
+        @extend %inner;
+        border: 0;
+    }
+
+
+
+    @include mq(){
+        justify-content: center;
+
+        &__item {
+            padding: 0 5px;
+        }
+
+        %inner {
+            border-radius: 3px;
+        }
+
+
+    }
+}

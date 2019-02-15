@@ -173,13 +173,13 @@ function get_wp_query_pagenation( $the_query, $number_display=5 ){
         $num_list = ''; // ラムダとは別の内部スコープ変数
 
         // ページャに表示される数字が1から始まらないときは「...」を出力する
-        if( $start_num != 1) $num_list .= sprintf($list,'p-pagenation__item--before-dot','span','c-tile--nh','','...');
+        if( $start_num != 1) $num_list .= sprintf($list,'p-pagenation__item','span','','','...');
 
         for( $i=$start_num; $i<=$end_num; $i++){
 
             if( ($paged==0 && $i==1) || ($paged == $i) ) {
                 // 出力する番号が現在表示中のページの場合
-                $num_list .= sprintf($list,'p-pagenation__item','span','c-tile is-pagenation-active','',$i);
+                $num_list .= sprintf($list,'p-pagenation__item','span','p-pagenation__active','',$i);
             } else {
                 // 出力する番号が現在表示中でないページの場合
                 $num_list .= ($i == 1) ?
@@ -187,14 +187,14 @@ function get_wp_query_pagenation( $the_query, $number_display=5 ){
                     sprintf($list,
                         'p-pagenation__item', // liに付与するクラス
                         'a',
-                        'c-tile',
+                        'p-pagenation__link',
                         'href="'. $url . $uri_param .'"',
                         $i
                     ) :
                     sprintf($list,
                         'p-pagenation__item',
                         'a',
-                        'c-tile',
+                        'p-pagenation__link',
                         'href="'. $url . 'page/' . $i .'/' . $uri_param . '"',
                         $i
                     );
@@ -202,8 +202,9 @@ function get_wp_query_pagenation( $the_query, $number_display=5 ){
 
         }
 
+        // 最後の表示数が出力されない場合は「...」を出力
         if( $end_num != $page_num){
-            $num_list .= sprintf($list,'p-pagenation__item--after-dot','span','c-tile--nh','','...');
+            $num_list .= sprintf($list,'p-pagenation__item','span','','','...');
         }
 
         return $num_list;
@@ -213,5 +214,29 @@ function get_wp_query_pagenation( $the_query, $number_display=5 ){
     $pagenation = sprintf('<ul class="p-pagenation">%s</ul>',$num_list());
 
     return $pagenation;
+
+}
+
+/**
+ * 
+ */
+function get_display_post_number($wp_query){
+
+    global $paged;
+    global $posts_per_page;
+    $paged = get_query_var('paged')? get_query_var('paged') : 1;
+
+    $start_num = '';
+    $end_num   = '';
+
+    if($paged == 1){
+        $start_num = 1;   
+    } else {
+        $start_num = ($paged-1) * $posts_per_page + 1;
+    }
+
+    $end_num = $start_num + $wp_query->post_count -1;
+
+    return $start_num . '〜' . $end_num;
 
 }

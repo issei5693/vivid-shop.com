@@ -23,7 +23,7 @@
 
                 $the_query = new WP_Query($args); ?>
 
-                <h2 class="c-icon-header">「<?php echo $tag->name; ?>」のカテゴリの商品一覧(<?php echo $the_query->found_posts; ?>件)。</h2>
+                <h2 class="c-icon-header">「<?php echo $tag->name; ?>」のカテゴリの商品一覧&nbsp;<?php echo get_display_post_number($the_query); ?>件を表示中&nbsp;(全<?php echo $the_query->found_posts; ?>件)</h2>
 
                 <ul class="p-item-list">
                 <?php
@@ -40,7 +40,7 @@
                                         </figure>
                                 <?php else: ?>
                                         <figure class="c-lisence-card__image">
-                                            <img class="c-lisence-card__img" src="https://placehold.jp/150x150.png?text=Vivid-shop" alt="<?php the_title(); ?>">    
+                                            <img class="c-lisence-card__img" src="<?php echo get_template_directory_uri(); ?>/img/150x150.png" alt="<?php the_title(); ?>">    
                                         </figure>
                                 <?php endif;  ?>
                             
@@ -64,9 +64,6 @@
                     <li class="p-item-list__item">商品はありません</li>
                 <?php endif; ?>
             </ul>
-        </div>
-
-        <div>
             <?php
                 echo get_wp_query_pagenation($the_query);
                 wp_reset_postdata();
