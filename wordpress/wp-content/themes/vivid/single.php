@@ -1,5 +1,7 @@
 <?php get_header(); ?>
 
+<?php $category = get_the_category()[0]; ?>
+
 <div class="l-main__content">
     <div class="l-main__content-primary">
 
@@ -10,7 +12,7 @@
                 </figure>
                 <section class="p-item__content">
                     <h2 class="p-item__header-title">
-                        <a class="p-item__sub-title" href="">メーカー名</a>
+                        <a class="p-item__sub-title" href="<?php echo get_category_link($category->term_id); ?>"><?php echo $category->name; ?></a>
                         <span class="p-item__title"><?php the_title(); ?></span>
                     </h2>
                     <table class="p-item__info">
@@ -43,7 +45,8 @@
         <?php // 関連商品
 
             $args = array(
-                'post__in' => array()
+                'post__in'          => array(),
+                'posts_per_page'    => 4
             );
 
             $the_query = new WP_Query($args);
@@ -52,11 +55,11 @@
 
                 <section class="l-main__content-primary-second">
                     <h2 class="c-icon-header">「<?php echo get_the_category()[0]->name; ?>」の関連商品</h2>
-                    <ul>
+                    <ul class="p-item-list">
                     <?php
                     if ($the_query->have_posts()) :
                         while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                            <li>
+                            <li class="p-item-list__item">
                                 <div class="c-lisence-card">
                                     <a class="c-lisence-card__link" href="<?php the_permalink(); ?>">
                                         <?php
@@ -95,7 +98,8 @@
         <?php // 同じブランドの商品 
 
             $args = array(
-                'post__in' => array()
+                'cat'               =>  get_the_category()[0]->term_id,
+                'posts_per_page'    =>  4
             );
 
             $the_query = new WP_Query($args);
@@ -103,12 +107,12 @@
             if(!empty($the_query->found_posts)): ?>
 
                 <section class="l-main__content-primary-third">
-                    <h2 class="c-icon-header">「<?php echo get_the_category()[0]->name; ?>」の関連商品</h2>
-                    <ul>
+                    <h2 class="c-icon-header">他の<?php echo get_the_category()[0]->name; ?>の商品</h2>
+                    <ul class="p-item-list">
                     <?php
                     if ($the_query->have_posts()) :
                         while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                            <li>
+                            <li class="p-item-list__item">
                                 <div class="c-lisence-card">
                                     <a class="c-lisence-card__link" href="<?php the_permalink(); ?>">
                                         <?php
@@ -144,10 +148,17 @@
             endif;
         ?>
 
-        <?php // 同じブランドの商品 タグが2子以上ついている場合はor条件で絞り込み。全てのタグ商品を検索。
+        <?php // 同じタグの商品 タグが2子以上ついている場合はor条件で絞り込み。全てのタグ商品を検索。
+
+            $tags = get_the_tags();
+            $tag_ids = array();
+            foreach($tags as $tag){
+                $tag_ids[] = $tag->term_id;
+            }
 
             $args = array(
-                'post__in' => array()
+                'tag__in'           => $tag_ids,
+                'posts_per_page'    =>  4
             );
 
             $the_query = new WP_Query($args);
@@ -155,15 +166,15 @@
             if(!empty($the_query->found_posts)): ?>
                 <section class="l-main__content-primary-fourth"">
                     <h2 class="c-icon-header"><?php 
-                        foreach(get_the_tags() as $tag ) {
+                        foreach($tags as $tag ) {
                             echo '「'.$tag->name.'」';
                         } ?>の他の商品
                     </h2>
-                    <ul>
+                    <ul class="p-item-list">
                     <?php
                     if ($the_query->have_posts()) :
                         while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                            <li>
+                            <li class="p-item-list__item">
                                 <div class="c-lisence-card">
                                     <a class="c-lisence-card__link" href="<?php the_permalink(); ?>">
                                         <?php

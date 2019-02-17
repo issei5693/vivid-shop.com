@@ -36,7 +36,7 @@
     &__info {
         width: 100%;
         margin-bottom: 20px;
-
+        border-collapse: separate;
     }
 
     &__info-title {
@@ -57,6 +57,32 @@
 
     @include mq(){
         display :flex;
+
+        &__image {
+            width: 30%;
+            max-width: none;
+        }
+
+        &__img {
+            width: 100%;
+        }
+
+        &__content {
+            width: 70%;
+        }
+
+        &__header-title {
+            padding: 0 10px;
+        }
+
+        &__info {
+            padding: 0 15px;
+        }
+
+        &__text {
+            padding: 5px 15px;
+        }
+    
 
     }
 }
