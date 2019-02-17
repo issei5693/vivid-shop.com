@@ -8,7 +8,7 @@
 <div class="l-main__content">
     <div class="l-main__content-primary">
 
-        <div class="l-main__content-primary-first">
+        <section class="l-main__content-primary-first">
             <?php
 
                 $paged = get_query_var('paged')? get_query_var('paged') : 1;
@@ -68,7 +68,7 @@
                 echo get_wp_query_pagenation($the_query);
                 wp_reset_postdata();
             ?>
-        </div>
+        </section>
 
         <section class="l-main__content-primary-second">
             <h2 class="c-icon-header">タグページ</h2>

@@ -8,7 +8,7 @@
 <div class="l-main__content">
     <div class="l-main__content-primary">
 
-        <div class="l-main__content-primary-first">
+        <section class="l-main__content-primary-first">
             <h2 class="c-icon-header">
                 <?php if(!empty($parent_category)) echo $parent_category->name.' - '; ?>
                 <?php echo $category->name; ?>
@@ -27,7 +27,7 @@
                     <p class="c-lcard-lisence__content"><?php echo category_description( $category->term_id ); ?></p>
                 <?php endif; ?>
             </div>
-        </div>
+        </section>
 
         <?php if($category->parent == 0 ) : ?>
 

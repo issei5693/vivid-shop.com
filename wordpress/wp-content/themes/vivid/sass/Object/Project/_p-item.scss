@@ -1,0 +1,62 @@
+@charset "utf-8";
+
+.p-item {
+    
+    &__image {
+        max-width: 150px;
+        margin: 0 auto;
+
+    }
+
+    &__img {
+        width: 100%;
+    }
+
+    &__content {
+
+    }
+
+    &__header-title {
+        margin-bottom: 20px;
+        border-bottom: solid 2px $color_main;
+    }
+
+    &__sub-title {
+        display: inline-block;
+        padding: 5px;
+    }
+
+    &__title {
+        display: block;
+        padding: 5px;
+        font-weight: bold;
+        font-size: $font_lg;
+    }
+
+    &__info {
+        width: 100%;
+        margin-bottom: 20px;
+
+    }
+
+    &__info-title {
+        text-align: left;
+        padding: 8px;
+        border-bottom: dotted 1px $color_gray;;
+    }
+
+    &__info-data {
+        text-align: left;
+        padding: 8px;
+        border-bottom: dotted 1px $color_gray;;
+    }
+
+    &__text {
+        padding: 5px;
+    }
+
+    @include mq(){
+        display :flex;
+
+    }
+}
