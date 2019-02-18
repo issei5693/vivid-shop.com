@@ -1,6 +1,9 @@
 <?php get_header(); ?>
 
-<?php $category = get_the_category()[0]; ?>
+<?php
+    $category = get_the_category()[0];
+    $tags = get_the_tags();    
+?>
 
 <div class="l-main__content">
     <div class="l-main__content-primary">
@@ -8,7 +11,12 @@
         <div class="l-main__content-primary-first">
             <div class="p-item">
                 <figure class="p-item__image">
-                    <img class="p-item__img" src="<?php echo get_template_directory_uri(); ?>/img/150x150.png">
+                    <?php
+                        if (has_post_thumbnail()): ?>
+                            <img class="p-item__img" src="<?php the_post_thumbnail_url( 'full' ); ?>" alt="<?php the_title(); ?>">
+                    <?php else: ?>
+                            <img class="p-item__img" src="<?php echo get_stylesheet_directory_uri(); ?>/img/150x150.png" alt="<?php the_title(); ?>">    
+                    <?php endif;  ?>         
                 </figure>
                 <section class="p-item__content">
                     <h2 class="p-item__header-title">
@@ -19,7 +27,9 @@
                         <tbody>
                             <tr>
                                 <th class="p-item__info-title">カテゴリ</th>
-                                <td class="p-item__info-data">ローション</td>
+                                <td class="p-item__info-data">
+                                    <?php foreach($tags as $tag){ echo $tag->name.'&nbsp;'; } ?>
+                                </td>
                             </tr>
                             <tr>
                                 <th class="p-item__info-title">通常価格</th>
@@ -54,7 +64,7 @@
             if(!empty($the_query->found_posts)): ?>
 
                 <section class="l-main__content-primary-second">
-                    <h2 class="c-icon-header">「<?php echo get_the_category()[0]->name; ?>」の関連商品</h2>
+                    <h2 class="c-icon-header">「<?php the_title(); ?>」の関連商品</h2>
                     <ul class="p-item-list">
                     <?php
                     if ($the_query->have_posts()) :
@@ -98,7 +108,7 @@
         <?php // 同じブランドの商品 
 
             $args = array(
-                'cat'               =>  get_the_category()[0]->term_id,
+                'cat'               =>  $category->term_id,
                 'posts_per_page'    =>  4
             );
 
@@ -107,7 +117,7 @@
             if(!empty($the_query->found_posts)): ?>
 
                 <section class="l-main__content-primary-third">
-                    <h2 class="c-icon-header">他の<?php echo get_the_category()[0]->name; ?>の商品</h2>
+                    <h2 class="c-icon-header">他の<?php echo $category->name; ?>の商品</h2>
                     <ul class="p-item-list">
                     <?php
                     if ($the_query->have_posts()) :
@@ -150,7 +160,6 @@
 
         <?php // 同じタグの商品 タグが2子以上ついている場合はor条件で絞り込み。全てのタグ商品を検索。
 
-            $tags = get_the_tags();
             $tag_ids = array();
             foreach($tags as $tag){
                 $tag_ids[] = $tag->term_id;
@@ -168,7 +177,7 @@
                     <h2 class="c-icon-header"><?php 
                         foreach($tags as $tag ) {
                             echo '「'.$tag->name.'」';
-                        } ?>の他の商品
+                        } ?>カテゴリの他の商品
                     </h2>
                     <ul class="p-item-list">
                     <?php

@@ -77,6 +77,7 @@
                 <li class="p-global-nav-list__item"><a class="p-global-nav-list__link" href="">グロナビ項目</a></li> -->
             </ul>
         </div>
+        <?php echo get_the_breadcrumb(); ?>
     </header>
 
     <main class="l-main">

@@ -175,7 +175,7 @@ function get_wp_query_pagenation( $the_query, $number_display=5 ){
         // ページャに表示される数字が1から始まらないときは「...」を出力する
         if( $start_num != 1) $num_list .= sprintf($list,'p-pagenation__item','span','','','...');
 
-        for( $i=$start_num; $i<=$end_num; $i++){
+        for($i=$start_num; $i<=$end_num; $i++){
 
             if( ($paged==0 && $i==1) || ($paged == $i) ) {
                 // 出力する番号が現在表示中のページの場合
@@ -239,4 +239,106 @@ function get_display_post_number($wp_query){
 
     return $start_num . '〜' . $end_num;
 
+}
+
+/**
+ * 親カテゴリの再帰取得
+ *
+ * @param [type] $category_id
+ * @param array $cat_hierarchies
+ * @return void
+ */
+function get_the_category_hierarchy($category_id, $cat_hierarchies=[]) {
+    $cat_object = get_category($category_id);
+    $cat_hierarchies[] = $cat_object;
+
+    if($cat_object->parent){
+        $cat_hierarchies = get_the_category_hierarchy($cat_object->parent, $cat_hierarchies);
+    }
+
+    return $cat_hierarchies;
+
+}
+
+/**
+ * パンクズ出力
+ * @todo 分岐が多くなってきたのでcase分に変更
+ */
+function get_the_breadcrumb(){
+
+    $home_tag = '<li class="p-breadcrumb-list_item"><a href="'.home_url().'">' . 'TOP' . '</a></li>';
+
+    $outer_tag =
+    '<div class="p-breadcrumb">
+        <ul class="p-breadcrumb-list">
+            %s
+        </ul>
+    </div>';
+
+    $link_li = '<li class="p-breadcrumb-list_item"><a href="%s">%s</a></li>';
+
+    $span_li = '<li class="p-breadcrumb-list_item"><span>%s</span></li>';
+
+    $tag = '';
+    if(is_home()||is_front_page()){
+        return false;
+
+    } elseif(is_category()) {
+        global $cat;
+        $category_hierarchies = array_reverse(get_the_category_hierarchy($cat));
+
+
+        foreach($category_hierarchies as $key=>$category_hierarchy){
+            $tag .= $key == (count($category_hierarchies)-1) ?
+                sprintf($span_li, $category_hierarchy->name) :
+                sprintf($link_li, get_category_link($category_hierarchy->term_id), $category_hierarchy->name);
+        }
+
+        return sprintf($outer_tag, $home_tag.$tag);
+
+    }  elseif(is_tag()) {
+        global $tag_id;
+        $tag .= sprintf($span_li, get_term($tag_id)->name);
+
+        return sprintf($outer_tag, $home_tag.$tag);
+
+    } elseif(is_post_type_archive()){
+        $tag .= sprintf($span_li, post_type_archive_title('',false));
+        return sprintf($outer_tag, $home_tag.$tag);
+
+    } elseif(is_singular( ['dictionary'] )){
+        $tag .= sprintf($link_li, get_post_type_archive_link(get_post_type()), get_post_type_object(get_post_type())->labels->name);
+        $tag .= sprintf($span_li, get_the_title());
+        return sprintf($outer_tag, $home_tag.$tag);
+
+    } elseif(is_single()){
+        $category = get_the_category();
+        $category_hierarchies = array_reverse(get_the_category_hierarchy($category[count($category)-1]->term_id));
+        foreach($category_hierarchies as $key=>$category_hierarchy){
+            $tag .= sprintf($link_li, get_category_link($category_hierarchy->term_id), $category_hierarchy->name);
+        }
+
+        $tag .= sprintf($span_li, get_the_title());
+        return sprintf($outer_tag, $home_tag.$tag);
+
+    } elseif(is_page()){
+        $tag .= sprintf($span_li, get_the_title());
+        return sprintf($outer_tag, $home_tag.$tag);
+
+    } elseif(is_search()){
+        $tag .= sprintf($span_li,'検索結果');
+        return sprintf($outer_tag, $home_tag.$tag);
+
+    } elseif(is_author()){
+        $tag .= sprintf($link_li, get_permalink(get_page_by_path('authors')->ID), get_the_title(get_page_by_path('authors')->ID));
+        $tag .= sprintf($span_li, get_userdata($GLOBALS['author'])->display_name);
+        return sprintf($outer_tag, $home_tag.$tag);
+
+    } elseif(is_404()){
+        $tag .= sprintf($span_li,'404');
+        return sprintf($outer_tag, $home_tag.$tag);
+
+    } else {
+        return '<p style="display:none;">パンクズ出力想定外のページです。必要であればfunctions.phpを編集してください。</p>';
+    }
 }
