@@ -27,6 +27,8 @@
     }
 
     @include mq(){
+        margin-top: 50px;
+        
         &__primary {
             display: block;
         }

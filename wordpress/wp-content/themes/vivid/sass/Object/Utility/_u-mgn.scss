@@ -2,6 +2,14 @@
 
 $num: 10;
 @for $i from 0 through 10 {
+    // margin
+    .u-mgn-#{$i*$num} {
+        margin: #{$i*$num}px !important;
+    }
+
+    .u-mgn-tp-#{$i*$num} {
+        margin-top: #{$i*$num}px !important;
+    }
     .u-mgn-btm-#{$i*$num} {
         margin-bottom: #{$i*$num}px !important;
     }
@@ -9,5 +17,59 @@ $num: 10;
     .u-mgn-lft-#{$i*$num} {
         margin-left: #{$i*$num}px !important;
     }
+
+    .u-mgn-rght-#{$i*$num} {
+        margin-right: #{$i*$num}px !important;
+    }
+
+    .u-mgn-horizon-#{$i*$num} {
+        margin: {
+            left: #{$i*$num}px !important;
+            right: #{$i*$num}px !important;
+        }
+    }
+
+    .u-mgn-vertical-#{$i*$num} {
+        margin: {
+            top: #{$i*$num}px !important;
+            bottom: #{$i*$num}px !important;
+        }
+    }
+
+    // padding
+    .u-pdg-#{$i*$num} {
+        padding: #{$i*$num}px !important;
+    }
+
+    .u-pdg-tp-#{$i*$num} {
+        margin-top: #{$i*$num}px !important;
+    }
+    .u-pdg-btm-#{$i*$num} {
+        margin-bottom: #{$i*$num}px !important;
+    }
+
+    .u-pdg-lft-#{$i*$num} {
+        padding-left: #{$i*$num}px !important;
+    }
+
+    .u-pdg-rght-#{$i*$num} {
+        padding-right: #{$i*$num}px !important;
+    }
+
+    .u-pdg-horizon-#{$i*$num} {
+        padding: {
+            left: #{$i*$num}px !important;
+            right: #{$i*$num}px !important;
+        }
+    }
+
+    .u-pdg-vertical-#{$i*$num} {
+        padding: {
+            top: #{$i*$num}px !important;
+            bottom: #{$i*$num}px !important;
+        }
+    }
+
+
 }
 

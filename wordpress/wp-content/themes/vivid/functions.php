@@ -45,6 +45,8 @@ remove_filter('the_excerpt', 'wpautop');
 /**
  * ウィジットエリアの追加
  */
+
+// 新着情報
 register_sidebar(array(
     'name' => '新着情報' ,
     'id' => 'news' ,
@@ -54,6 +56,51 @@ register_sidebar(array(
     'before_title' => '',
     'after_title' => ''
 ));
+
+// スライダー
+register_sidebar(array(
+    'name' => 'スライダー' ,
+    'id' => 'slider' ,
+    'description' => 'スライダー画像を設定します。',
+    'before_widget' => '',
+    'after_widget' => '',
+    'before_title' => '',
+    'after_title' => ''
+));
+
+// トップページサブバナー(2箇所)
+register_sidebar(array(
+    'name' => 'トップページサブバナー' ,
+    'id' => 'top_page_sub_banner' ,
+    'description' => 'トップページサブバナーの画像を設定します。',
+    'before_widget' => '',
+    'after_widget' => '',
+    'before_title' => '',
+    'after_title' => ''
+));
+
+// トップページフッターバナー'
+register_sidebar(array(
+    'name' => 'トップページフッターバナー' ,
+    'id' => 'top_page_footer_banner' ,
+    'description' => 'トップページフッターバナーの画像を設定します。',
+    'before_widget' => '',
+    'after_widget' => '',
+    'before_title' => '',
+    'after_title' => ''
+));
+
+// サイドバナー
+register_sidebar(array(
+    'name' => 'サイドバナー' ,
+    'id' => 'side_banner' ,
+    'description' => 'サイドバナーの画像を設定します。',
+    'before_widget' => '',
+    'after_widget' => '',
+    'before_title' => '',
+    'after_title' => ''
+));
+
 
 /**
  * ウィジットタイトルの無効化
@@ -218,9 +265,12 @@ function get_wp_query_pagenation( $the_query, $number_display=5 ){
 }
 
 /**
- * 
+ * 取得件数と表示件数の表示
  */
 function get_display_post_number($wp_query){
+
+    // 一件も取得できていない場合は「0件」
+    if ($wp_query->found_posts == 0) return 0;
 
     global $paged;
     global $posts_per_page;
@@ -266,7 +316,7 @@ function get_the_category_hierarchy($category_id, $cat_hierarchies=[]) {
  */
 function get_the_breadcrumb(){
 
-    $home_tag = '<li class="p-breadcrumb-list_item"><a href="'.home_url().'">' . 'TOP' . '</a></li>';
+    $home_tag = '<li class="p-breadcrumb-list__item"><a class="p-breadcrumb-list__link" href="'.home_url().'">' . 'TOP' . '</a></li>';
 
     $outer_tag =
     '<div class="p-breadcrumb">
@@ -275,9 +325,9 @@ function get_the_breadcrumb(){
         </ul>
     </div>';
 
-    $link_li = '<li class="p-breadcrumb-list_item"><a href="%s">%s</a></li>';
+    $link_li = '<li class="p-breadcrumb-list__item"><a class="p-breadcrumb-list__link" href="%s">%s</a></li>';
 
-    $span_li = '<li class="p-breadcrumb-list_item"><span>%s</span></li>';
+    $span_li = '<li class="p-breadcrumb-list__item"><span>%s</span></li>';
 
     $tag = '';
     if(is_home()||is_front_page()){
@@ -341,4 +391,126 @@ function get_the_breadcrumb(){
     } else {
         return '<p style="display:none;">パンクズ出力想定外のページです。必要であればfunctions.phpを編集してください。</p>';
     }
+}
+
+/**
+ * 構造化データパンクズ
+ *
+ * @return void
+ */
+function get_json_ld_breadcrumb() {
+
+    $schema_url = 'http://schema.org/';
+
+    $breabcrumb_data = array(
+        '@context'          =>   $schema_url,
+        '@type'             =>   'BreadcrumbList',
+        'itemListElement'   =>   '',
+    );
+
+    $ListItem = function( $position, $id='', $name){
+        return array(
+            '@type'     =>  'ListItem',
+            'position'  =>  $position, // 1
+            'item'      => array(
+                    '@id'   =>  $id, // 'http://ecotopia.earth'
+                    'name'  =>  $name // エコトピア
+            )
+        );
+    };
+
+    $itemListElements = array(
+        $ListItem(1, home_url(), get_bloginfo('name'))
+    );
+
+    if(is_home() || is_front_page()){
+        //
+
+    } else if(is_page()){
+        $itemListElements[] = $ListItem(2, get_the_permalink(), get_the_title());
+
+    } else if(is_category()){
+        global $cat;
+        $position_counter = 2;
+
+        $category_hierarchies = array_reverse(get_the_category_hierarchy($cat));
+        foreach($category_hierarchies as $category_hierarchy){
+            $itemListElements[] = $ListItem($position_counter, get_category_link($category_hierarchy->term_id), $category_hierarchy->name);
+            $position_counter++;
+        }
+
+    } elseif(is_post_type_archive()){
+        $position_counter = 2;
+        $itemListElements[] = $ListItem($position_counter, get_post_type_archive_link(get_post_type()), get_post_type_object(get_post_type())->labels->name);
+
+    // } elseif(is_singular( ['dictionary'] )){
+    //     $position_counter = 2;
+    //     $itemListElements[] = $ListItem($position_counter, get_post_type_archive_link(get_post_type()), get_post_type_object(get_post_type())->labels->name);
+    //     $position_counter++;
+    //     $itemListElements[] = $ListItem($position_counter, get_the_permalink(), get_the_title());
+
+    } else if(is_single()){
+        $category = get_the_category();
+        $position_counter = 2;
+
+        $cat = $category[count($category)-1]->term_id;
+
+        $category_hierarchies = array_reverse(get_the_category_hierarchy($cat));
+        foreach($category_hierarchies as $category_hierarchy){
+            $itemListElements[] = $ListItem($position_counter, get_category_link($category_hierarchy->term_id), $category_hierarchy->name);
+            $position_counter++;
+        }
+
+        $itemListElements[] = $ListItem($position_counter, get_the_permalink(), get_the_title());
+
+    }
+
+    else if(is_tag()){
+        global $tag_id;
+        $itemListElements[] = $ListItem(2, get_term_link($tag_id), get_term($tag_id)->name);
+
+    } else if(is_search()){
+        return false;
+
+    } elseif(is_author()){
+        $position_counter = 2;
+        $itemListElements[] = $ListItem($position_counter, get_permalink(get_page_by_path('authors')->ID), get_the_title(get_page_by_path('authors')->ID));
+        $position_counter++;
+        $itemListElements[] = $ListItem($position_counter, get_author_posts_url($GLOBALS['author']), get_userdata($GLOBALS['author'])->display_name);
+
+    } else if(is_404()){
+        return false;
+
+    } else {
+        return '<!-- <p style="display:none;">出力条件未定義です</p> -->';
+    }
+
+    $breabcrumb_data['itemListElement'] = $itemListElements;
+
+    $json_data = json_encode($breabcrumb_data, JSON_UNESCAPED_UNICODE); // JSON_UNESCAPED_SLASHES
+
+    $script_json_data = sprintf('<script type="application/ld+json">%s</script>', $json_data);
+
+    return $script_json_data;
+}
+
+/**
+ * 関連商品のIDを取得
+ */
+function get_relation_item_ids($post_meta){
+    // カンマ区切りをexplode
+
+    $ids = explode(',', $post_meta);
+
+    foreach($ids as $id){
+        // 半角 or 全角スペース削除
+        $id = preg_replace("/( |　)+/", "", $id );
+
+        // 数字 or 数値文字であることを判定
+        $id = is_numeric($id) ? $id : null ;
+
+        if(!is_null($id)) $normalized_ids[] = $id;
+    }
+    
+    return $normalized_ids;
 }

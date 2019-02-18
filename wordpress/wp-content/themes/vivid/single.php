@@ -54,52 +54,54 @@
 
         <?php // 関連商品
 
-            $args = array(
-                'post__in'          => array(),
-                'posts_per_page'    => 4
-            );
+            $relation_item_ids = get_relation_item_ids(get_field('relation_items'));
 
-            $the_query = new WP_Query($args);
+            if(!is_null($relation_item_ids)): 
 
-            if(!empty($the_query->found_posts)): ?>
+                $args = array(
+                    'post__in'          => $relation_item_ids,
+                    'posts_per_page'    => 4
+                );
 
-                <section class="l-main__content-primary-second">
-                    <h2 class="c-icon-header">「<?php the_title(); ?>」の関連商品</h2>
-                    <ul class="p-item-list">
-                    <?php
-                    if ($the_query->have_posts()) :
-                        while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                            <li class="p-item-list__item">
-                                <div class="c-lisence-card">
-                                    <a class="c-lisence-card__link" href="<?php the_permalink(); ?>">
-                                        <?php
-                                            if (has_post_thumbnail()): ?>
-                                                <figure class="c-lisence-card__image">
-                                                    <img class="c-lisence-card__img" src="<?php the_post_thumbnail_url( 'full' ); ?>" alt="<?php the_title(); ?>">
-                                                </figure>
-                                        <?php else: ?>
-                                                <figure class="c-lisence-card__image">
-                                                    <img class="c-lisence-card__img" src="<?php echo get_stylesheet_directory_uri(); ?>/img/150x150.png" alt="<?php the_title(); ?>">    
-                                                </figure>
-                                        <?php endif;  ?>
-                                    
-                                        <h3 class="c-lisence-card__title">
-                                            <span class="c-lisence-card__section"><?php echo get_the_category($id)[0]->name; ?></span>
-                                            <span class="c-lisence-card__section"><?php the_title(); ?></span>
-                                        </h3>
-                                        <p class="c-lisence-card__content">
-                                            <span class="c-lisence-card__section">30% OFF</span>
-                                            <span class="c-lisence-card__price">¥10,000円</span>
-                                            <s>¥15,000円</s>
-                                        </p>
-                                    </a>
-                                </div>
-                            </li>
-                        <?php endwhile;
-                    endif;
-                    wp_reset_postdata();
-                    ?>
-                </section>
+                $the_query = new WP_Query($args); ?>
+
+                    <section class="l-main__content-primary-second">
+                        <h2 class="c-icon-header">「<?php the_title(); ?>」の関連商品</h2>
+                        <ul class="p-item-list">
+                        <?php
+                        if ($the_query->have_posts()) :
+                            while ($the_query->have_posts()) : $the_query->the_post(); ?>
+                                <li class="p-item-list__item">
+                                    <div class="c-lisence-card">
+                                        <a class="c-lisence-card__link" href="<?php the_permalink(); ?>">
+                                            <?php
+                                                if (has_post_thumbnail()): ?>
+                                                    <figure class="c-lisence-card__image">
+                                                        <img class="c-lisence-card__img" src="<?php the_post_thumbnail_url( 'full' ); ?>" alt="<?php the_title(); ?>">
+                                                    </figure>
+                                            <?php else: ?>
+                                                    <figure class="c-lisence-card__image">
+                                                        <img class="c-lisence-card__img" src="<?php echo get_stylesheet_directory_uri(); ?>/img/150x150.png" alt="<?php the_title(); ?>">    
+                                                    </figure>
+                                            <?php endif;  ?>
+                                        
+                                            <h3 class="c-lisence-card__title">
+                                                <span class="c-lisence-card__section"><?php echo get_the_category($id)[0]->name; ?></span>
+                                                <span class="c-lisence-card__section"><?php the_title(); ?></span>
+                                            </h3>
+                                            <p class="c-lisence-card__content">
+                                                <span class="c-lisence-card__section">30% OFF</span>
+                                                <span class="c-lisence-card__price">¥10,000円</span>
+                                                <s>¥15,000円</s>
+                                            </p>
+                                        </a>
+                                    </div>
+                                </li>
+                            <?php endwhile;
+                        endif;
+                        wp_reset_postdata();
+                        ?>
+                    </section>
 
         <?php
             endif;

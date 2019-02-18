@@ -3,7 +3,7 @@
 <div class="l-main__content">
     <div class="l-main__content-primary">
 
-        <div class="l-main__content-primary-first">
+        <div class="l-main__content-primary-first u-pdg-horizon-0">
             <div class="p-first-view">
                 <div class="swiper-container swiper-firstview">
                     <ul class="swiper-wrapper">

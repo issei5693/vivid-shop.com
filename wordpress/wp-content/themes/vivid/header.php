@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     <title>Yoast SEO</title>
     <meta name="description" content="Yoast SEO">
+    <?php echo get_json_ld_breadcrumb(); ?>
 
     <?php wp_head(); ?>
 </head>
@@ -72,12 +73,15 @@
             <ul class="p-global-nav-list">
                 <li class="p-global-nav-list__item"><a class="p-global-nav-list__link" href="<?php echo home_url(); ?>">TOP</a></li>
                 <li class="p-global-nav-list__item"><a class="p-global-nav-list__link" href="<?php echo home_url(); ?>/brand-list">ブランドから探す</a></li>
-                <li class="p-global-nav-list__item"><a class="p-global-nav-list__link" href="">カテゴリから探す</a></li>
-                <!-- <li class="p-global-nav-list__item"><a class="p-global-nav-list__link" href="">グロナビ項目</a></li>
-                <li class="p-global-nav-list__item"><a class="p-global-nav-list__link" href="">グロナビ項目</a></li> -->
+                <li class="p-global-nav-list__item"><a class="p-global-nav-list__link" href="<?php echo home_url(); ?>/category-list">カテゴリから探す</a></li>
+                <li class="p-global-nav-list__item"><a class="p-global-nav-list__link" href="">ご注文方法</a></li>
+                <li class="p-global-nav-list__item"><a class="p-global-nav-list__link" href="">お支払い方法</a></li> 
+                <li class="p-global-nav-list__item"><a class="p-global-nav-list__link" href="">お問い合わせ</a></li> 
             </ul>
         </div>
-        <?php echo get_the_breadcrumb(); ?>
+        <div class="l-header__tertiary">
+            <?php echo get_the_breadcrumb(); ?>
+        </div>
     </header>
 
     <main class="l-main">

@@ -1,0 +1,40 @@
+@charset "utf-8";
+
+.p-breadcrumb-list {
+
+    border-bottom: solid 1px $color_thin_gray;
+    padding: {
+        top: 8px;
+        right: 0;
+        left: 8px;
+        bottom: 10px;
+    }
+    white-space: nowrap;
+    overflow-x: scroll;
+
+    &__item {
+        display: inline-block;
+        
+        &::after {
+            content: '>';
+            color: $color_gray;
+            padding: 0 10px;
+        }
+
+        &:last-child::after {
+            content: '';
+        }
+    }
+
+    &__link {
+        text-decoration: underline;
+    }
+    
+    @include mq(){
+        white-space: visible;
+        overflow-x: visible;
+        padding: 10px;
+        border-bottom: 0;
+    }
+
+}
