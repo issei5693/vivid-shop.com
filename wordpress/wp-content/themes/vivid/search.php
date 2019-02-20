@@ -11,14 +11,15 @@
                 $key_word = $_GET['s'];
                 
                 $args = array(
-                    's'        => $key_word,
-                    'paged'    => $paged
+                    's'             => $key_word,
+                    'post_type'     => 'post',
+                    'paged'         => $paged
                     
                 );
 
                 $the_query = new WP_Query($args); ?>
 
-                <h2 class="c-icon-header">「<?php echo $s; ?>」のキーワードを含む商品&nbsp;<?php echo get_display_post_number($the_query); ?>件を表示中&nbsp;(全<?php echo $the_query->found_posts; ?>件)</h2>
+                <h1 class="c-icon-header">「<?php echo $s; ?>」のキーワードを含む商品&nbsp;<?php echo get_display_post_number($the_query); ?>件を表示中&nbsp;(全<?php echo $the_query->found_posts; ?>件)</h1>
 
                 <?php if ($the_query->have_posts()) : ?>
 
@@ -35,7 +36,7 @@
                                             </figure>
                                     <?php else: ?>
                                             <figure class="c-lisence-card__image">
-                                                <img class="c-lisence-card__img" src="<?php echo get_stylesheet_directory_uri(); ?>/img/150x150.png" alt="<?php the_title(); ?>">    
+                                                <img class="c-lisence-card__img" src="<?php echo get_stylesheet_directory_uri(); ?>/img/ni_item-thumbnail.png" alt="<?php the_title(); ?>">    
                                             </figure>
                                     <?php endif;  ?>
                                 

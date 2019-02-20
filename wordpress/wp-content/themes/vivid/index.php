@@ -2,15 +2,13 @@
 
 <div class="l-main__content">
     <div class="l-main__content-primary">
-
         <div class="l-main__content-primary-first u-pdg-horizon-0">
             <div class="p-first-view">
+                <?php
+                //if(dynamic_sidebar('slider')): ?>
                 <div class="swiper-container swiper-firstview">
                     <ul class="swiper-wrapper">
-                        <li class="swiper-slide"><img style="width:100%" src="<?php echo get_template_directory_uri(); ?>/img/dammy-img-blue-820x400.png" alt="スライダー画像"></li>
-                        <li class="swiper-slide"><img style="width:100%" src="<?php echo get_template_directory_uri(); ?>/img/dammy-img-lime-820x400.png" alt="スライダー画像"></li>
-                        <li class="swiper-slide"><img style="width:100%" src="<?php echo get_template_directory_uri(); ?>/img/dammy-img-skyblue-820x400.png" alt="スライダー画像"></li>
-                        <li class="swiper-slide"><img style="width:100%" src="<?php echo get_template_directory_uri(); ?>/img/dammy-img-lime-820x400.png" alt="スライダー画像"></li>
+                        <?php if(!dynamic_sidebar('slider')) ?>
                     </ul>
 
                     <div class="swiper-pagination"></div>
@@ -19,14 +17,13 @@
                     <div class="swiper-button-next"></div>
 
                 </div>
+                <?php// endif; ?>
             </div>
 
-            <div class="p-banners">
-                <ul>
-                    <li style="margin-bottom: 5px;"><a href=""><img style="width:100%" src="<?php echo get_template_directory_uri(); ?>/img/820x100.png" alt="バナー"></a></li>
-                    <li style="margin-bottom: 5px;"><a href=""><img style="width:100%" src="<?php echo get_template_directory_uri(); ?>/img/820x100.png" alt="バナー"></a></li>
-                </ul>
-            </div>
+            <ul class="p-top-page-sub-banner-list">
+                <?php if(!dynamic_sidebar('top_page_sub_banner')); ?>
+            </ul>
+
         </div>
 
         <section class="l-main__content-primary-second">
@@ -40,24 +37,22 @@
                 <ul class="swiper-wrapper p-recommend-list">
 
                     <li class="swiper-slide p-recommend-list__item">
-
-                            <div class="c-card">
-                                <a class="c-card__link">
-                                    <figure class="c-card__image">
-                                        <img class="c-card__img" src="<?php echo get_template_directory_uri(); ?>/img/dammy_125x124.jpg" alt="今月のおすすめ商品"å>
-                                    </figure>
-                                    <h3 class="c-card__title">
-                                        <span class="c-card__section">アルソア</span>
-                                        <span class="c-card__section">クイーンシルバー（リフィル）</span>
-                                    </h3>
-                                    <p class="c-card__content">
-                                        <span class="c-card__section">30% OFF</span>
-                                        <span class="c-card__price">¥10,000円</span>
-                                        <s>¥15,000円</s>
-                                    </p>
-                                </a>
-                            </div>
-
+                        <div class="c-card">
+                            <a class="c-card__link">
+                                <figure class="c-card__image">
+                                    <img class="c-card__img" src="<?php echo get_template_directory_uri(); ?>/img/dammy_125x124.jpg" alt="今月のおすすめ商品"å>
+                                </figure>
+                                <h3 class="c-card__title">
+                                    <span class="c-card__section">アルソア</span>
+                                    <span class="c-card__section">クイーンシルバー（リフィル）</span>
+                                </h3>
+                                <p class="c-card__content">
+                                    <span class="c-card__section">30% OFF</span>
+                                    <span class="c-card__price">¥10,000円</span>
+                                    <s>¥15,000円</s>
+                                </p>
+                            </a>
+                        </div>
                     </li>
 
                     <li class="swiper-slide p-recommend-list__item">

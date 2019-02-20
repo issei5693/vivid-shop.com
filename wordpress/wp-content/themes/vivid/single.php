@@ -15,14 +15,14 @@
                         if (has_post_thumbnail()): ?>
                             <img class="p-item__img" src="<?php the_post_thumbnail_url( 'full' ); ?>" alt="<?php the_title(); ?>">
                     <?php else: ?>
-                            <img class="p-item__img" src="<?php echo get_stylesheet_directory_uri(); ?>/img/150x150.png" alt="<?php the_title(); ?>">    
+                            <img class="p-item__img" src="<?php echo get_stylesheet_directory_uri(); ?>/img/ni_item-thumbnail.png" alt="<?php the_title(); ?>">    
                     <?php endif;  ?>         
                 </figure>
                 <section class="p-item__content">
-                    <h2 class="p-item__header-title">
+                    <h1 class="p-item__header-title">
                         <a class="p-item__sub-title" href="<?php echo get_category_link($category->term_id); ?>"><?php echo $category->name; ?></a>
                         <span class="p-item__title"><?php the_title(); ?></span>
-                    </h2>
+                    </h1>
                     <table class="p-item__info">
                         <tbody>
                             <tr>
@@ -81,7 +81,7 @@
                                                     </figure>
                                             <?php else: ?>
                                                     <figure class="c-lisence-card__image">
-                                                        <img class="c-lisence-card__img" src="<?php echo get_stylesheet_directory_uri(); ?>/img/150x150.png" alt="<?php the_title(); ?>">    
+                                                        <img class="c-lisence-card__img" src="<?php echo get_stylesheet_directory_uri(); ?>/img/ni_item-thumbnail.png" alt="<?php the_title(); ?>">    
                                                     </figure>
                                             <?php endif;  ?>
                                         
@@ -134,7 +134,7 @@
                                                 </figure>
                                         <?php else: ?>
                                                 <figure class="c-lisence-card__image">
-                                                    <img class="c-lisence-card__img" src="<?php echo get_stylesheet_directory_uri(); ?>/img/150x150.png" alt="<?php the_title(); ?>">    
+                                                    <img class="c-lisence-card__img" src="<?php echo get_stylesheet_directory_uri(); ?>/img/ni_item-thumbnail.png" alt="<?php the_title(); ?>">    
                                                 </figure>
                                         <?php endif;  ?>
                                     
@@ -195,7 +195,7 @@
                                                 </figure>
                                         <?php else: ?>
                                                 <figure class="c-lisence-card__image">
-                                                    <img class="c-lisence-card__img" src="<?php echo get_stylesheet_directory_uri(); ?>/img/150x150.png" alt="<?php the_title(); ?>">    
+                                                    <img class="c-lisence-card__img" src="<?php echo get_stylesheet_directory_uri(); ?>/img/ni_item-thumbnail.png" alt="<?php the_title(); ?>">    
                                                 </figure>
                                         <?php endif;  ?>
                                     

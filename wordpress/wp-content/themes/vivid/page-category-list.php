@@ -10,7 +10,7 @@ Template Name: カテゴリリストページ
     <div class="l-main__content-primary">
 
         <div class="l-main__content-primary-first">
-            <h2 class="c-icon-header"><?php the_title(); ?></h2>
+            <h1 class="c-icon-header"><?php the_title(); ?></h1>
             <ul class="p-category-list">
                 <?php
                 $tags = get_tags();

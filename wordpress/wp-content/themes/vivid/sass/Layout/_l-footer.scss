@@ -31,6 +31,9 @@
         
         &__primary {
             display: block;
+            background-image: url('./img/footer-background.png');
+            background-size: cover;
+
         }
         &__secondary {
             overflow: hidden;

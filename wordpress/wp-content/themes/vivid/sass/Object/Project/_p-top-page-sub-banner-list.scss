@@ -1,0 +1,13 @@
+@charset "utf-8";
+
+.p-top-page-sub-banner-list {
+
+    &__item {
+        margin-bottom: 5px;
+    }
+    
+    @include mq(){
+
+    }
+
+}

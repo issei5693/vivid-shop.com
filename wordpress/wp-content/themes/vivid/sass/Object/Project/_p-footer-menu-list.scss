@@ -28,7 +28,7 @@
     }
     
 
-    &__link {
+    a {
         display: block;
         text-align: center;
         padding: 10px;
@@ -41,7 +41,7 @@
 
         &__item {
             border: 0;
-            text-align: center;
+            text-align: left;
             padding: 20px 0;
 
             &::after {
@@ -49,7 +49,7 @@
             }
         }
 
-        &__link { 
+        a { 
             display: inline;
         }
 

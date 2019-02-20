@@ -10,7 +10,7 @@ Template Name: ブランドリストページ
     <div class="l-main__content-primary">
 
         <div class="l-main__content-primary-first">
-            <h2 class="c-icon-header"><?php the_title(); ?></h2>
+            <h1 class="c-icon-header"><?php the_title(); ?></h1>
             <ul class="p-brand-archive-list">
             <?php
                 $args = array(
@@ -27,7 +27,7 @@ Template Name: ブランドリストページ
                             if( !empty( get_field('brand_thumbnail', $category->taxonomy.'_'.$category->term_id)) ) :?>
                                 <img class="p-brand-archive-list__img" src="<?php echo get_field('brand_thumbnail', $category->taxonomy.'_'.$category->term_id); ?>" alt="" >
                             <?php else: ?>
-                                <img class="p-brand-archive-list__img" src="<?php echo get_template_directory_uri(); ?>/img/160x100.png">
+                                <img class="p-brand-archive-list__img" src="<?php echo get_template_directory_uri(); ?>/img/ni_brand-logo.png">
                             <?php endif; ?>
                         </a>
                         <a class="p-brand-archive-list__text-link" href="<?php echo get_category_link($category->term_id); ?>">

@@ -62,8 +62,8 @@ register_sidebar(array(
     'name' => 'スライダー' ,
     'id' => 'slider' ,
     'description' => 'スライダー画像を設定します。',
-    'before_widget' => '',
-    'after_widget' => '',
+    'before_widget' => '<li class="swiper-slide">',
+    'after_widget' => '</li>',
     'before_title' => '',
     'after_title' => ''
 ));
@@ -73,15 +73,15 @@ register_sidebar(array(
     'name' => 'トップページサブバナー' ,
     'id' => 'top_page_sub_banner' ,
     'description' => 'トップページサブバナーの画像を設定します。',
-    'before_widget' => '',
-    'after_widget' => '',
+    'before_widget' => '<li class="p-top-page-sub-banner-list__item">',
+    'after_widget' => '</li>',
     'before_title' => '',
     'after_title' => ''
 ));
 
 // トップページフッターバナー'
 register_sidebar(array(
-    'name' => 'トップページフッターバナー' ,
+    'name' => 'フッターバナー' ,
     'id' => 'top_page_footer_banner' ,
     'description' => 'トップページフッターバナーの画像を設定します。',
     'before_widget' => '',
@@ -95,8 +95,8 @@ register_sidebar(array(
     'name' => 'サイドバナー' ,
     'id' => 'side_banner' ,
     'description' => 'サイドバナーの画像を設定します。',
-    'before_widget' => '',
-    'after_widget' => '',
+    'before_widget' => '<li class="p-sidebar-banner-list__item">',
+    'after_widget' => '</li>',
     'before_title' => '',
     'after_title' => ''
 ));
@@ -514,3 +514,74 @@ function get_relation_item_ids($post_meta){
     
     return $normalized_ids;
 }
+
+/***
+ * カスタムメニューの追加
+ */
+if ( ! function_exists( 'lab_setup' ) ) :
+
+    function lab_setup() {
+        
+        register_nav_menus( array(
+            'global' => 'グローバルナビ',
+            'sp-global' => 'グローバルナビ（PC表示のみ）',
+            'sp-dynamic' => 'SPダイナミックナビ',
+            'footer' => 'フッターナビ',
+        ) );
+        
+}
+endif;
+add_action( 'after_setup_theme', 'lab_setup' );
+
+/**
+ * カスタムメニューのデフォルト出力をカスタマイズ
+ * 参考：https://blog-and-destroy.com/6842
+ */
+// liに付与されるidを全て削除
+function my_nav_menu_id( $menu_id ){
+	// liタグのidを削除
+	$id = NULL;
+    return $id;
+}
+add_filter( 'nav_menu_item_id', 'my_nav_menu_id' );
+
+// liに付与されるclassを全て削除
+function my_nav_menu_class( $classes, $item ) {
+    if( $classes[0] ){
+    	// 管理画面からメニューにclassの値を設定した場合には、その値以外を削除
+        array_splice( $classes, 1 );
+    }else{
+		// 管理画面からメニューにclassの値を設定していない場合には、すべてのclassを削除
+		$classes = array();
+	}
+    
+    // 現在のページのliタグに、classの値としてcurrentを付与
+    if( $item -> current == true ) {
+        $classes[] = 'current';
+    }
+		
+    return $classes;
+}
+add_filter( 'nav_menu_css_class', 'my_nav_menu_class', 10, 2 );
+
+/***
+ * WP SEOのタイトル出力
+ */
+function my_wpseo_title($title){
+
+    if( is_category() || is_single() ){
+        global $cat;
+        
+        $category = (is_single()) ? array_reverse(get_the_category())[0] : get_category($cat);
+        $categories = get_the_category_hierarchy($category->term_id, $$categories);
+
+        $count = 0;
+        foreach($categories as $category){
+            $title = ($count == count($categories)-1) ? $category->name.' '.$title : ' - '.$category->name.' '.$title;
+            $count++;
+        }
+    } 
+
+	return $title;
+};
+add_filter( 'wpseo_title', 'my_wpseo_title');

@@ -16,14 +16,17 @@
         &:last-child {
             border-right: 0;
         }
-
     }
 
-    &__link {
+    a {
         display: block;
         text-align: center;
         font-size: $font_sm;
         padding: 10px 0;
+    }
+
+    &__pc-only {
+        display: none;
     }
 
     @include mq(){
@@ -53,7 +56,7 @@
             }
         }
 
-        &__link {
+        a {
             padding: 15px 20px;
             font-size: $font_md * 1.1;
 
@@ -62,5 +65,10 @@
                 text-decoration: none;
             }
         }
+
+        &__pc-only {
+            display: flex;
+        }
+
     }
 }

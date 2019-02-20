@@ -23,7 +23,7 @@
 
                 $the_query = new WP_Query($args); ?>
 
-                <h2 class="c-icon-header">「<?php echo $tag->name; ?>」のカテゴリの商品一覧&nbsp;<?php echo get_display_post_number($the_query); ?>件を表示中&nbsp;(全<?php echo $the_query->found_posts; ?>件)</h2>
+                <h1 class="c-icon-header">「<?php echo $tag->name; ?>」のカテゴリの商品一覧&nbsp;<?php echo get_display_post_number($the_query); ?>件を表示中&nbsp;(全<?php echo $the_query->found_posts; ?>件)</h1>
 
                 <ul class="p-item-list">
                 <?php
@@ -40,7 +40,7 @@
                                         </figure>
                                 <?php else: ?>
                                         <figure class="c-lisence-card__image">
-                                            <img class="c-lisence-card__img" src="<?php echo get_template_directory_uri(); ?>/img/150x150.png" alt="<?php the_title(); ?>">    
+                                            <img class="c-lisence-card__img" src="<?php echo get_template_directory_uri(); ?>/img/ni_item-thumbnail.png" alt="<?php the_title(); ?>">    
                                         </figure>
                                 <?php endif;  ?>
                             
@@ -68,18 +68,6 @@
                 echo get_wp_query_pagenation($the_query);
                 wp_reset_postdata();
             ?>
-        </section>
-
-        <section class="l-main__content-primary-second">
-            <h2 class="c-icon-header">タグページ</h2>
-        </section>
-
-        <section class="l-main__content-primary-third">
-            <h2 class="c-icon-header">タグページ</h2>
-        </section>
-
-        <section class="l-main__content-primary-fourth">
-            <h2 class="c-icon-header">タグページ</h2>
         </section>
 
     </div>

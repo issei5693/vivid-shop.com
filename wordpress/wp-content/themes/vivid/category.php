@@ -9,17 +9,17 @@
     <div class="l-main__content-primary">
 
         <section class="l-main__content-primary-first">
-            <h2 class="c-icon-header">
+            <h1 class="c-icon-header">
                 <?php if(!empty($parent_category)) echo $parent_category->name.' - '; ?>
                 <?php echo $category->name; ?>
-            </h2>
+            </h1>
             <div class="c-card-lisence">
                 <figure class="c-card-lisence__image">
                     <?php
                     if( !empty( get_field('brand_thumbnail', $category->taxonomy.'_'.$category->term_id)) ) :?>
                         <img class="c-card-lisence__img" src="<?php echo get_field('brand_thumbnail', $category->taxonomy.'_'.$category->term_id); ?>" alt="" >
                     <?php else: ?>
-                        <img class="c-card-lisence__img" src="<?php echo get_template_directory_uri(); ?>/img/160x100.png">
+                        <img class="c-card-lisence__img" src="<?php echo get_template_directory_uri(); ?>/img/ni_brand-logo.png">
                     <?php endif; ?>
                 </figure>
                 <?php
@@ -116,7 +116,7 @@
                                         </figure>
                                 <?php else: ?>
                                         <figure class="c-lisence-card__image">
-                                            <img class="c-lisence-card__img" src="<?php echo get_stylesheet_directory_uri(); ?>/img/150x150.png" alt="<?php the_title(); ?>">    
+                                            <img class="c-lisence-card__img" src="<?php echo get_stylesheet_directory_uri(); ?>/img/ni_item-thumbnail.png" alt="<?php the_title(); ?>">    
                                         </figure>
                                 <?php endif;  ?>
                             

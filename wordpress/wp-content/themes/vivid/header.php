@@ -16,12 +16,13 @@
     <div id="gnavctr">
         <ul class="p-slide-gnav-list">
             <li class="p-slide-gnav-list__close-button"><span id="gnavctr-switch-cls"><img src="<?php echo get_template_directory_uri(); ?>/img/icon-cross.png"></span></li>
-            <li class="p-slide-gnav-list__item"><a class="p-slide-gnav-list__link" href="<?php echo home_url(); ?>">TOP</a></li>
-            <li class="p-slide-gnav-list__item"><a class="p-slide-gnav-list__link" href="<?php echo home_url(); ?>/brand-list">ブランドから探す</a></li>
-            <li class="p-slide-gnav-list__item"><a class="p-slide-gnav-list__link" href="">カテゴリから探す</a></li>
-            <li class="p-slide-gnav-list__item"><a class="p-slide-gnav-list__link" href="">ご注文方法</a></li>
-            <li class="p-slide-gnav-list__item"><a class="p-slide-gnav-list__link" href="">特定商取引法</a></li>
-            <li class="p-slide-gnav-list__item"><a class="p-slide-gnav-list__link" href="">お問い合わせ</a></li>
+            <?php
+                wp_nav_menu( array(
+                    'container'       => false,
+                    'theme_location'  => 'sp-dynamic',
+                    'items_wrap'      => '%3$s'
+                ) );
+            ?>
         </ul>
     </div>
     <header class="l-header">
@@ -70,14 +71,38 @@
             </form>
         </div>
         <div class="l-header__secondary">
+            <!--
             <ul class="p-global-nav-list">
                 <li class="p-global-nav-list__item"><a class="p-global-nav-list__link" href="<?php echo home_url(); ?>">TOP</a></li>
                 <li class="p-global-nav-list__item"><a class="p-global-nav-list__link" href="<?php echo home_url(); ?>/brand-list">ブランドから探す</a></li>
                 <li class="p-global-nav-list__item"><a class="p-global-nav-list__link" href="<?php echo home_url(); ?>/category-list">カテゴリから探す</a></li>
-                <li class="p-global-nav-list__item"><a class="p-global-nav-list__link" href="">ご注文方法</a></li>
-                <li class="p-global-nav-list__item"><a class="p-global-nav-list__link" href="">お支払い方法</a></li> 
-                <li class="p-global-nav-list__item"><a class="p-global-nav-list__link" href="">お問い合わせ</a></li> 
+                <li class="p-global-nav-list__item"><a class="p-global-nav-list__link" href="<?php echo home_url(); ?>/tsukaikata">ご注文方法</a></li>
+                <li class="p-global-nav-list__item"><a class="p-global-nav-list__link" href="<?php echo home_url(); ?>/shiharaihouhou">お支払い方法</a></li> 
+                <li class="p-global-nav-list__item"><a class="p-global-nav-list__link" href="<?php echo home_url(); ?>/contact">お問い合わせ</a></li> 
             </ul>
+            -->
+                <ul class="p-global-nav-list">
+                    <?php
+                        // 参考:https://olein-design.com/blog/register-setting-souce-code-of-custom-menu
+                        wp_nav_menu( array(
+                            'container'       => false,
+                            'theme_location'  => 'global',
+                            'items_wrap'      => '%3$s'
+                        ) );
+                    ?>
+                    <li>
+                        <ul class="p-global-nav-list__pc-only">
+                            <?php
+                                wp_nav_menu( array(
+                                    'container'       => false,
+                                    'theme_location'  => 'sp-global',
+                                    'items_wrap'      => '%3$s'
+                                ) );
+                            ?>
+                        </ul>
+                    </li>
+                </ul>
+                
         </div>
         <div class="l-header__tertiary">
             <?php echo get_the_breadcrumb(); ?>
