@@ -1,5 +1,5 @@
 <section class="l-main__content-secondary-first">
-    <h1 class="c-icon-header">取扱ブランド一覧</h1>
+    <h2 class="c-icon-header">取扱ブランド一覧</h2>
     <ul class="p-brand-list">
         <?php
 

@@ -524,7 +524,7 @@ if ( ! function_exists( 'lab_setup' ) ) :
         
         register_nav_menus( array(
             'global' => 'グローバルナビ',
-            'sp-global' => 'グローバルナビ（PC表示のみ）',
+            'pc-global' => 'グローバルナビ（PC表示のみ）',
             'sp-dynamic' => 'SPダイナミックナビ',
             'footer' => 'フッターナビ',
         ) );

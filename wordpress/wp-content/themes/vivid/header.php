@@ -95,7 +95,7 @@
                             <?php
                                 wp_nav_menu( array(
                                     'container'       => false,
-                                    'theme_location'  => 'sp-global',
+                                    'theme_location'  => 'pc-global',
                                     'items_wrap'      => '%3$s'
                                 ) );
                             ?>

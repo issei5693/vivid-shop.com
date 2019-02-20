@@ -28,7 +28,11 @@
 
         <section class="l-main__content-primary-second">
             <h2 class="c-icon-header">新着情報</h2>
-            <?php dynamic_sidebar('news'); ?>
+            <ul class="p-information-list">
+                <?php if(!dynamic_sidebar('news')): ?>
+                    <li class="p-information-list__item">新着情報はありません</li>
+                <?php endif; ?>
+            </ul>
         </section>
 
         <section class="l-main__content-primary-third">

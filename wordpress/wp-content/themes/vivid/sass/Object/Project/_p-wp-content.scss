@@ -8,12 +8,9 @@
 
     &__table {
         width: 100%;
-        // border: solid 1px $color_gray;
         border-collapse: separate;
-        // border-radius: 3px;
 
         th {
-            // background-color: $color_main;
             vertical-align: middle;
             padding: {
                 top: 40px;
@@ -22,14 +19,12 @@
                 bottom: 15px;
             }
             border: {
-                //right: dotted 1px $color_gray;
                 bottom: solid 2px $color_accent;
             }
         }
 
         td {
             vertical-align: middle;
-            // background-color: $color_thin_gray;
             padding: {
                 top: 40px;
                 right: 10px;
@@ -132,6 +127,10 @@
 
 
     @include mq(){
+
+        &__table {
+            padding: 0 20px;
+        }
 
         &__form {
             padding: 20px;
