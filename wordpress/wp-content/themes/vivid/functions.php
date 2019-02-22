@@ -11,6 +11,9 @@
  */
 add_filter('use_block_editor_for_post_type', 'disable_gutenberg', 10, 2);
 
+/**
+ * 表示側のスクリプトファイルの読み込み順
+ */
 function heresy_scripts(){
 
     // 標準jQueryの読み込み( $handle, $src, $deps, $ver, $in_footer )
@@ -26,6 +29,22 @@ function heresy_scripts(){
     
 }
 add_action( 'wp_enqueue_scripts', 'heresy_scripts' );
+
+
+/***
+ * Plugin name: Hook Suffix Console
+ * サフィックスをコンソールに出力する
+ * 参考: https://firegoby.jp/archives/2236
+*/
+// add_action("admin_head", 'suffix2console');
+// function suffix2console() {
+//     global $hook_suffix;
+//     if (is_user_logged_in()) {
+//         $str = "<script type=\"text/javascript\">console.log('%s')</script>";
+//         printf($str, $hook_suffix);
+//     }   
+// }
+
 
 /**
  * サムネイルの有効化
@@ -585,3 +604,9 @@ function my_wpseo_title($title){
 	return $title;
 };
 add_filter( 'wpseo_title', 'my_wpseo_title');
+
+/***
+ * 独自プラグインのインクルード
+ * 
+ */
+include 'my-plugins/toppage-content.php';
