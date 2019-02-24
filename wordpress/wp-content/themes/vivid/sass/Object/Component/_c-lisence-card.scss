@@ -64,14 +64,14 @@
     
         &__image {
             display: block;
+            width: 100%;
             float: none;
             margin-bottom: 10px;
         }
     
         &__img {
             display: block;
-            width: auto;
-            max-width: 150px;
+            width: 100%;
             margin: 0 auto;
         }
     

@@ -42,6 +42,8 @@
                     $args = array(
                         'post_type'         => 'post', 
                         'meta_key'          => 'recommend_order',
+                        'meta_value'        => '0',
+                        'meta_compare'      => '>=',
                         'orderby'           => 'meta_value_num',
                         'order'             => 'ASC',
                         'posts_per_page'    => 10,
@@ -56,6 +58,7 @@
                             <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
                             
                                 <li class="swiper-slide p-recommend-list__item">
+                                    <p><?php var_dump(the_field('recommend_order')); ?>
                                     <div class="c-card">
                                         <a class="c-card__link">
 

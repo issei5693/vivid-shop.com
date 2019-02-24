@@ -150,7 +150,10 @@ var firstViewSwiper = new Swiper ('.swiper-firstview', {
 //     }
 // });
 
-// jQuery
+/**
+ * jQueryでの記述
+ * 
+ */
 jQuery(function($){
     // gnavctr
     $(window).on('load resize', function(){

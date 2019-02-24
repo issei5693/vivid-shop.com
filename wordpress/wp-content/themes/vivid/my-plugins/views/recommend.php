@@ -18,6 +18,8 @@ echo $_POST['recommend_item_5'];
         $args = array(
             'post_type'         => 'post', 
             'meta_key'          => 'recommend_order',
+            'meta_value'        => '0',
+            'meta_compare'      => '>=',
             'orderby'           => 'meta_value_num',
             'order'             => 'ASC',
             'posts_per_page'    => 10,
@@ -71,11 +73,36 @@ echo $_POST['recommend_item_5'];
             endif;
         ?>
     </ul>
+
+    <input type="text" class="regular-text" name="post-id" value="" placeholder="Ajax検索実装予定"><p id="add_item">追加</p>
+
+    <?php
+        $args = array(
+            'post_type'         => 'post', 
+            'posts_per_page'    => -1,
+            'no_found_rows'     => true,  //ページャーを使う時はfalseに。
+        );
+
+        $the_query = new WP_Query($args); ?>
+
+    <?php if ($the_query->have_posts()) : ?>
+        <select name="post_id">
+            <option value="" selected="">---</option>
+           
+            <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+            <?php var_dump($post); ?>
+                <option value="<?php the_ID(); ?>"><?php echo get_the_category()->name; ?> - <?php the_title(); ?></option>
+
+            <?php endwhile; ?>
+
+        </select>
+    <?php else: ?>
+        <p>投稿が一つもありません。</p>
+    <?php endif; ?>
+
     <?php 
         wp_reset_postdata();
     ?>
-
-    <input type="text" class="regular-text" name="post-id" value="" placeholder="Ajax検索実装予定"><p id="add_item">追加</p>
 
     <!-- <table class="form-table">
         <tbody>
