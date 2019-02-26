@@ -59,7 +59,7 @@
                             
                                 <li class="swiper-slide p-recommend-list__item">
                                     <div class="c-card">
-                                        <a class="c-card__link">
+                                        <a class="c-card__link" herf="<?php the_title(); ?>">
 
                                             <?php if (has_post_thumbnail()): ?>
                                                 <figure class="c-card__image">
