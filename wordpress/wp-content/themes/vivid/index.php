@@ -58,7 +58,6 @@
                             <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
                             
                                 <li class="swiper-slide p-recommend-list__item">
-                                    <p><?php var_dump(the_field('recommend_order')); ?>
                                     <div class="c-card">
                                         <a class="c-card__link">
 

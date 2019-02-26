@@ -1,80 +1,87 @@
-<?php
-echo $_POST['recommend_item_1'];
-echo $_POST['recommend_item_2'];
-echo $_POST['recommend_item_3'];
-echo $_POST['recommend_item_4'];
-echo $_POST['recommend_item_5'];
-?>
-
-
 <div class="wrap">
     <h2>おすすめ商品</h2>
     <p>おすすめ商品の表示順を編集します。</p>
+    
+    <?php 
+        if( $_GET['message'] == 1 ): ?>
+
+        <div class="updated">
+            <p>更新しました。</p>
+        </div>
+
+    <?php endif; ?>
+
 
     <form method="post" action="">
+        <input type="hidden" name="nonce" value="my-nonce">
     
-    <?php
-
-        $args = array(
-            'post_type'         => 'post', 
-            'meta_key'          => 'recommend_order',
-            'meta_value'        => '0',
-            'meta_compare'      => '>=',
-            'orderby'           => 'meta_value_num',
-            'order'             => 'ASC',
-            'posts_per_page'    => 10,
-            'no_found_rows'     => true,  //ページャーを使う時はfalseに。
-        );
-
-
-        $the_query = new WP_Query($args); ?>
-
-        <ul id="sortableArea" class="p-item-list" style="display: flex; flex-wrap: wrap;">
+        <ul id="sortableArea" class="sortable-area">
         <?php
+
+            $args = array(
+                'post_type'         => 'post', 
+                'meta_key'          => 'recommend_order',
+                'meta_value'        => '0',
+                'meta_compare'      => '>=',
+                'orderby'           => 'meta_value_num',
+                'order'             => 'ASC',
+                'posts_per_page'    => -1,
+                'no_found_rows'     => true,  //ページャーを使う時はfalseに。
+            );
+        
+        
+            $the_query = new WP_Query($args);
+
             if ($the_query->have_posts()) :
             while ($the_query->have_posts()) : $the_query->the_post(); ?>
 
-            <li class="p-item-list__item sortable-item" style="width: 60%; border: solid 1px #ccc; border-radius: 5px; padding: 5px; margin-right: 5px; background-color: #fff;">
-                <p>表示順:<span class="order-number"><?php the_field('recommend_order'); ?></span></p>
-                <p><span class="sortable-item-remove">削除</span></p>
-                <div class="c-lisence-card">
-                    <span class="c-lisence-card__link" href="<?php the_permalink(); ?>" style="display: flex;">
-                            <?php
-                            if (has_post_thumbnail()): ?>
-                                <figure class="c-lisence-card__image">
-                                    <img class="c-lisence-card__img" src="<?php the_post_thumbnail_url( 'full' ); ?>" alt="<?php the_title(); ?>">
-                                </figure>
+            <li class="sortable-item">
+                <div class="sortable-item-header">
+                    <ul class="sortable-item-header-list">
+                        <li>
+                            <span class="sortable-item-header-nav-list-item">
+                                表示順:<span class="order-number"><?php the_field('recommend_order'); ?></span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="sortable-item-header-nav-list-item sortable-item-remove">削除</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sortable-item-inner-wrapper">
+                    <figure class="sortable-item-content-thunbnail">
+                        <?php if (has_post_thumbnail()): ?>
+                            <img src="<?php the_post_thumbnail_url( 'full' ); ?>" alt="<?php the_title(); ?>">
                         <?php else: ?>
-                                <figure class="c-lisence-card__image">
-                                    <img class="c-lisence-card__img" src="<?php echo get_stylesheet_directory_uri(); ?>/img/ni_item-thumbnail.png" alt="<?php the_title(); ?>">    
-                                </figure>
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ni_item-thumbnail.png" alt="<?php the_title(); ?>">
                         <?php endif;  ?>
-                    
-                        <h3 class="c-lisence-card__title">
-                            <span class="c-lisence-card__section"><?php echo get_the_category($id)[0]->name; ?></span>
-                            <span class="c-lisence-card__section"><?php the_title(); ?></span>
+                    </figure>
+                    <div class="sortable-item-content">
+                        <h3 class="sortable-item-title">
+                            <span class="sortable-item-content-section"><?php echo get_the_category($id)[0]->name; ?></span>
+                            <span class="sortable-item-content-section"><?php the_title(); ?></span>
                         </h3>
-                        <p class="c-lisence-card__content">
-                            <span class="c-lisence-card__section">30% OFF</span>
-                            <span class="c-lisence-card__price">¥10,000円</span>
+                        <p>
+                            <span>30% OFF</span>
+                            <span>¥10,000円</span>
                             <s>¥15,000円</s>
                         </p>
-                    </span>
+                    </div>
                 </div>
-                <input type='hidden' name="recommend_item_<?php the_field('recommend_order'); ?>" value="<?php the_field('recommend_order'); ?>">
+                <input type='hidden' name="post_ids[]" value="<?php echo get_the_ID(); ?>">
             </li>
 
         <?php
             endwhile;
             else:
         ?>
-            <li class="p-item-list__item">おすすめ商品は一つも設定されていません。</li>
+            <!-- <li>おすすめ商品は一つも設定されていません。</li> -->
         <?php
             endif;
+            
+            wp_reset_postdata();
         ?>
     </ul>
-
-    <input type="text" class="regular-text" name="post-id" value="" placeholder="Ajax検索実装予定"><p id="add_item">追加</p>
 
     <?php
         $args = array(
@@ -86,16 +93,29 @@ echo $_POST['recommend_item_5'];
         $the_query = new WP_Query($args); ?>
 
     <?php if ($the_query->have_posts()) : ?>
-        <select name="post_id">
-            <option value="" selected="">---</option>
-           
-            <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-            <?php var_dump($post); ?>
-                <option value="<?php the_ID(); ?>"><?php echo get_the_category()->name; ?> - <?php the_title(); ?></option>
 
-            <?php endwhile; ?>
+            <?php
 
-        </select>
+                $sorted_posts = [];
+            
+                while ($the_query->have_posts()) : $the_query->the_post();
+
+                $category_hierarchies   = get_the_category_hierarchy(get_the_category()[count(get_the_category())-1]);
+                $category_full_name     = '';
+                
+                foreach( array_reverse($category_hierarchies) as $category_hierarchy){
+                    $category_full_name .= $category_hierarchy->name. ' ▶︎ ';
+                }
+
+                $sorted_posts[] = array(
+                    'id'                    => get_the_ID(),
+                    'category_full_name'    => $category_full_name
+                );
+
+            endwhile;
+            
+            ?>
+        
     <?php else: ?>
         <p>投稿が一つもありません。</p>
     <?php endif; ?>
@@ -104,19 +124,31 @@ echo $_POST['recommend_item_5'];
         wp_reset_postdata();
     ?>
 
-    <!-- <table class="form-table">
-        <tbody>
-            <tr>
-                <th scope="row">
-                    <label for="company_name">商品を追加</label>
-                </th>
-                <td>
-                    <input type="text" class="regular-text" name="post-id" value="" placeholder="Ajax検索実装予定"><p id="add_item">追加</p>
-                </td>
-            </tr>
-        </tbody>
-    </table> -->
+    <div class="item_select">
+        <select name="post_id" id="add-item">
+            <option value="" selected="">---</option>
 
+            <?php
+                foreach($sorted_posts as $sorted_post){
+                    $category_full_names[] = $sorted_post['category_full_name'];
+                }
+
+                array_multisort($category_full_names, SORT_ASC, SORT_LOCALE_STRING, $sorted_posts);
+                
+                foreach( $sorted_posts as $sorted_post): ?>
+                    <option value="<?php echo $sorted_post['id']; ?>">
+                        <?php echo $sorted_post['category_full_name'] . get_the_title($sorted_post['id']); ?>
+                    </option>
+            <?php
+                endforeach;
+            ?>
+
+        </select>
+    </div>
+
+    <p id="add_item" class="add-item">追加</p>
+
+    <!-- <input type="text" class="regular-text" name="post-id" value="" placeholder="Ajax検索実装予定"> -->
 
     <?php submit_button(); ?>
  

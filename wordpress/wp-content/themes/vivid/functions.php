@@ -1,4 +1,6 @@
 <?php
+// エラー出力の制御
+// ini_set('display_errors', "On");
 
 /**
  * スクリプトファイルの実行順
@@ -14,12 +16,18 @@ add_filter('use_block_editor_for_post_type', 'disable_gutenberg', 10, 2);
 /**
  * 表示側のスクリプトファイルの読み込み順
  */
-function heresy_scripts(){
+function vivid_scripts(){
+    // スクリプトの登録( $handle, $src, $deps, $ver, $in_footer )
+    wp_register_script('swiper-cdn', 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/js/swiper.min.js', array('jquery'), '4.4.6','true');
+    wp_register_script('my-swiper', get_template_directory_uri().'/js/my-swiper.js',array('swiper-cdn'),'','true');
+    wp_register_script('script', get_template_directory_uri().'/js/script.js',array('jquery'),'','true');
 
-    // 標準jQueryの読み込み( $handle, $src, $deps, $ver, $in_footer )
-    wp_enqueue_script( 'jquery');
-    wp_enqueue_script( 'swiper-cdn', 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/js/swiper.min.js','jquery','4.4.6','true');
-    wp_enqueue_script( 'script', get_template_directory_uri().'/js/script.js','jquery','','true');
+    // スクリプトの読み込み
+    wp_enqueue_script( 'script'); // オリジナルスクリプトファイル
+    if(is_home()|| is_front_page()){ // swiper関連
+        wp_enqueue_script( 'swiper-cdn');
+        wp_enqueue_script( 'my-swiper');
+    }
 
     // wp_enqueue_styel( 'スクリプトの識別名（ハンドル）', スクリプトのURL, 依存スクリプトの識別名, バージョン文字列, 読み込み場所 );
     wp_enqueue_style( 'style', get_stylesheet_uri(), '', '1.0.0', 'all' );
@@ -28,7 +36,7 @@ function heresy_scripts(){
     wp_enqueue_style( 'swiper', 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/css/swiper.min.css', '', '4.4.6', 'all' );
     
 }
-add_action( 'wp_enqueue_scripts', 'heresy_scripts' );
+add_action( 'wp_enqueue_scripts', 'vivid_scripts' );
 
 
 /***
