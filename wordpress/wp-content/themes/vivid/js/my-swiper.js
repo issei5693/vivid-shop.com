@@ -25,6 +25,8 @@ window.addEventListener('DOMContentLoaded', function() {
             swiperRecommendItemList = new Swiper(swiperRecommendItemListEl, {
                 slidesPerView: 1.8,
                 spaceBetween: 10,
+                preventClicks: false,
+                preventClicksPropagation: false,
                 centeredSlides : true,
                 navigation: {
                     nextEl: '.swiper-button-next',
@@ -75,6 +77,8 @@ window.addEventListener('DOMContentLoaded', function() {
             swiperPopularItemList = new Swiper(swiperPopularItemListEl, {
                 slidesPerView: 1.8,
                 spaceBetween: 10,
+                preventClicks: false, 
+                preventClicksPropagation: false, 
                 centeredSlides : true,
                 navigation: {
                     nextEl: '.swiper-button-next',
