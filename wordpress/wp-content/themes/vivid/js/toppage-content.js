@@ -29,7 +29,6 @@ jQuery(function($){
      * 追加ボタン処理
      */
     $('#add_item').on('click', function(){
-        console.log('追加ボタンがクリックされました。');
 
         // 選択されたidの取得
         var selected_post_id = $('#add-item').val();
@@ -47,14 +46,17 @@ jQuery(function($){
     /***
      * ajax処理: getItem 
      * */ 
+    
     function getItem(post_id){
+        console.log('URLは'+toppage_content_vars.ajax_url);
         $.ajax({
             type: "POST",
             url: toppage_content_vars.ajax_url,
             dataType: 'html',
             data: {
+                action: 'get_item',
                 post_id: post_id,
-                action: 'get_item'
+                check_nonce: toppage_content_vars.check_nonce
             }
         }).done(function(data, textStatus, jpXHR){
             // console.log('textStatusは'+textStatus);
@@ -67,8 +69,11 @@ jQuery(function($){
             // 採番のやり直し
             itemRenumber();
             
-        }).fail(function(){
+        }).fail(function(XMLHttpRequest, textStatus, errorThrown){
             console.log('ajax取得エラーです');
+            console.log("XMLHttpRequest : " + XMLHttpRequest.status);
+            console.log("textStatus     : " + textStatus);
+            console.log("errorThrown    : " + errorThrown.message);
         });
     }
 });

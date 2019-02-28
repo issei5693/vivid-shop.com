@@ -12,8 +12,16 @@
     <?php endif; ?>
 
 
-    <form method="post" action="">
-        <input type="hidden" name="nonce" value="my-nonce">
+    <form action="<?php echo home_url();?>/wp-admin/admin-post.php" method="post">
+        <input type= "hidden" name="action" value="toppage-content">
+        <input type= "hidden" name="page" value="<?php echo $_GET['page']; ?>">
+
+        <?php
+            wp_nonce_field(
+                'toppage-nonce-check',      // check_admin_refererで使うこのアクションの名前
+                'toppage-nonce' 
+            );
+        ?>
     
         <ul id="sortableArea" class="sortable-area">
         <?php

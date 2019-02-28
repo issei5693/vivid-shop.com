@@ -3,6 +3,7 @@
  * トップページコンテンツ
  * 
  */
+
 //メニューの表示設定
 function top_page_content_settings_menu() {
     $top_page_content_top = add_menu_page(
@@ -60,8 +61,12 @@ function admin_toppage_content_script(){
     // js
     wp_enqueue_script( 'jquery-ui', get_template_directory_uri().'/js/jquery-ui.min.js','jquery','1.12.0','true');
     wp_enqueue_script( 'toppage-content', get_template_directory_uri().'/js/toppage-content.js','jquery-ui','','true');
-    wp_localize_script('toppage-content', 'toppage_content_vars', array('ajax_url' => admin_url('admin-ajax.php'))); // ajax用のパスを渡す
-
+    $toppage_content_vars = array(
+        'ajax_url'      => admin_url('admin-ajax.php'),
+        'check_nonce'   => wp_create_nonce('ajax-nonce')
+    );
+    wp_localize_script('toppage-content', 'toppage_content_vars', $toppage_content_vars); // ajax用のパスをHTMLにjsオブジェクトで渡す
+    
     // css
     wp_enqueue_style( 'recommend-style', get_template_directory_uri().'/css/recommend-style.css' );
     wp_enqueue_style( 'ranking-style', get_template_directory_uri().'/css/ranking-style.css' );
@@ -89,6 +94,14 @@ function ranking_settings_page() {
 // 選択商品のajax処理
 function get_item(){
     $post_id = $_POST['post_id'];
+
+    // ajax-nonceチェック
+    // チェック成功でtrue 失敗でfalseを返す。
+    // 第三引数は$die(処理を即座に停止するかどうか)でfalseにすると処理停止せずにバケット内部に処理が映る
+    if( !check_ajax_referer('ajax-nonce', 'check_nonce', false) ){
+        echo '<script>console.log("ajax通信に失敗しました。正常なリクエストではありません。");</script>';
+        die;
+    }
 
     $post_thunbnail_url = get_the_post_thumbnail_url($post_id,'full') ? 
         get_the_post_thumbnail_url($post_id,'full') : 
@@ -131,30 +144,21 @@ function get_item(){
 
 EOM;
     echo $item_html;
-    die(); // これがないと0が返却される
+    die();
 
 
 }
 add_action('wp_ajax_get_item', 'get_item');
  
-
-
 /**
  * カスタムフィールド の更新処理
  */
-// 「更新」ボタンが押されてPOSTされたデータかどうかをnonceで判断
-// @to do optionテーブルを利用してnonce値を登録し、セキュリティをあげる。
-$nonce = $_POST['nonce'];
-$page_param = $_GET['page'];
-if( $nonce == 'my-nonce' && $page_param == 'recommend_settings'){
-
-    // 「更新」ボタンで送られてきたpostの値の取得(本来バリデーションは必須だが、管理画面なのでバリデーションは省略)
-    $update_post_ids = $_POST['post_ids']; // null or array
-
+function update_order_number($page_param, $update_post_ids, $meta_key){
+    
     // WP_queryから投稿IDのみ抽出
     $args = array(
         'post_type'         => 'post', 
-        'meta_key'          => 'recommend_order',
+        'meta_key'          => $meta_key,
         'meta_value'        => '0',
         'meta_compare'      => '>=',
         'orderby'           => 'meta_value_num',
@@ -168,21 +172,49 @@ if( $nonce == 'my-nonce' && $page_param == 'recommend_settings'){
         $reset_post_ids[] = get_the_ID();
     endwhile; endif;
     
-    // おすすめ商品を全てリセット
+    // 既存のカスタムフィールドの値を全てリセット
     foreach($reset_post_ids as $reset_post_id){
-        update_post_meta( $reset_post_id, 'recommend_order', '');
+        var_dump( update_post_meta( $reset_post_id, $meta_key, '') );
     }
 
-    // POSTされたおすすめ商品をアップデート
+    // POSTされた商品の順位のアップデート
     foreach($update_post_ids as $key => $update_post_id){
-        update_post_meta( $update_post_id, 'recommend_order', $key+1);
+        var_dump( update_post_meta( $update_post_id, $meta_key, $key+1) );
     }
 
-    // 同じページにメッセージ付きでリダイレクト
-    // header("Location: " . $_SERVER['PHP_SELF'] . '?page=recommend_settings&message=1');
-    wp_redirect( '?page=recommend_settings&message=1' );
-    exit();
+    return;
+
+} 
+
+/**
+ * 「トップページコンテンツ」関連の設定ページからのPOSTであることをチェック
+ */
+function check_toppage_post(){
+
+    if( !empty($_POST) && check_admin_referer( 'toppage-nonce-check', 'toppage-nonce' ) ){
+        
+        $page_param = $_POST['page']; // ページパラメータを取得
+        $meta_key = str_replace('_settings', '_order', $page_param); // post元のページのよって、順位更新処理をするカスタムフィールドのkeyを指定
+        $update_post_ids = $_POST['post_ids']; // 更新IDを配列で取得
+
+        // カスタムフィール名のバリデーション
+        $arrowed_meta_keys = array(
+            'recommend_order',
+            'ranking_order'
+        );
+
+        if( !in_array($meta_key, $arrowed_meta_keys)) exit('設定可能なmeta_key名ではありません。');
+
+        update_order_number($page_param, $update_post_ids, $meta_key);
+
+        // 同じ設定ページにメッセージ付きでリダイレクト
+        wp_redirect( admin_url('admin.php'). '/?page='.$page_param.'&message=1' );
+        die();
+
+    }
 }
+add_action('admin_post_toppage-content','check_toppage_post');
+
 
 
 // フィールドの作成(今回は同じページにアクセスさせて投稿のメタデータのアップデータを行うだけなのでフィールドは必要なし)
