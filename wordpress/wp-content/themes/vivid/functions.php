@@ -1,6 +1,6 @@
 <?php
 // エラー出力の制御
-ini_set('display_errors', "On");
+// ini_set('display_errors', "On");
 
 /**
  * スクリプトファイルの実行順
