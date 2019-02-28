@@ -197,7 +197,7 @@ function check_toppage_post(){
         $meta_key = str_replace('_settings', '_order', $page_param); // post元のページのよって、順位更新処理をするカスタムフィールドのkeyを指定
         $update_post_ids = $_POST['post_ids']; // 更新IDを配列で取得
 
-        // カスタムフィール名のバリデーション
+        // カスタムフィールド名のバリデーション
         $arrowed_meta_keys = array(
             'recommend_order',
             'ranking_order'
@@ -208,7 +208,7 @@ function check_toppage_post(){
         update_order_number($page_param, $update_post_ids, $meta_key);
 
         // 同じ設定ページにメッセージ付きでリダイレクト
-        wp_redirect( admin_url('admin.php'). '/?page='.$page_param.'&message=1' );
+        wp_redirect( admin_url('admin.php'). '?page='.$page_param.'&message=1' );
         die();
 
     }

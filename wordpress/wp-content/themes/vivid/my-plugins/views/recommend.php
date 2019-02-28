@@ -156,8 +156,6 @@
 
     <p id="add_item" class="add-item">追加</p>
 
-    <!-- <input type="text" class="regular-text" name="post-id" value="" placeholder="Ajax検索実装予定"> -->
-
     <?php submit_button(); ?>
  
     </form>
