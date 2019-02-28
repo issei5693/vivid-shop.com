@@ -174,12 +174,12 @@ function update_order_number($page_param, $update_post_ids, $meta_key){
     
     // 既存のカスタムフィールドの値を全てリセット
     foreach($reset_post_ids as $reset_post_id){
-        var_dump( update_post_meta( $reset_post_id, $meta_key, '') );
+        update_post_meta( $reset_post_id, $meta_key, '');
     }
 
     // POSTされた商品の順位のアップデート
     foreach($update_post_ids as $key => $update_post_id){
-        var_dump( update_post_meta( $update_post_id, $meta_key, $key+1) );
+        update_post_meta( $update_post_id, $meta_key, $key+1);
     }
 
     return;
