@@ -1,0 +1,27 @@
+@charset "utf-8";
+
+.p-top-page-text-area {
+
+    h2 {
+        display: inline-block;
+        border-bottom: solid 1px $color_font;
+        margin-bottom: 10px;
+    }
+
+    p {
+        margin-bottom: 30px;
+        line-height: 1.5;
+    }
+
+    strong {
+        font-weight: normal;
+        text-decoration: underline;
+
+    }
+
+    
+    @include mq(){
+
+    }
+
+}

@@ -1,6 +1,9 @@
 @charset "utf-8";
 
 .p-wp-content {
+
+    -webkit-appearance:none;
+
     p {
         line-height: 1.8;
         margin-bottom: 30px;
@@ -109,6 +112,13 @@
         text-align: center;
     }
 
+    &__form-input {
+        display: block;
+        height: 10px;
+        width: 10px;
+        border: solid 1px $color_accent;
+    }
+
     &__form-submit {
         display: inline-block;
         background-color: $color_main;
@@ -116,6 +126,7 @@
         padding: 10px 50px;
         border-radius: 3px;
     }
+
 
     div.wpcf7-validation-errors {
         border: 0;

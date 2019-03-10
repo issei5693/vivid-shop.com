@@ -21,6 +21,8 @@
     }
 
     &__sub-text {
+        display: block;
+        text-align: center;
         font-size: $font_xs;
     }
 

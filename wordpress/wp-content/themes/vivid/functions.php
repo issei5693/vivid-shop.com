@@ -106,6 +106,17 @@ register_sidebar(array(
     'after_title' => ''
 ));
 
+// トップテキストエリア
+register_sidebar(array(
+    'name' => 'トップページテキスト' ,
+    'id' => 'top_page_text_area' ,
+    'description' => 'トップページのテキストエリアを編集します',
+    'before_widget' => '<div class="l-main__content-primary-fifth"><div class="p-top-page-text-area">',
+    'after_widget' => '</div></div>',
+    'before_title' => '',
+    'after_title' => ''
+));
+
 // トップページフッターバナー'
 register_sidebar(array(
     'name' => 'フッターバナー' ,

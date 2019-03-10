@@ -105,104 +105,69 @@
         <section class="l-main__content-primary-fourth">
             <h2 class="c-icon-header">人気商品ランキング</h2>
             <div class="swiper-container swiper-popular-itemlist">
-                <ul class="swiper-wrapper p-popular-list">
-                    <li class="swiper-slide p-popular-list__item">
-                        <div class="c-card">
-                            <img class="c-card__img" src="<?php echo get_template_directory_uri(); ?>/img/dammy_125x124.jpg" alt="今月のおすすめ商品">
-                            <div class="c-card__content-wrap">
-                                <h3 class="c-card__title">
-                                    <span class="c-card__brand-name">アルソア</span>
-                                    <span class="c-card__item-name">クイーンシルバー（リフィル）</span>
-                                </h3>
-                                <p class="c-card__off">30% OFF</p>
-                                <span class="c-card__price">¥10,000円</span><s>15,000円</s>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="swiper-slide p-popular-list__item">
-                        <div class="c-card">
-                            <img class="c-card__img" src="<?php echo get_template_directory_uri(); ?>/img/dammy_125x124.jpg" alt="今月のおすすめ商品">
-                            <div class="c-card__content-wrap">
-                                <h3 class="c-card__title">
-                                    <span class="c-card__brand-name">アルソア</span>
-                                    <span class="c-card__item-name">クイーンシルバー（リフィル）</span>
-                                </h3>
-                                <p class="c-card__off">30% OFF</p>
-                                <span class="c-card__price">¥10,000円</span><s>15,000円</s>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="swiper-slide p-popular-list__item">
-                        <div class="c-card">
-                            <img class="c-card__img" src="<?php echo get_template_directory_uri(); ?>/img/dammy_125x124.jpg" alt="今月のおすすめ商品">
-                            <div class="c-card__content-wrap">
-                                <h3 class="c-card__title">
-                                    <span class="c-card__brand-name">アルソア</span>
-                                    <span class="c-card__item-name">クイーンシルバー（リフィル）</span>
-                                </h3>
-                                <p class="c-card__off">30% OFF</p>
-                                <span class="c-card__price">¥10,000円</span><s>15,000円</s>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="swiper-slide p-popular-list__item">
-                        <div class="c-card">
-                            <img class="c-card__img" src="<?php echo get_template_directory_uri(); ?>/img/dammy_125x124.jpg" alt="今月のおすすめ商品">
-                            <div class="c-card__content-wrap">
-                                <h3 class="c-card__title">
-                                    <span class="c-card__brand-name">アルソア</span>
-                                    <span class="c-card__item-name">クイーンシルバー（リフィル）</span>
-                                </h3>
-                                <p class="c-card__off">30% OFF</p>
-                                <span class="c-card__price">¥10,000円</span><s>15,000円</s>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="swiper-slide p-popular-list__item">
-                        <div class="c-card">
-                            <img class="c-card__img" src="<?php echo get_template_directory_uri(); ?>/img/dammy_125x124.jpg" alt="今月のおすすめ商品">
-                            <div class="c-card__content-wrap">
-                                <h3 class="c-card__title">
-                                    <span class="c-card__brand-name">アルソア</span>
-                                    <span class="c-card__item-name">クイーンシルバー（リフィル）</span>
-                                </h3>
-                                <p class="c-card__off">30% OFF</p>
-                                <span class="c-card__price">¥10,000円</span><s>15,000円</s>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="swiper-slide p-popular-list__item">
-                        <div class="c-card">
-                            <img class="c-card__img" src="<?php echo get_template_directory_uri(); ?>/img/dammy_125x124.jpg" alt="今月のおすすめ商品">
-                            <div class="c-card__content-wrap">
-                                <h3 class="c-card__title">
-                                    <span class="c-card__brand-name">アルソア</span>
-                                    <span class="c-card__item-name">クイーンシルバー（リフィル）</span>
-                                </h3>
-                                <p class="c-card__off">30% OFF</p>
-                                <span class="c-card__price">¥10,000円</span><s>15,000円</s>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="swiper-slide p-popular-list__item">
-                        <div class="c-card">
-                            <img class="c-card__img" src="<?php echo get_template_directory_uri(); ?>/img/dammy_125x124.jpg" alt="今月のおすすめ商品">
-                            <div class="c-card__content-wrap">
-                                <h3 class="c-card__title">
-                                    <span class="c-card__brand-name">アルソア</span>
-                                    <span class="c-card__item-name">クイーンシルバー（リフィル）</span>
-                                </h3>
-                                <p class="c-card__off">30% OFF</p>
-                                <span class="c-card__price">¥10,000円</span><s>15,000円</s>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
+            <?php
+                    $args = array(
+                        'post_type'         => 'post', 
+                        'meta_key'          => 'ranking_order',
+                        'meta_value'        => '0',
+                        'meta_compare'      => '>=',
+                        'orderby'           => 'meta_value_num',
+                        'order'             => 'ASC',
+                        'posts_per_page'    => 10,
+                        'no_found_rows'     => true,  //ページャーを使う時はfalseに。
+                    );
+
+                    $the_query = new WP_Query($args);
+                    if ($the_query->have_posts()) : ?>
+
+                        <ul class="swiper-wrapper p-popular-list">
+
+                            <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+                            
+                                <li class="swiper-slide p-popular-list__item">
+                                    <div class="c-card">
+                                        <a herf="<?php the_permalink(); ?>" onclick="window.location.href = '<?php the_permalink(); ?>'" class="c-card__link">
+
+                                            <?php if (has_post_thumbnail()): ?>
+                                                <figure class="c-card__image">
+                                                    <img class="c-card__img" src="<?php the_post_thumbnail_url( 'full' ); ?>" alt="<?php the_title(); ?>">
+                                                </figure>
+                                            <?php else: ?>
+                                                <figure class="c-card__image">
+                                                    <img class="c-card__img" src="<?php echo get_stylesheet_directory_uri(); ?>/img/ni_item-thumbnail.png" alt="<?php the_title(); ?>">    
+                                                </figure>
+                                            <?php endif;  ?>
+
+                                            <h3 class="c-card__title">
+                                                <span class="c-card__section"><?php echo get_the_category($id)[0]->name; ?></span>
+                                                <span class="c-card__section"><?php the_title(); ?></span>
+                                            </h3>
+
+                                            <p class="c-card__content">
+                                                <span class="c-card__section">30% OFF</span>
+                                                <span class="c-card__price">¥10,000円</span>
+                                                <s>¥15,000円</s>
+                                            </p>
+
+                                        </a>
+                                    </div>
+                                </li>
+
+                            <?php endwhile; ?>
+
+                        </ul>
+
+                <?php else: ?>
+                        <p>今月のおすすめ商品はありません。</p>
+                <?php endif; wp_reset_postdata();?>
+
                 <div class="swiper-pagination"></div>
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-button-next"></div>
             </div>
         </section>
+
+        <?php if(!dynamic_sidebar('top_page_text_area')) ?>
 
     </div>
     <aside class="l-main__content-secondary">

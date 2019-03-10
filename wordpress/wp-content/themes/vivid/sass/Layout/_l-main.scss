@@ -4,24 +4,29 @@
 
     // l-main__content-primary
 
-    &__content-primary-first {
+    %__basic {
         padding: 10px;
         margin-bottom: 10px;
     }
 
+    &__content-primary-first {
+        @extend %__basic;
+    }
+
     &__content-primary-second {
-        padding: 10px;
-        margin-bottom: 30px;
+        @extend %__basic;
     }
 
     &__content-primary-third {
-        padding: 10px;
-        margin-bottom: 30px;
+        @extend %__basic;
     }
 
     &__content-primary-fourth {
-        padding: 10px;
-        margin-bottom: 30px;
+        @extend %__basic;
+    }
+
+    &__content-primary-fifth {
+        @extend %__basic;
     }
 
     // l-main__content-secondry
