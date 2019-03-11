@@ -50,6 +50,7 @@
                                 endwhile;
                             endif;
                         ?>
+                        <?php echo do_shortcode( '[colormeshop_cart_button product_id=' . $product['141170317'] . ']' ); ?> 
                     </p>
                     <div><!-- カラーミー導入時に数量、色の選択、などをAPIで引けるかどうか精査 -->
                         <p>数量</p>
