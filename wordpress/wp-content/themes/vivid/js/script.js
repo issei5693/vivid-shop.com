@@ -49,11 +49,11 @@ jQuery(function($){
         var item_box = $('.cartjs_box');
         item_box.addClass('p-cartjs-box');
 
-        // 要素を移動
-        item_box.find('img').prependTo('.p-item__image').addClass('p-item__img');
-        item_box.find('.cartjs_product_name').insertAfter('.p-item__sub-title').addClass('p-item__title');
-        item_box.find('.cartjs_sales_price td').appendTo('.js-selling-price').addClass('p-item__info-data');
-        item_box.find('.cartjs_sales_price').remove();
+        // 
+        item_box.find('img').prependTo('.p-item__image').addClass('p-item__img'); // 画像の差し替え
+        item_box.find('.cartjs_product_name').insertAfter('.p-item__sub-title').addClass('p-item__title'); // 商品名の差し替え
+        item_box.find('.cartjs_sales_price td').appendTo('.js-selling-price').addClass('p-item__info-data'); // 販売価格の差し替え
+        item_box.find('.cartjs_sales_price').remove(); // 空タグの削除
 
         // 画像の変更(urlの変更)
         // var single_cartjs_item_url = single_cartjs_item.find('img').attr('src');
