@@ -23,7 +23,7 @@
                         <a class="p-item__sub-title" href="<?php echo get_category_link($category->term_id); ?>"><?php echo $category->name; ?></a>
                         <span class="p-item__title"><?php the_title(); ?></span>
                     </h1>
-                    <?php wpfp_link() ?>
+                    
                     <table class="p-item__info">
                         <tbody>
                             <tr>

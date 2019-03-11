@@ -35,12 +35,5 @@
 <div class="l-main__content-secondary-third">
     <ul class="p-sidebar-banner-list">
         <?php if(!dynamic_sidebar('side_banner')); ?>
-        <!--
-        <li class="p-sidebar-banner-list__item">
-            <a class="p-sidebar-banner-list__link" href="">
-                <img class="p-sidebar-banner-list__img" src="<?php echo get_template_directory_uri(); ?>/img/banner-buy.png" alt="化粧品高価買取実施中">
-            </a>
-        </li>
-        -->
     </ul>
 </div>
