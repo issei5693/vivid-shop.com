@@ -22,8 +22,8 @@ function vivid_scripts(){
     wp_register_script('my-swiper', get_template_directory_uri().'/js/my-swiper.js',array('swiper-cdn'),'','true');
     wp_register_script('script', get_template_directory_uri().'/js/script.js',array('jquery'),'','true');
 
-    // スクリプトの読み込み
-    wp_enqueue_script( 'script'); // オリジナルスクリプトファイル
+    // トップページのみ読み込み
+    wp_enqueue_script('script'); // オリジナルスクリプトファイル
     if(is_home()|| is_front_page()){ // swiper関連
         wp_enqueue_script( 'swiper-cdn');
         wp_enqueue_script( 'my-swiper');
@@ -629,3 +629,39 @@ add_filter( 'wpseo_title', 'my_wpseo_title');
  * 
  */
 include 'my-plugins/toppage-content.php';
+
+/***
+ * カラーミーショップのコード生成
+ */
+function get_color_me_shop_item($pid, $style='standard') {
+
+    $url     = 'https://vivid-shop.shop-pro.jp';
+    $mode    = 'cartjs';
+    $name    = 'y';          // 商品名
+    $img     = 'y';          // 商品画像
+    $expl    = 'y';          // 商品詳細
+    $stock   = 'y';          // 在庫数
+    $price   = 'y';          // 販売価格
+    $inq     = 'n';          // 問い合わせリンク
+    $sk      = 'n';          // 特商法リンク
+    $charset = 'euc-jp';
+
+    $item_script_url = 
+    $url
+    .'/?mode='. $mode
+    .'&pid='. $pid
+    .'&style='. $style
+    .'&name='. $name
+    .'&img='. $img
+    .'&expl='. $expl
+    .'&stock='. $stock
+    .'&price='. $price
+    .'&inq='. $inq
+    .'&sk='. $sk
+    .'&charset=' . $charset;
+    
+    $color_me_shop_item_script = '<script src="'. $item_script_url .'"></script>';
+
+    return $color_me_shop_item_script;
+
+}

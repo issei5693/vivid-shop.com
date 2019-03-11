@@ -11,17 +11,17 @@
         <div class="l-main__content-primary-first">
             <div class="p-item">
                 <figure class="p-item__image">
-                    <?php
+                    <!-- <?php
                         if (has_post_thumbnail()): ?>
                             <img class="p-item__img" src="<?php the_post_thumbnail_url( 'full' ); ?>" alt="<?php the_title(); ?>">
                     <?php else: ?>
-                            <img class="p-item__img" src="<?php echo get_stylesheet_directory_uri(); ?>/img/ni_item-thumbnail.png" alt="<?php the_title(); ?>">    
-                    <?php endif;  ?>         
+                            <img class="p-item__img" src="<?php echo get_stylesheet_directory_uri(); ?>/img/ni_item-thumbnail.png" alt="<?php the_title(); ?>"> 
+                    <?php endif;  ?> -->  
                 </figure>
                 <section class="p-item__content">
                     <h1 class="p-item__header-title">
                         <a class="p-item__sub-title" href="<?php echo get_category_link($category->term_id); ?>"><?php echo $category->name; ?></a>
-                        <span class="p-item__title"><?php the_title(); ?></span>
+                        <!-- <span class="p-item__title"><?php the_title(); ?></span> -->
                     </h1>
                     
                     <table class="p-item__info">
@@ -36,9 +36,9 @@
                                 <th class="p-item__info-title">通常価格</th>
                                 <td class="p-item__info-data"><s>15,000円</s></td>
                             </tr>
-                            <tr>
+                            <tr class="js-selling-price">
                                 <th class="p-item__info-title">販売価格</th>
-                                <td class="p-item__info-data">10,000円(税込)<span>30%OFF</span></td>
+                                <!-- <td class="p-item__info-data">10,000円(税込)<span>30%OFF</span></td> -->
                             </tr>
                         </tbody>
                     </table>
@@ -50,13 +50,12 @@
                                 endwhile;
                             endif;
                         ?>
-                        <?php echo do_shortcode( '[colormeshop_cart_button product_id=' . $product['141170317'] . ']' ); ?> 
                     </p>
-                    <div><!-- カラーミー導入時に数量、色の選択、などをAPIで引けるかどうか精査 -->
-                        <p>数量</p>
-                        <p>色の選択</p>
-                        <p>購入ボタン</p>
+
+                    <div id="singleCartJsItem">
+                        <?php echo get_color_me_shop_item(get_field('item_id')); ?>
                     </div>
+
                 </section>
 
             </div>
