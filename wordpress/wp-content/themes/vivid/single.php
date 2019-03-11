@@ -42,7 +42,13 @@
                             </tr>
                         </tbody>
                     </table>
-                    <p class="p-item__text">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+                    <?php
+                        if ( have_posts() ):
+                            while ( have_posts() ) : the_post();
+                                the_content();
+                            endwhile;
+                        endif;
+                    ?>
                     <div><!-- カラーミー導入時に数量、色の選択、などをAPIで引けるかどうか精査 -->
                         <p>数量</p>
                         <p>色の選択</p>
