@@ -21,7 +21,7 @@
                 <section class="p-item__content">
                     <h1 class="p-item__header-title">
                         <a class="p-item__sub-title" href="<?php echo get_category_link($category->term_id); ?>"><?php echo $category->name; ?></a>
-                        <!-- <span class="p-item__title"><?php the_title(); ?></span> -->
+                        <span class="p-item__title"><!-- Javascriptをonにしてください --></span>
                     </h1>
                     
                     <table class="p-item__info">
@@ -34,11 +34,11 @@
                             </tr>
                             <tr>
                                 <th class="p-item__info-title">通常価格</th>
-                                <td class="p-item__info-data"><s>15,000円</s></td>
+                                <td class="p-item__info-data"><s><?php echo number_format(get_field('list_price')); ?>円</s></td>
                             </tr>
                             <tr class="js-selling-price">
                                 <th class="p-item__info-title">販売価格</th>
-                                <!-- <td class="p-item__info-data">10,000円(税込)<span>30%OFF</span></td> -->
+                                <td class="p-item__info-data"><!-- Javascriptをonにしてください --></td>
                             </tr>
                         </tbody>
                     </table>

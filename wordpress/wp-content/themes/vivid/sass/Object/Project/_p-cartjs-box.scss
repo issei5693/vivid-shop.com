@@ -20,14 +20,17 @@
                 text-align: center;
             }
         }
+        
     }
+
+    
 
     .cartjs_cart_in {
         text-align: center;
 
         input {
             display: inline-block;
-            background-color: $color_accent;
+            background-color: $color_main;
             padding: 20px 40px;
             font-size: $font_lg;
             color: $color_base;

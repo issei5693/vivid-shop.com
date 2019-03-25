@@ -1,6 +1,6 @@
 <?php
 // エラー出力の制御
-ini_set('display_errors', "On");
+// ini_set('display_errors', "On");
 
 /**
  * スクリプトファイルの実行順
@@ -640,7 +640,7 @@ function get_color_me_shop_item($pid, $style='standard') {
     $name    = 'y';          // 商品名
     $img     = 'y';          // 商品画像
     $expl    = 'y';          // 商品詳細
-    $stock   = 'y';          // 在庫数
+    $stock   = get_field( 'stock_display',get_the_ID()) ? 'y' : 'n';          // 在庫数
     $price   = 'y';          // 販売価格
     $inq     = 'n';          // 問い合わせリンク
     $sk      = 'n';          // 特商法リンク
