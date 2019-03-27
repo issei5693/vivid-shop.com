@@ -21,12 +21,19 @@ function vivid_scripts(){
     wp_register_script('swiper-cdn', 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/js/swiper.min.js', array('jquery'), '4.4.6','true');
     wp_register_script('my-swiper', get_template_directory_uri().'/js/my-swiper.js',array('swiper-cdn'),'','true');
     wp_register_script('script', get_template_directory_uri().'/js/script.js',array('jquery'),'','true');
+    wp_register_script('single', get_template_directory_uri().'/js/single.js',array('jquery'),'','true');
 
     // トップページのみ読み込み
     wp_enqueue_script('script'); // オリジナルスクリプトファイル
     if(is_home()|| is_front_page()){ // swiper関連
         wp_enqueue_script( 'swiper-cdn');
         wp_enqueue_script( 'my-swiper');
+    }
+
+    // シングルページのみ読み込み
+    wp_enqueue_script('single'); 
+    if(is_single()){ //
+        wp_enqueue_script( 'single');
     }
 
     // wp_enqueue_styel( 'スクリプトの識別名（ハンドル）', スクリプトのURL, 依存スクリプトの識別名, バージョン文字列, 読み込み場所 );
