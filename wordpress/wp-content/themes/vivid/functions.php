@@ -23,16 +23,16 @@ function vivid_scripts(){
     wp_register_script('script', get_template_directory_uri().'/js/script.js',array('jquery'),'','true');
     wp_register_script('single', get_template_directory_uri().'/js/single.js',array('jquery'),'','true');
 
-    // トップページのみ読み込み
-    wp_enqueue_script('script'); // オリジナルスクリプトファイル
-    if(is_home()|| is_front_page()){ // swiper関連
-        wp_enqueue_script( 'swiper-cdn');
-        wp_enqueue_script( 'my-swiper');
-    }
+    
+    wp_enqueue_script('script'); // 共通読み込み
 
-    // シングルページのみ読み込み
-    wp_enqueue_script('single'); 
-    if(is_single()){ //
+    if(is_home()|| is_front_page()){ 
+        // トップページのみ読み込み
+        wp_enqueue_script( 'swiper-cdn'); // swiper関連
+        wp_enqueue_script( 'my-swiper');  // swiper関連
+
+    } elseif(is_single()){
+        // シングルページのみ読み込み
         wp_enqueue_script( 'single');
     }
 
@@ -638,7 +638,7 @@ add_filter( 'wpseo_title', 'my_wpseo_title');
 include 'my-plugins/toppage-content.php';
 
 /***
- * カラーミーショップのコード生成
+ * カラーミーショップのコード生成(singleページ用)
  */
 function get_color_me_shop_item($pid, $style='standard') {
 
@@ -647,6 +647,42 @@ function get_color_me_shop_item($pid, $style='standard') {
     $name    = 'y';          // 商品名
     $img     = 'y';          // 商品画像
     $expl    = 'y';          // 商品詳細
+    $stock   = get_field( 'stock_display',get_the_ID()) ? 'y' : 'n';          // 在庫数
+    $price   = 'y';          // 販売価格
+    $inq     = 'n';          // 問い合わせリンク
+    $sk      = 'n';          // 特商法リンク
+    $charset = 'euc-jp';
+
+    $item_script_url = 
+    $url
+    .'/?mode='. $mode
+    .'&pid='. $pid
+    .'&style='. $style
+    .'&name='. $name
+    .'&img='. $img
+    .'&expl='. $expl
+    .'&stock='. $stock
+    .'&price='. $price
+    .'&inq='. $inq
+    .'&sk='. $sk
+    .'&charset=' . $charset;
+    
+    $color_me_shop_item_script = '<script src="'. $item_script_url .'"></script>';
+
+    return $color_me_shop_item_script;
+
+}
+
+/***
+ * カラーミーショップのコード生成(arcvhive用)
+ */
+function get_color_me_shop_item_archive($pid, $style='standard') {
+
+    $url     = 'https://vivid-shop.shop-pro.jp';
+    $mode    = 'cartjs';
+    $name    = 'y';          // 商品名
+    $img     = 'y';          // 商品画像
+    $expl    = 'n';          // 商品詳細
     $stock   = get_field( 'stock_display',get_the_ID()) ? 'y' : 'n';          // 在庫数
     $price   = 'y';          // 販売価格
     $inq     = 'n';          // 問い合わせリンク

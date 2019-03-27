@@ -56,11 +56,10 @@
                         <ul class="swiper-wrapper p-recommend-list">
 
                             <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                            
-                                <li class="swiper-slide p-recommend-list__item">
+
+                                <li class="archive-cart-js-item swiper-slide p-recommend-list__item">
                                     <div class="c-card">
                                         <a herf="<?php the_permalink(); ?>" onclick="window.location.href = '<?php the_permalink(); ?>'" class="c-card__link">
-
                                             <?php if (has_post_thumbnail()): ?>
                                                 <figure class="c-card__image">
                                                     <img class="c-card__img" src="<?php the_post_thumbnail_url( 'full' ); ?>" alt="<?php the_title(); ?>">
@@ -77,13 +76,13 @@
                                             </h3>
 
                                             <p class="c-card__content">
-                                                <span class="c-card__section">30% OFF</span>
-                                                <span class="c-card__price">¥10,000円</span>
-                                                <s>¥15,000円</s>
+                                                <!-- OFF率はJSにて表示 -->
+                                                <span class="c-card__price"></span>
+                                                <s><?php echo number_format(get_field('list_price')); ?>円</s>
                                             </p>
-
                                         </a>
                                     </div>
+                                    <?php echo get_color_me_shop_item_archive(get_field('item_id')); ?>
                                 </li>
 
                             <?php endwhile; ?>

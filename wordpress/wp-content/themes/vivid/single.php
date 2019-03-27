@@ -9,19 +9,19 @@
     <div class="l-main__content-primary">
 
         <div class="l-main__content-primary-first">
-            <div class="p-item">
+            <div class="p-item single-cart-js-item">
                 <figure class="p-item__image">
-                    <!-- <?php
+                    <?php
                         if (has_post_thumbnail()): ?>
                             <img class="p-item__img" src="<?php the_post_thumbnail_url( 'full' ); ?>" alt="<?php the_title(); ?>">
                     <?php else: ?>
                             <img class="p-item__img" src="<?php echo get_stylesheet_directory_uri(); ?>/img/ni_item-thumbnail.png" alt="<?php the_title(); ?>"> 
-                    <?php endif;  ?> -->  
+                    <?php endif;  ?>  
                 </figure>
                 <section class="p-item__content">
                     <h1 class="p-item__header-title">
                         <a class="p-item__sub-title" href="<?php echo get_category_link($category->term_id); ?>"><?php echo $category->name; ?></a>
-                        <span class="p-item__title"><!-- Javascriptをonにしてください --></span>
+                        <span class="p-item__title"><?php the_title(); ?></span>
                     </h1>
                     
                     <table class="p-item__info">
@@ -36,9 +36,9 @@
                                 <th class="p-item__info-title">通常価格</th>
                                 <td class="p-item__info-data"><s><?php echo number_format(get_field('list_price')); ?>円</s></td>
                             </tr>
-                            <tr class="js-selling-price">
+                            <tr>
                                 <th class="p-item__info-title">販売価格</th>
-                                <td class="p-item__info-data"><!-- Javascriptをonにしてください --></td>
+                                <td class="p-item__info-data js-selling-price"></td>
                             </tr>
                         </tbody>
                     </table>
@@ -52,9 +52,7 @@
                         ?>
                     </p>
 
-                    <div id="singleCartJsItem">
-                        <?php echo get_color_me_shop_item(get_field('item_id')); ?>
-                    </div>
+                    <?php echo get_color_me_shop_item(get_field('item_id')); ?>
 
                 </section>
 
