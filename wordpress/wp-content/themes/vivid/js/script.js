@@ -52,28 +52,43 @@ jQuery(function($){
             var cartjs_box  =   $(this).find('.cartjs_box');
 
             // 商品画像の差し替え
-            var item_img_url = cartjs_box.find('.cartjs_product_img img').attr('src');
-            $(this).find('.c-card__img').attr('src', item_img_url);
-            cartjs_box.find('.cartjs_product_img img').remove();
+            var target_item_img_elm = ( ua.match(/Mobile/) && !ua.match(/iPad/)) ? '#swipe_image' : '.cartjs_product_img img';
+            var item_img_url = cartjs_box.find(target_item_img_elm).attr('src');
+            $(this).find('.acji-item-img').attr('src', item_img_url);
+            cartjs_box.find(target_item_img_elm).remove();
 
             // アイテム名の差し替え
-            var item_name = cartjs_box.find('.cartjs_product_name').text();
-            $(this).find('.c-card__title .c-card__section').eq(1).text(item_name);
-            cartjs_box.find('.cartjs_product_name').remove();
+            var target_item_name_elm = ( ua.match(/Mobile/) && !ua.match(/iPad/)) ? 'h2' : '.cartjs_product_name';
+            var item_name = cartjs_box.find(target_item_name_elm).text();
+            $(this).find('.acji-item-name').text(item_name); 
+            cartjs_box.find(target_item_name_elm).remove();
+            
 
             // 販売価格の差し替え
             var item_selling_price = cartjs_box.find('.cartjs_sales_price td').text();
-            $(this).find('.c-card__price').text(item_selling_price);
+            $(this).find('.acji-item-price').text(item_selling_price);
             cartjs_box.find('.cartjs_sales_price').remove();
 
             //off率の挿入
             var int_list_price      = $(this).find('s').text().replace(/[^0-9]/g, '');
             var int_selling_price   = item_selling_price.replace(/[^0-9]/g, '');
-            var off_per             = (int_list_price - int_selling_price)/int_list_price * 100;
+            var off_per             = Math.floor( (int_list_price - int_selling_price)/int_list_price * 100 );
             if( int_list_price == 0) off_per = 0;
-            $(this).find('.c-card__content').prepend('<span class="c-card__section">' + off_per + ' %OFF</span>');
+            $(this).find('.acji-item-off').text(off_per + '%OFF');
+
+            // scriptカートへCSSへCSSを適用
+            cartjs_box.addClass('p-archive-cartjs-box');
 
         });
+
+        // 不要なスタイルの削除
+        if ( ua.match(/Mobile/) && !ua.match(/iPad/)) {
+            // SP
+            $('.cartjs_description').removeAttr('style');
+            $('.cartjs_header').removeAttr('style');
+            $('.cartjs_box').removeAttr('style');
+        }
+
     });
 
 });

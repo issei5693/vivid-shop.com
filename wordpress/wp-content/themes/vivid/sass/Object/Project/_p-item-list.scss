@@ -1,6 +1,10 @@
 @charset "utf-8";
 
 .p-item-list {
+
+    &__item {
+        border-bottom: solid 1px $color_thin_gray;
+    }
     
     @include mq(){
         display: flex;
@@ -12,6 +16,7 @@
                 right: 1.2%;
                 bottom: 30px;
             }
+            border-bottom: 0;
 
             &:nth-child(4n) {
                 margin-right: 0;

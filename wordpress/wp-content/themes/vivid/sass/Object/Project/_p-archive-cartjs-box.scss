@@ -1,0 +1,54 @@
+@charset "utf-8";
+
+.p-archive-cartjs-box {
+
+    .cartjs_product_table {
+        margin: 0;
+
+        th {
+            padding: {
+                right: 20px;
+                bottom: 20px;
+            }
+        }
+
+        td {
+            input {
+                border: solid 1px $color_gray;
+                padding: 5px 10px;
+                border-radius: 3px;
+                text-align: center;
+            }
+        }
+        
+    }
+
+    .cartjs_cart_in {
+        text-align: center;
+
+        input {
+            display: inline-block;
+            background-color: $color_main;
+            padding: 10px 20px;
+            font-size: $font_md;
+            color: $color_base;
+            border: 0;
+            border-radius: 5px;
+
+            &:hover {
+                opacity: 0.6;
+                cursor: pointer;
+            }
+        }
+
+    }
+
+    .cartjs_product_explain {
+        line-height: 1.5;
+    }
+
+    @include mq(){
+
+    }
+
+}

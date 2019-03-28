@@ -62,23 +62,23 @@
                                         <a herf="<?php the_permalink(); ?>" onclick="window.location.href = '<?php the_permalink(); ?>'" class="c-card__link">
                                             <?php if (has_post_thumbnail()): ?>
                                                 <figure class="c-card__image">
-                                                    <img class="c-card__img" src="<?php the_post_thumbnail_url( 'full' ); ?>" alt="<?php the_title(); ?>">
+                                                    <img class="c-card__img acji-item-img" src="<?php the_post_thumbnail_url( 'full' ); ?>" alt="<?php the_title(); ?>">
                                                 </figure>
                                             <?php else: ?>
                                                 <figure class="c-card__image">
-                                                    <img class="c-card__img" src="<?php echo get_stylesheet_directory_uri(); ?>/img/ni_item-thumbnail.png" alt="<?php the_title(); ?>">    
+                                                    <img class="c-card__img acji-item-img" src="<?php echo get_stylesheet_directory_uri(); ?>/img/ni_item-thumbnail.png" alt="<?php the_title(); ?>">    
                                                 </figure>
                                             <?php endif;  ?>
 
                                             <h3 class="c-card__title">
                                                 <span class="c-card__section"><?php echo get_the_category($id)[0]->name; ?></span>
-                                                <span class="c-card__section"><?php the_title(); ?></span>
+                                                <span class="c-card__section acji-item-name"><?php the_title(); ?></span>
                                             </h3>
 
                                             <p class="c-card__content">
-                                                <!-- OFF率はJSにて表示 -->
-                                                <span class="c-card__price"></span>
-                                                <s><?php echo number_format(get_field('list_price')); ?>円</s>
+                                                <s class="c-card__section"><?php echo number_format(get_field('list_price')); ?>円</s>
+                                                <span class="c-card__price acji-item-price"></span>
+                                                <span class="acji-item-off"></span>
                                             </p>
                                         </a>
                                     </div>
