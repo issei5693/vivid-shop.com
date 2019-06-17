@@ -9,10 +9,19 @@
  * Class WPSEO_Premium_Upsell_Admin_Block
  */
 class WPSEO_Premium_Upsell_Admin_Block {
-	/** @var string Hook to display the block on. */
+
+	/**
+	 * Hook to display the block on.
+	 *
+	 * @var string
+	 */
 	protected $hook;
 
-	/** @var string Identifier to use in the dismissal functionality. */
+	/**
+	 * Identifier to use in the dismissal functionality.
+	 *
+	 * @var string
+	 */
 	protected $identifier = 'premium_upsell_admin_block';
 
 	/**
@@ -48,7 +57,7 @@ class WPSEO_Premium_Upsell_Admin_Block {
 			'<strong>' . esc_html__( 'No more dead links', 'wordpress-seo' ) . '</strong>: ' . esc_html__( 'Easy redirect manager', 'wordpress-seo' ),
 			'<strong>' . esc_html__( 'Superfast internal linking suggestions', 'wordpress-seo' ) . '</strong>',
 			'<strong>' . esc_html__( 'Social media preview', 'wordpress-seo' ) . '</strong>: ' . esc_html__( 'Facebook & Twitter', 'wordpress-seo' ),
-			'<strong>' . esc_html__( '24/7 support', 'wordpress-seo' ) . '</strong>',
+			'<strong>' . esc_html__( '24/7 email support', 'wordpress-seo' ) . '</strong>',
 			'<strong>' . esc_html__( 'No ads!', 'wordpress-seo' ) . '</strong>',
 		);
 
