@@ -121,43 +121,48 @@
 
                         <ul class="swiper-wrapper p-popular-list">
 
+                            <?php $ranking_num = 1; ?>
+
                             <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
                             
-                                <li class="swiper-slide p-popular-list__item">
+                                <li class="archive-cart-js-item swiper-slide p-popular-list__item c-ranking-icon-<?php echo $ranking_num; ?>">
                                     <div class="c-card">
                                         <a herf="<?php the_permalink(); ?>" onclick="window.location.href = '<?php the_permalink(); ?>'" class="c-card__link">
 
                                             <?php if (has_post_thumbnail()): ?>
                                                 <figure class="c-card__image">
-                                                    <img class="c-card__img" src="<?php the_post_thumbnail_url( 'full' ); ?>" alt="<?php the_title(); ?>">
+                                                    <img class="c-card__img acji-item-img" src="<?php the_post_thumbnail_url( 'full' ); ?>" alt="<?php the_title(); ?>">
                                                 </figure>
                                             <?php else: ?>
                                                 <figure class="c-card__image">
-                                                    <img class="c-card__img" src="<?php echo get_stylesheet_directory_uri(); ?>/img/ni_item-thumbnail.png" alt="<?php the_title(); ?>">    
+                                                    <img class="c-card__img acji-item-img" src="<?php echo get_stylesheet_directory_uri(); ?>/img/ni_item-thumbnail.png" alt="<?php the_title(); ?>">    
                                                 </figure>
                                             <?php endif;  ?>
 
                                             <h3 class="c-card__title">
                                                 <span class="c-card__section"><?php echo get_the_category($id)[0]->name; ?></span>
-                                                <span class="c-card__section"><?php the_title(); ?></span>
+                                                <span class="c-card__section acji-item-name"><?php the_title(); ?></span>
                                             </h3>
 
                                             <p class="c-card__content">
-                                                <span class="c-card__section">30% OFF</span>
-                                                <span class="c-card__price">¥10,000円</span>
-                                                <s>¥15,000円</s>
+                                                <s class="c-card__section"><?php echo number_format(get_field('list_price')); ?>円</s>
+                                                <span class="c-card__price acji-item-price"></span>
+                                                <span class="acji-item-off"></span>
                                             </p>
 
                                         </a>
                                     </div>
+                                    <?php echo get_color_me_shop_item_archive(get_field('item_id')); ?>
                                 </li>
+
+                                <?php $ranking_num++; ?>
 
                             <?php endwhile; ?>
 
                         </ul>
 
                 <?php else: ?>
-                        <p>今月のおすすめ商品はありません。</p>
+                        <p>今月の人気商品ランキングはありません。</p>
                 <?php endif; wp_reset_postdata();?>
 
                 <div class="swiper-pagination"></div>

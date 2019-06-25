@@ -1,0 +1,57 @@
+@charset "utf-8";
+
+.c-ranking-icon {
+
+    @for $i from 1 through 10 {
+        &-#{$i} {
+            position: relative; 
+        }
+    }
+
+    @for $i from 1 through 10 {
+        &-#{$i}::before {
+            position: absolute; 
+        }
+    }
+
+    &-1::before {
+        content: url('./img/icon-tropyu-gold.png');
+    }
+
+    &-2::before {
+        content: url('./img/icon-tropyu-silver.png');
+    }
+
+    &-3::before {
+        content: url('./img/icon-tropyu-bronz.png');
+    }
+
+    
+
+    $i: 4;
+    @for $i from 4 through 10 {
+
+        &-#{$i}::before {            
+            content: '';
+            border: {
+                top: 20px solid $color-main;
+                right: 20px solid transparent;
+                left: 20px solid $color-main;
+                bottom: 20px solid transparent;
+            }
+        }
+
+        &-#{$i}::after {
+            content: "#{$i}";
+            position: absolute;
+            color: $color_base;
+            top: 3px;
+            left: 3px;
+            font-size: $font_lg;
+        }
+ 
+    }
+    
+    
+
+}
