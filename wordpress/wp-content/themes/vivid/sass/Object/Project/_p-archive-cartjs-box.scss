@@ -51,6 +51,10 @@
         width: 100%;
     }
 
+    .cartjs_buy .cartjs_btn {
+        font-size: $font_md !important;
+    }
+
     @include mq(){
         .cartjs_option select {
             width: 80%;
