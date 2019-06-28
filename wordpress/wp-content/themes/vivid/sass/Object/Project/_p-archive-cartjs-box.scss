@@ -47,7 +47,14 @@
         line-height: 1.5;
     }
 
+    .cartjs_option select {
+        width: 100%;
+    }
+
     @include mq(){
+        .cartjs_option select {
+            width: 80%;
+        }
 
     }
 
