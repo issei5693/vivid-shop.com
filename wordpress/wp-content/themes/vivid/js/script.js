@@ -74,9 +74,9 @@ jQuery(function($){
             var int_selling_price   = item_selling_price.replace(/[^0-9]/g, '');
             var off_per             = Math.floor( (int_list_price - int_selling_price)/int_list_price * 100 );
             if( int_list_price == 0) off_per = 0;
-            $(this).find('.acji-item-off').text(off_per + '%OFF');
+            $(this).find('.acji-item-off').text(off_per + '%OFF').css('display','block');
 
-            // scriptカートへCSSへCSSを適用
+            // scriptカートCSSへCSSを適用
             cartjs_box.addClass('p-archive-cartjs-box');
 
         });

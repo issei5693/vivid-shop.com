@@ -77,8 +77,8 @@
 
                                             <p class="c-card__content">
                                                 <s class="c-card__section"><?php echo number_format(get_field('list_price')); ?>円</s>
-                                                <span class="c-card__price acji-item-price"></span>
                                                 <span class="acji-item-off"></span>
+                                                <span class="c-card__price acji-item-price"></span>
                                             </p>
                                         </a>
                                     </div>
@@ -146,8 +146,8 @@
 
                                             <p class="c-card__content">
                                                 <s class="c-card__section"><?php echo number_format(get_field('list_price')); ?>円</s>
-                                                <span class="c-card__price acji-item-price"></span>
                                                 <span class="acji-item-off"></span>
+                                                <span class="c-card__price acji-item-price"></span>
                                             </p>
 
                                         </a>

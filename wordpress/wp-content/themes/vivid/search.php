@@ -47,8 +47,8 @@
                                     </h3>
                                     <p class="c-lisence-card__content">
                                         <s class="c-lisence-card__section"><?php echo number_format(get_field('list_price')); ?>円</s>
-                                        <span class="c-lisence-card__price acji-item-price"></span>
                                         <span class="acji-item-off"></span>
+                                        <span class="c-lisence-card__price acji-item-price"></span>
                                     </p>
                                 </a>
                             </div>
