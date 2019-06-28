@@ -159,7 +159,7 @@ add_filter( 'widget_title', 'remove_widget_title_all' );
  * 指定のカテゴリIDの中の投稿に付与されているタグを件数付きで返却する
  */
 function get_post_added_tags( $cat_id ) {
-    
+
     $args = array(
         'post_type'         => 'post',
         'post_status'       => 'publish',

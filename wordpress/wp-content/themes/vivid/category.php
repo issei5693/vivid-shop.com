@@ -29,35 +29,32 @@
             </div>
         </section>
 
-        <?php if($category->parent == 0 ) : ?>
-
-            <?php
-
-                $args = array(
-                    'parent' => $cat
-                );
-
-                $child_categories = get_categories( $args );
-
-                if( $child_categories) : ?>
-
-                <section class="l-main__content-primary-second">
-                    <h2 class="c-icon-header">シリーズ展開</h2>
-                        <ul class="p-series-list">
-                            <?php foreach( $child_categories as $child_category ): ?>
-                            <li class="p-series-list__item">
-                                <a class="c-label" href="<?php echo get_category_link($child_category->term_id); ?>">
-                                    <?php echo $child_category->name; ?>
-                                </a>
-                            </li>
-                            <?php endforeach; ?>
-                        </ul>
-                </section>
-
-            <?php endif ?>
+        <?php
         
-        <?php endif; ?>
+            $target_cat = $category->parent == 0 ? $cat : get_category($cat)->parent;
 
+            $args = array(
+                'parent' => $target_cat
+            );
+
+            $child_categories = get_categories( $args );
+
+            if( $child_categories) : ?>
+
+            <section class="l-main__content-primary-second">
+                <h2 class="c-icon-header">シリーズ展開</h2>
+                    <ul class="p-series-list">
+                        <?php foreach( $child_categories as $child_category ): ?>
+                        <li class="p-series-list__item">
+                            <a class="c-label <?php if( $child_category->term_id == $cat ){ echo 'c-label--active'; } ?>" href="<?php echo get_category_link($child_category->term_id); ?>">
+                                <?php echo $child_category->name; ?>
+                            </a>
+                        </li>
+                        <?php endforeach; ?>
+                    </ul>
+            </section>
+
+        <?php endif ?>
         
         <?php
             $tags = get_post_added_tags($cat);
