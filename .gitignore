@@ -1,7 +1,7 @@
 /vendor/*
 /wordpress/*
 !.gitignore
-!.htaccess
+.htaccess
 !wp-config-sample.php
 !/docker
 /docker/db
