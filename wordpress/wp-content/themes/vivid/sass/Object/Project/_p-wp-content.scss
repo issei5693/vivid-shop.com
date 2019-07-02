@@ -175,8 +175,19 @@
         }
     }
 
-    ul li {
+    ol, ul {
+        margin: 1em 0;
+        padding-left: 40px;
+        margin-bottom: 20px;
+    }
+
+    ol {
+        list-style-type: decimal;
+    }
+
+    li {
         margin-bottom: 10px;
+        line-height: 1.8;
     }
 
     h3 {
