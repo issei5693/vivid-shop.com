@@ -1,5 +1,13 @@
 @charset "utf-8";
 
+%_after_common {
+    position: absolute; 
+    top: 9px;
+    left: 19px;
+    font-weight: bold;
+    color: $color-base;
+}
+
 .c-ranking-icon {
 
     @for $i from 1 through 10 {
@@ -18,12 +26,29 @@
         content: url('./img/icon-tropyu-gold.png');
     }
 
+    &-1::after {
+        content: '1';
+        @extend %_after_common;
+    }
+
     &-2::before {
         content: url('./img/icon-tropyu-silver.png');
     }
 
+
+
+    &-2::after {
+        content: '2';
+        @extend %_after_common;
+    }
+
     &-3::before {
         content: url('./img/icon-tropyu-bronz.png');
+    }
+
+    &-3::after {
+        content: '3';
+        @extend %_after_common;
     }
 
     

@@ -4,6 +4,11 @@
 
     &__item {
         margin-bottom: 5px;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
     }
     
     @include mq(){

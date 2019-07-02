@@ -90,7 +90,8 @@
                     'post_status'   => 'publish',
                     'cat'           => $cat,
                     'tag_id'        => $_GET['category'],
-                    'paged'         => $paged
+                    'paged'         => $paged,
+                    'no_found_rows'     => true
                     
                 );
 

@@ -160,6 +160,10 @@ add_filter( 'widget_title', 'remove_widget_title_all' );
  */
 function get_post_added_tags( $cat_id ) {
 
+    global $category;
+    
+    $cat_id = $category->parent == 0 ? $cat : get_category($cat)->parent;
+
     $args = array(
         'post_type'         => 'post',
         'post_status'       => 'publish',

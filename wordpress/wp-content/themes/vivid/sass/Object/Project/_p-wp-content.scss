@@ -138,13 +138,17 @@
 
     &__banner-list {
         display: flex;
-        justify-content: space-between;
         margin-bottom: 20px;
     }
 
     &__banner-list-item {
-        width: 31%;
+        width: 32%;
+        margin-right: 2%;
         border: solid 1px $color_accent;
+    }
+
+    &__banner-list-item:nth-child(3n){
+        margin-right: 0;
     }
 
     &__banner-list-item-img {
@@ -158,6 +162,16 @@
         img {
             width: 100%;
             height: auto;
+        }
+    }
+
+    a[href*="mailto"] {
+        font-weight: bold;
+        color: $color_main;
+        text-decoration: underline;
+
+        &:hover {
+            text-decoration: none;
         }
     }
 

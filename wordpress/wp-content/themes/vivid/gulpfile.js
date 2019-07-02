@@ -14,7 +14,7 @@ gulp.task('default', function () {
       // Sassのコンパイルを実行
       .pipe(sourcemaps.init())
       .pipe(sass({
-        outputStyle: 'compressed', //expanded
+        outputStyle: 'compressed', //(nested | expanded | compact | compressed)
         })
       // Sassのコンパイルエラーを表示(これがないと自動的に止まってしまう)
         .on('error', sass.logError)
