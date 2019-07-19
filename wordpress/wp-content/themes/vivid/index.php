@@ -2,22 +2,22 @@
 
 <?php
 // $argsのプロパティを変えていく
-$args = array(
-    'post_type' => 'post', 
-    'posts_per_page' => -1,
-    'no_found_rows' => true,  //ページャーを使う時はfalseに。
- );
+// $args = array(
+//     'post_type' => 'post', 
+//     'posts_per_page' => -1,
+//     'no_found_rows' => true,  //ページャーを使う時はfalseに。
+//  );
 
-$the_query = new WP_Query($args);
-if ($the_query->have_posts()) :
-  while ($the_query->have_posts()) : $the_query->the_post();
+// $the_query = new WP_Query($args);
+// if ($the_query->have_posts()) :
+//   while ($the_query->have_posts()) : $the_query->the_post();
     
-  echo $id . '<br>';
-  update_post_meta( $id, 'display_order', 999999);
+//   echo $id . '<br>';
+//   update_post_meta( $id, 'display_order', 999999);
 
-  endwhile;
-endif;
-wp_reset_postdata();
+//   endwhile;
+// endif;
+// wp_reset_postdata();
 ?>
 
 
