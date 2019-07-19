@@ -59,6 +59,8 @@
         <?php
             $tags = get_post_added_tags($cat);
 
+            $cat_id = $category->parent == 0 ? $category->term_id : $category->parent;
+
             if($tags) : ?>
 
             <section class="l-main__content-primary-third">
@@ -67,7 +69,7 @@
                         <?php foreach($tags as $tag) : ?>
                             <li class="p-category-with-count-list__item">
                                 <a
-                                    href="<?php echo get_category_link($cat) . '?category=' . $tag->term_id; ?>"
+                                    href="<?php echo get_category_link($cat_id) . '?category=' . $tag->term_id; ?>"
                                     class="c-label<?php if($_GET['category']==$tag->term_id) echo '--active'; ?>"
                                     >
                                     <?php echo $tag->name; ?>(<?php echo $tag->cat_added_count; ?>)

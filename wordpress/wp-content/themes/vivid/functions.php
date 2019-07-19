@@ -161,8 +161,11 @@ add_filter( 'widget_title', 'remove_widget_title_all' );
 function get_post_added_tags( $cat_id ) {
 
     global $category;
+    var_dump($category);
     
-    $cat_id = $category->parent == 0 ? $cat : get_category($cat)->parent;
+    $cat_id = $category->parent == 0 ? $category->term_id : $category->parent;
+
+    var_dump($cat_id);
 
     $args = array(
         'post_type'         => 'post',
