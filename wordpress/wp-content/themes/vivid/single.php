@@ -70,7 +70,13 @@
 
                 $args = array(
                     'post__in'          => $relation_item_ids,
-                    'posts_per_page'    => 4
+                    'meta_key'      => 'display_order',
+                    'orderby'       => array(
+                        'meta_value_num'    => 'ASC',
+                        'date'              => 'DESC'
+                    ),
+                    'posts_per_page'    => 4,
+                    'no_found_rows'     => true
                 );
 
                 $the_query = new WP_Query($args); ?>
@@ -124,7 +130,13 @@
 
             $args = array(
                 'cat'               =>  $category->term_id,
-                'posts_per_page'    =>  4
+                'posts_per_page'    => 4,
+                'meta_key'      => 'display_order',
+                'orderby'       => array(
+                    'meta_value_num'    => 'ASC',
+                    'date'              => 'DESC'
+                ),
+                'no_found_rows'     => false
             );
 
             $the_query = new WP_Query($args);
@@ -185,12 +197,18 @@
 
             $args = array(
                 'tag__in'           => $tag_ids,
-                'posts_per_page'    =>  4
+                'posts_per_page'    => 4,
+                'meta_key'      => 'display_order',
+                'orderby'       => array(
+                    'meta_value_num'    => 'ASC',
+                    'date'              => 'DESC'
+                ),
+                'no_found_rows'     => false
             );
 
             $the_query = new WP_Query($args);
 
-            if(!empty($the_query->found_posts)): ?>
+            if( !empty($tag_ids) ): ?>
                 <section class="l-main__content-primary-fourth"">
                     <h2 class="c-icon-header"><?php 
                         foreach($tags as $tag ) {

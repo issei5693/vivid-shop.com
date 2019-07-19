@@ -13,7 +13,13 @@
                 $args = array(
                     's'             => $key_word,
                     'post_type'     => 'post',
-                    'paged'         => $paged
+                    'meta_key'      => 'display_order',
+                    'orderby'       => array(
+                        'meta_value_num'    => 'ASC',
+                        'date'              => 'DESC'
+                    ),
+                    'paged'         => $paged,
+                    'no_found_rows'     => false
                     
                 );
 

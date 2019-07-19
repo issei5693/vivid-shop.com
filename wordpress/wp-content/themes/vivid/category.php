@@ -87,17 +87,21 @@
                 
                 $args = array(
                     'post_type'     => 'post',
-                    'post_status'   => 'publish',
                     'cat'           => $cat,
                     'tag_id'        => $_GET['category'],
                     'paged'         => $paged,
-                    'no_found_rows'     => true
+                    'meta_key'      => 'display_order',
+                    'orderby'       => array(
+                        'meta_value_num'    => 'ASC',
+                        'date'              => 'DESC'
+                    ),
+                    'no_found_rows'     => false
                     
                 );
 
                 $the_query = new WP_Query($args); ?>
 
-                <h2 class="c-icon-header">該当商品一覧&nbsp;<?php echo get_display_post_number($the_query); ?>件を表示中&nbsp;(全<?php echo $the_query->found_posts; ?>件)</h2>
+                <h2 class="c-icon-header">☆該当商品一覧&nbsp;<?php echo get_display_post_number($the_query); ?>件を表示中&nbsp;(全<?php echo $the_query->found_posts; ?>件)</h2>
 
                 <ul class="p-item-list">
                 <?php
