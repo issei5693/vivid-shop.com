@@ -164,8 +164,6 @@ function get_post_added_tags( $cat_id ) {
     
     $cat_id = $category->parent == 0 ? $category->term_id : $category->parent;
 
-    var_dump($cat_id);
-
     $args = array(
         'post_type'         => 'post',
         'post_status'       => 'publish',
