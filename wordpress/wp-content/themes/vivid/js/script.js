@@ -83,6 +83,10 @@ jQuery(function($){
             var cartjs_option = cartjs_box.find('.cartjs_option select');
             cartjs_option.wrap('<span class="pulldown_wrapper"></span>');
 
+            // 在庫数の中央揃え用ラッパーhtmlを追加
+            var cartjs_stock = cartjs_box.find('.cartjs_stock td');
+            cartjs_stock.wrapInner('<span class="stock_wrapper"></span>');
+
         });
 
         // 不要なスタイルの削除
