@@ -79,6 +79,10 @@ jQuery(function($){
             // scriptカートCSSへCSSを適用
             cartjs_box.addClass('p-archive-cartjs-box');
 
+            // selectタグにプルダウン用のラッパーhtmlを追加
+            var cartjs_option = cartjs_box.find('.cartjs_option select');
+            cartjs_option.wrap('<span class="pulldown_wrapper"></span>');
+
         });
 
         // 不要なスタイルの削除

@@ -50,9 +50,39 @@
 
     .cartjs_option select {
         width: 100%;
-        -moz-appearance: menulist;
-        -webkit-appearance: menulist;
+        z-index: 2;
+        background-color: transparent;
+        padding-right: 30px;
+        // -moz-appearance: menulist;
+        // -webkit-appearance: menulist;
     }
+
+    .cartjs_option .pulldown_wrapper {
+        display: block;
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0%;
+            height: 100%;
+            width: 30px;
+            border-radius: 0 5px 5px 0;
+            background-color: $color_main;
+            z-index: -2;
+        }
+
+        &::after {
+            content: '▼';
+            position: absolute;
+            top: 35%;
+            right: 10px;
+            z-index: -1;
+        }
+    }
+
+    
 
     .cartjs_buy .cartjs_btn {
         font-size: $font_md !important;
@@ -65,10 +95,21 @@
     }
 
     @include mq(){
-        .cartjs_option select {
+        .cartjs_option .pulldown_wrapper {
             width: 80%;
         }
-        
+
+        .cartjs_option .pulldown_wrapper {
+            &::before {
+                width: 20px;
+            }
+
+            &::after {
+                font-size: $font_xs;
+                right: 5px;
+            }
+        }
+
     }
 
 }
