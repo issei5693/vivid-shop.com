@@ -93,7 +93,7 @@
                                             <?php endif;  ?>
 
                                             <h3 class="c-card__title">
-                                                <span class="c-card__section"><?php echo get_the_category($id)[0]->name; ?></span>
+                                                <!-- <span class="c-card__section"><?php echo get_the_category($id)[0]->name; ?></span> -->
                                                 <span class="c-card__section acji-item-name"><?php the_title(); ?></span>
                                             </h3>
 
