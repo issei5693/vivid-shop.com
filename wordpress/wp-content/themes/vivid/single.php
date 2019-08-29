@@ -165,7 +165,7 @@
                                         <?php endif;  ?>
                                     
                                         <h3 class="c-lisence-card__title">
-                                            <span class="c-lisence-card__section"><?php echo get_the_category($id)[0]->name; ?></span>
+                                            <!-- <span class="c-lisence-card__section"><?php echo get_the_category($id)[0]->name; ?></span> -->
                                             <span class="c-lisence-card__section acji-item-name"><?php the_title(); ?></span>
                                         </h3>
                                         <p class="c-lisence-card__content">

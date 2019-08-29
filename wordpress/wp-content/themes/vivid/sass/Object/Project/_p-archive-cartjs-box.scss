@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 .p-archive-cartjs-box {
-
+    
     .cartjs_product_table {
         margin: 0;
 
@@ -95,6 +95,9 @@
     }
 
     @include mq(){
+        .cartjs_product_table {
+            min-height: 100px;
+        }
         .cartjs_option .pulldown_wrapper {
             width: 80%;
         }
