@@ -3,15 +3,16 @@
 .c-play-button {
     position: relative;
     display: block;
-    padding: 10px 15px;
+    padding: 10px 15px 10px 30px;
     border-radius: 5px;
-    background-color: $color-main;
+    border: solid 1px #f7a300;
+    // background-color: $color-main;
 
      &::after {
          display: block;
          content: '▶︎';
          position: absolute;
-         right: 12px;
+         left: 12px;
          top: 12px;
          font-size: $font_xs;
 
