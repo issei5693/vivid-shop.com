@@ -8,15 +8,20 @@
     border: solid 1px $color_main;
     // background-color: $color-main;
 
-     &::after {
-         display: block;
-         content: '▶︎';
-         position: absolute;
-         left: 12px;
-         top: 12px;
-         font-size: $font_xs;
+    &:hover {
+        background-color: $color-main;
+        text-decoration: none;
+    }
 
-     }
+    &::after {
+        display: block;
+        content: '▶︎';
+        position: absolute;
+        left: 12px;
+        top: 12px;
+        font-size: $font_xs;
+
+    }
     
     @include mq(){
 

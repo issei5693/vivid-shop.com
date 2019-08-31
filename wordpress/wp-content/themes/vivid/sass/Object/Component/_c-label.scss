@@ -12,7 +12,12 @@
 
     &--active {
         @extend %c-label;
-        background-color: $color_accent;
+        background-color: $color-main;
+    }
+
+    &:hover {
+        background-color: $color-main;
+        text-decoration: none;
     }
     
     @include mq(){

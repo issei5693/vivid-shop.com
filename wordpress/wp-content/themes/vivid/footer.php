@@ -1,11 +1,11 @@
 </main>
 
     <footer class="l-footer">
-        <div class="l-footer__primary">
+        <!-- <div class="l-footer__primary">
             <figure class="p-footer-banner">
                 <?php if(!dynamic_sidebar('top_page_footer_banner')); ?>
             </figure>
-        </div>
+        </div> -->
 
         <div class="l-footer__secondary">
             <div class="l-footer__secondary-wrapper">
