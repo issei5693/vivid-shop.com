@@ -60,6 +60,10 @@
         appearance: none;	/* 標準のスタイルを無効にする */ 
     }
 
+    .cartjs_option select::-ms-expand {
+        display: none;
+    }
+
     .cartjs_option .pulldown_wrapper {
         display: block;
         position: relative;
