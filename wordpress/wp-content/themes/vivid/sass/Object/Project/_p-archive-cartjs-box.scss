@@ -55,6 +55,9 @@
         padding-right: 30px;
         // -moz-appearance: menulist;
         // -webkit-appearance: menulist;
+        -webkit-appearance: none;/* ベンダープレフィックス(Google Chrome、Safari用) */
+        -moz-appearance: none;	/* ベンダープレフィックス(Firefox用) */
+        appearance: none;	/* 標準のスタイルを無効にする */ 
     }
 
     .cartjs_option .pulldown_wrapper {
@@ -99,7 +102,7 @@
             min-height: 100px;
         }
         .cartjs_option .pulldown_wrapper {
-            width: 80%;
+            width: 100%;
         }
 
         .stock_wrapper {
