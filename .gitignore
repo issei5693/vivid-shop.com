@@ -2,6 +2,7 @@
 /wordpress/*
 !.gitignore
 .htaccess
+.htpasswd
 !wp-config-sample.php
 !/docker
 /docker/db
