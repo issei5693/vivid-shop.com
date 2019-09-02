@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-    <title>Yoast SEO</title>
-    <meta name="description" content="Yoast SEO">
+
     <?php echo get_json_ld_breadcrumb(); ?>
 
     <?php wp_head(); ?>
