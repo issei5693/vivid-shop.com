@@ -27,14 +27,24 @@
     <header class="l-header">
         <div class="l-header__primary">
             <div class="l-header__primary-first">
-                <figure class="c-logo">
-                    <a class="c-logo__link" href="<?php echo home_url(); ?>">
-                        <img class="c-logo__img" src="<?php echo get_template_directory_uri(); ?>/img/logo.png">
-                        <!-- <img class="c-logo__img--sm" src="https://placehold.jp/200x80.png?text=Vivid-shop"> -->
 
-                    </a>
-                    <span class="c-logo__sub-text">化粧品ディスカウント</span>
-                </figure>
+                <?php if( is_home() || is_front_page() ): ?>
+                    <h1 class="c-logo">
+                <?php else: ?>
+                    <figure class="c-logo">
+                <?php endif; ?>
+                        <a class="c-logo__link" href="<?php echo home_url(); ?>">
+                            <img class="c-logo__img" src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="<?php echo bloginfo('description'); ?>">
+                            <!-- <img class="c-logo__img--sm" src="https://placehold.jp/200x80.png?text=Vivid-shop"> -->
+
+                        </a>
+                        <span class="c-logo__sub-text">化粧品ディスカウント</span>
+                <?php if( is_home() || is_front_page() ): ?>
+                </h1>
+                <?php else: ?>
+                    </figure>
+                <?php endif; ?>
+
             </div>
             <div class="l-header__primary-second">
                 <form  class="p-pc-search-area" method="get" action="<?php echo home_url('/'); ?>">
