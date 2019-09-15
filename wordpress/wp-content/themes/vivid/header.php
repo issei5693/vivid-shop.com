@@ -53,7 +53,7 @@
                 </form>
                 <ul class="p-sp-header-nav-list">
                     <li class="p-sp-header-nav-list__item">
-                        <a href="https://cart.shop-pro.jp/#/shops/PA01429592/checkout" class="c-icon">
+                        <a href="https://vivid-shop.shop-pro.jp/cart/" class="c-icon">
                             <img class="c-icon__img--sm" src="<?php echo get_template_directory_uri(); ?>/img/icon-cart.png" alt="買い物かごを見る">
                             <span class="c-icon__ruby">買い物かご</span>
                         </a>
