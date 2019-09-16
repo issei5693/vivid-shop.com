@@ -45,6 +45,19 @@ jQuery(function($){
         // scriptカートへCSSへCSSを適用
         cartjs_box.addClass('p-single-cartjs-box');
 
+        // SP時の購入ボタン色変更
+        var cartjs_btn = cartjs_box.find('.cartjs_btn');
+            var add_style = `
+                background-color: #fbdf15;
+                background-image: none;
+                color: #777;
+                border: none;
+                box-shadow: none;
+            `;
+
+        cartjs_btn_style_attr = cartjs_btn.attr('style');
+        cartjs_btn.attr('style', cartjs_btn_style_attr + add_style);
+
         // 不要なスタイルの削除
         if ( ua.match(/Mobile/) && !ua.match(/iPad/)) {
             // SP

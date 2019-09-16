@@ -87,15 +87,29 @@ jQuery(function($){
             var cartjs_stock = cartjs_box.find('.cartjs_stock td');
             cartjs_stock.wrapInner('<span class="stock_wrapper"></span>');
 
+            // SP時の購入ボタン色変更
+            var cartjs_btn = cartjs_box.find('.cartjs_btn');
+            var add_style = `
+                background-color: #fbdf15;
+                background-image: none;
+                color: #777;
+                border: none;
+                box-shadow: none;
+            `;
+
+            cartjs_btn_style_attr = cartjs_btn.attr('style');
+            cartjs_btn.attr('style', cartjs_btn_style_attr + add_style);
+
         });
 
-        // 不要なスタイルの削除
+        // モバイル時不要なスタイルの削除
         if ( ua.match(/Mobile/) && !ua.match(/iPad/)) {
             // SP
             $('.cartjs_description').removeAttr('style');
             $('.cartjs_header').removeAttr('style');
             $('.cartjs_box').removeAttr('style');
         }
+
 
     });
 
