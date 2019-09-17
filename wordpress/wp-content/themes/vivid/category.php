@@ -14,14 +14,16 @@
                 <?php echo $category->name; ?>
             </h1>
             <div class="c-card-lisence">
-                <figure class="c-card-lisence__image">
-                    <?php
-                    if( !empty( get_field('brand_thumbnail', $category->taxonomy.'_'.$category->term_id)) ) :?>
+
+                <?php
+                if( !empty( get_field('brand_thumbnail', $category->taxonomy.'_'.$category->term_id)) ) :?>
+                    <figure class="c-card-lisence__image">
                         <img class="c-card-lisence__img" src="<?php echo get_field('brand_thumbnail', $category->taxonomy.'_'.$category->term_id); ?>" alt="" >
-                    <?php else: ?>
-                        <img class="c-card-lisence__img" src="<?php echo get_template_directory_uri(); ?>/img/ni_brand-logo.png">
-                    <?php endif; ?>
-                </figure>
+                    </figure>
+                <?php else: ?>
+                    <!-- <img class="c-card-lisence__img" src="<?php echo get_template_directory_uri(); ?>/img/ni_brand-logo.png"> -->
+                <?php endif; ?>
+                
                 <?php
                     if( !empty(category_description( $category->term_id ) ) ): ?>
                     <p class="c-lcard-lisence__content"><?php echo category_description( $category->term_id ); ?></p>
