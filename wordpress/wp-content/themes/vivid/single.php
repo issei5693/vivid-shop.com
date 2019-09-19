@@ -1,7 +1,17 @@
 <?php get_header(); ?>
 
 <?php
-    $category = get_the_category()[0];
+    // 応急処置。要修正
+    $categories = get_the_category();
+    foreach( $categories as $category ){
+        if( $category->parent != 0 ){
+            $current_category = $category;
+        }
+    }
+    $current_category = is_null($current_category) ? $categories[0] : $current_category;
+    
+    $parent_cat = $current_category->parent == 0 ? $current_category : get_category($current_category->parent);
+
     $tags = get_the_tags();    
 ?>
 
@@ -20,7 +30,7 @@
                 </figure>
                 <section class="p-item__content">
                     <h1 class="p-item__header-title">
-                        <a class="p-item__sub-title" href="<?php echo get_category_link($category->term_id); ?>"><?php echo $category->name; ?></a>
+                        <a class="p-item__sub-title" href="<?php echo get_category_link($parent_cat->term_id); ?>"><?php echo $parent_cat->name; ?></a>
                         <span class="p-item__title scji-item-name"><?php the_title(); ?></span>
                     </h1>
                     
@@ -129,7 +139,7 @@
         <?php // 同じブランドの商品 
 
             $args = array(
-                'cat'               =>  $category->term_id,
+                'cat'               =>  $current_category->term_id,
                 'posts_per_page'    => 4,
                 'meta_key'      => 'display_order',
                 'orderby'       => array(
@@ -144,7 +154,7 @@
             if(!empty($the_query->found_posts)): ?>
 
                 <section class="l-main__content-primary-third">
-                    <h2 class="c-icon-header">他の<?php echo $category->name; ?>の商品</h2>
+                    <h2 class="c-icon-header">他の<?php echo $current_category->name; ?>の商品</h2>
                     <ul class="p-item-list">
                     <?php
                     if ($the_query->have_posts()) :

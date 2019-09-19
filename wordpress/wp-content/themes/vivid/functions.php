@@ -420,6 +420,8 @@ function get_the_breadcrumb(){
                 $current_cat_id = $category->term_id;
             }
         }
+        $current_cat_id = is_null($current_cat_id) ? $categories[0]->term_id : $current_cat_id;
+        
         $category_hierarchies = array_reverse(get_the_category_hierarchy($current_cat_id));
 
         foreach($category_hierarchies as $key=>$category_hierarchy){
