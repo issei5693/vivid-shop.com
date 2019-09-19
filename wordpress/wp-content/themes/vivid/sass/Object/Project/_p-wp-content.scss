@@ -10,33 +10,26 @@
     }
 
     &__table {
+        display: block;
         width: 100%;
         border-collapse: separate;
 
+        td {
+            border: solid 1px $color-main;
+        }
+
         th {
-            vertical-align: middle;
-            padding: {
-                top: 10px;
-                right: 10px;
-                left: 10px;
-                bottom: 15px;
-            }
-            border: {
-                bottom: solid 1px $color_accent;
-            }
+            display: block;
+            padding: 10px;
+            text-align: left;
+            background-color: $color-main;
+
         }
 
         td {
-            vertical-align: middle;
-            padding: {
-                top: 10px;
-                right: 10px;
-                left: 10px;
-                bottom: 15px;
-            }
-            border: {
-                bottom: solid 1px $color_main;
-            }
+            display: block;
+            padding: 10px;
+
         }
 
     }
@@ -200,7 +193,42 @@
     @include mq(){
 
         &__table {
-            padding: 0 20px;
+            display: table;
+            width: 100%;
+            border-collapse: separate;
+
+            td {
+                border: 0;
+            }
+
+            th {
+                display: table-cell;
+                vertical-align: middle;
+                background-color: transparent;
+                padding: {
+                    top: 10px;
+                    right: 10px;
+                    left: 10px;
+                    bottom: 15px;
+                }
+                border: {
+                    bottom: solid 1px $color_accent;
+                }
+            }
+
+            td {
+                display: table-cell;
+                vertical-align: middle;
+                padding: {
+                    top: 10px;
+                    right: 10px;
+                    left: 10px;
+                    bottom: 15px;
+                }
+                border: {
+                    bottom: solid 1px $color_main;
+                }
+            }
         }
 
         &__form {
