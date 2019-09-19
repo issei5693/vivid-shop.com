@@ -22,7 +22,7 @@
                 </div>
                 <div class="l-footer__secondary-second">
                     <figure class="c-logo">
-                        <a class="c-logo__link u-txt-algn-center" href="">
+                        <a class="c-logo__link u-txt-algn-center" href="<?php echo home_url(); ?>">
                             <img class="c-logo__img--lg" src="<?php echo get_template_directory_uri(); ?>/img/logo.png"></a>
                     </figure>
                 </div>
