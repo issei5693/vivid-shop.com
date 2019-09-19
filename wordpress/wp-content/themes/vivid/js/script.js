@@ -50,6 +50,10 @@ jQuery(function($){
         
         archive_items.each(function(){
             var cartjs_box  =   $(this).find('.cartjs_box');
+            if( !cartjs_box.find('.cartjs_stock').length ) {
+                console.log('現在在庫はありません');
+                cartjs_box.prepend('<p>現在在庫はありません</p>');
+            };
 
             // 商品画像の差し替え
             var target_item_img_elm = ( ua.match(/Mobile/) && !ua.match(/iPad/)) ? '#swipe_image' : '.cartjs_product_img img';
