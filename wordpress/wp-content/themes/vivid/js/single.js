@@ -66,6 +66,20 @@ jQuery(function($){
             $('.cartjs_box').removeAttr('style');
         }
 
+        // 在庫切れ時の対応
+            var cart_in_button_class_name = ( ua.match(/Mobile/) && !ua.match(/iPad/)) ? '.cartjs_buy' : '.cartjs_cart_in';
+            if( !cartjs_box.find(cart_in_button_class_name).length ) {
+                $(this).find('.cartjs_box').empty();
+                $(this).find('.cartjs_box').append('<p style="text-align: center;">現在在庫はありません</p>');
+            };
+
+        // 在庫切れ時の対応
+        var cart_in_button_class_name = ( ua.match(/Mobile/) && !ua.match(/iPad/)) ? '.cartjs_buy' : '.cartjs_cart_in';
+        var item_description_class_name = ( ua.match(/Mobile/) && !ua.match(/iPad/)) ? '.cartjs_header' : '.cartjs_product_explain';
+        if( cartjs_box.find(cart_in_button_class_name).length == 0 ) {
+            cartjs_box.find(item_description_class_name).after('<p style="text-align: center; margin: 20px 0;">現在在庫はありません</p>');
+        };
+
     });
 
 });
