@@ -411,12 +411,16 @@ function get_the_breadcrumb(){
         return sprintf($outer_tag, $home_tag.$tag);
 
     } elseif(is_single()){
-        $category = get_the_category();
+        $categories = get_the_category();
         // 原因→シングルページでは最下層のカテゴリを取得する必要があるが、カテゴリの取得はID順に照準で行われるため、配列数-1で必ず最下層のカテゴリが取得できるとは限らない
         // 応急処置として「親カテゴリが存在する場合は最下層カテゴリ」という判断方法があるがカテゴリが3階層以上になると対応できなくなる
-        // var_dump($category);
-        // var_dump($category[count($category)-1]->term_id);
-        $category_hierarchies = array_reverse(get_the_category_hierarchy($category[count($category)-1]->term_id));
+
+        foreach( $categories as $category){
+            if( $category->parent != 0 ){
+                $current_cat_id = $category->term_id;
+            }
+        }
+        $category_hierarchies = array_reverse(get_the_category_hierarchy($current_cat_id));
 
         foreach($category_hierarchies as $key=>$category_hierarchy){
             $tag .= sprintf($link_li, get_category_link($category_hierarchy->term_id), $category_hierarchy->name);
