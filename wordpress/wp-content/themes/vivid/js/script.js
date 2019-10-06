@@ -98,7 +98,7 @@ jQuery(function($){
             var cart_in_button_class_name = ( ua.match(/Mobile/) && !ua.match(/iPad/)) ? '.cartjs_buy' : '.cartjs_cart_in';
             if( cartjs_box.find(cart_in_button_class_name).length == 0 ) {
                 $(this).find('.cartjs_box').empty();
-                $(this).find('.cartjs_box').append('<p style="text-align: center; margin-bottom: 20px;">現在在庫はありません</p>');
+                $(this).find('.cartjs_box').append('<p style="text-align: center; margin-top: 20px;">現在在庫はありません</p>');
             };
 
 
