@@ -89,13 +89,7 @@ jQuery(function($){
 
             // SP時の購入ボタン色変更
             var cartjs_btn = cartjs_box.find('.cartjs_btn');
-            var add_style = `
-                background-color: #fbdf15;
-                background-image: none;
-                color: #777;
-                border: none;
-                box-shadow: none;
-            `;
+            var add_style = 'background-color: #fbdf15; background-image: none; color: #777; border: none; box-shadow: none;';
 
             cartjs_btn_style_attr = cartjs_btn.attr('style');
             cartjs_btn.attr('style', cartjs_btn_style_attr + add_style);
