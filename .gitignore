@@ -16,4 +16,5 @@
 !/wordpress/wp-content/plugins
 /wordpress/wp-content/plugins/*
 !/wordpress/wp-content/themes/vivid
+/wordpress/wp-content/themes/vivid/git-ignore-part.php
 /**/node_modules
