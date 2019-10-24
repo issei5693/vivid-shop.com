@@ -2,9 +2,6 @@
 <html>   
 <head>
     
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-69542757-2"></script>
-
     <?php get_template_part('git-ignore-part'); ?>
 
     <meta charset="UTF-8">
