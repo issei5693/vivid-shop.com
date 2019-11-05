@@ -23,8 +23,6 @@
         
     }
 
-    
-
     .cartjs_cart_in {
         text-align: center;
 
@@ -48,6 +46,49 @@
     .cartjs_product_explain {
         line-height: 1.5;
     }
+
+    .cartjs_option select {
+        width: 100%;
+        z-index: 2;
+        background-color: transparent;
+        padding-right: 30px;
+        // -moz-appearance: menulist;
+        // -webkit-appearance: menulist;
+        -webkit-appearance: none;/* ベンダープレフィックス(Google Chrome、Safari用) */
+        -moz-appearance: none;	/* ベンダープレフィックス(Firefox用) */
+        appearance: none;	/* 標準のスタイルを無効にする */ 
+    }
+
+    .cartjs_option select::-ms-expand {
+        display: none;
+    }
+
+    .cartjs_option .pulldown_wrapper {
+        display: block;
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0%;
+            height: 100%;
+            width: 30px;
+            border-radius: 0 5px 5px 0;
+            background-color: $color_main;
+            z-index: -2;
+        }
+
+        &::after {
+            content: '▼';
+            position: absolute;
+            top: 35%;
+            right: 10px;
+            z-index: -1;
+        }
+    }
+
+
 
     @include mq(){
 

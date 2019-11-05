@@ -45,6 +45,14 @@ jQuery(function($){
         // scriptカートへCSSへCSSを適用
         cartjs_box.addClass('p-single-cartjs-box');
 
+        // selectタグにプルダウン用のラッパーhtmlを追加
+        var cartjs_option = cartjs_box.find('.cartjs_option select');
+        cartjs_option.wrap('<span class="pulldown_wrapper"></span>');
+
+        // 在庫数の中央揃え用ラッパーhtmlを追加
+        var cartjs_stock = cartjs_box.find('.cartjs_stock td');
+        cartjs_stock.wrapInner('<span class="stock_wrapper"></span>');
+
         // SP時の購入ボタン色変更
         var cartjs_btn = cartjs_box.find('.cartjs_btn');
         var add_style = 'background-color: #fbdf15; background-image: none; color: #777; border: none; box-shadow: none;';
