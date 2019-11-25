@@ -13,10 +13,14 @@
     line-height: 1.7;
     
     &::before {
+        content: '';
         position: absolute;
+        top: 2px;
         left: 0;
-        top: 3px;
-        content: url('./img/icon-vivid.png');
+        background: url('./img/icon-vivid.png');
+        width: 16px;
+        height: 16px;
+        background-size: cover;
     }
 
     @include mq(){
