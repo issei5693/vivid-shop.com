@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 
 <?php 
+    var_dump($tag);
     $tag = get_tags( ['slug'=>$tag] )[0];
     var_dump($tag);
 ?>
