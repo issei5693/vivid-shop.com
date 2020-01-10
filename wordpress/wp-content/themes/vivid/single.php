@@ -50,7 +50,7 @@
                                 <th class="p-item__info-title">販売価格</th>
                                 <td class="p-item__info-data">
                                     <span class="scji-item-price"></span>
-                                    <span class="scji-item-off"></span>
+                                    <span class="scji-item-off u-font-color--tomato"></span>
                                 </td>
                             </tr>
                         </tbody>
@@ -118,7 +118,7 @@
                                             </h3>
                                             <p class="c-lisence-card__content">
                                                 <s class="c-lisence-card__section"><?php echo number_format(get_field('list_price')); ?>円</s>
-                                                <span class="acji-item-off"></span>
+                                                <span class="acji-item-off u-font-color--tomato"></span>
                                                 <span class="c-lisence-card__price acji-item-price"></span>
                                             </p>
                                         </a>
@@ -180,7 +180,7 @@
                                         </h3>
                                         <p class="c-lisence-card__content">
                                             <s class="c-lisence-card__section"><?php echo number_format(get_field('list_price')); ?>円</s>
-                                            <span class="acji-item-off"></span>
+                                            <span class="acji-item-off u-font-color--tomato"></span>
                                             <span class="c-lisence-card__price acji-item-price"></span>
                                         </p>
                                     </a>
@@ -250,7 +250,7 @@
                                         </h3>
                                         <p class="c-lisence-card__content">
                                             <s class="c-lisence-card__section"><?php echo number_format(get_field('list_price')); ?>円</s>
-                                            <span class="acji-item-off"></span>
+                                            <span class="acji-item-off u-font-color--tomato"></span>
                                             <span class="c-lisence-card__price acji-item-price"></span>
                                         </p>
                                     </a>
