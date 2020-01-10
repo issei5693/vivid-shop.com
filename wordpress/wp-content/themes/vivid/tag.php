@@ -2,6 +2,7 @@
 
 <?php 
     $tag = get_tags( ['slug'=>$tag] )[0];
+    var_dump($tag);
 ?>
 
 
