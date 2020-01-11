@@ -10,8 +10,6 @@
     <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/img/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="<?php echo get_template_directory_uri(); ?>/img/icon-vivid_180x180.png">
 
-    <?php echo get_json_ld_breadcrumb(); ?>
-
     <?php wp_head(); ?>
 </head>
 
