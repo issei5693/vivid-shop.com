@@ -22,9 +22,11 @@ function vivid_scripts(){
     wp_register_script('my-swiper', get_template_directory_uri().'/js/my-swiper.js',array('swiper-cdn'),'','true');
     wp_register_script('script', get_template_directory_uri().'/js/script.js',array('jquery'),'','true');
     wp_register_script('single', get_template_directory_uri().'/js/single.js',array('jquery'),'','true');
+    wp_register_script('ElementTeleport', get_template_directory_uri().'/js/ElementTeleport.js',array('jquery'),'','true');
 
-    
-    wp_enqueue_script('script'); // 共通読み込み
+     // 共通読み込み
+    wp_enqueue_script('script');
+    wp_enqueue_script('ElementTeleport');
 
     if(is_home()|| is_front_page()){ 
         // トップページのみ読み込み
