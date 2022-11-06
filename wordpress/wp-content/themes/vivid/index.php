@@ -39,7 +39,7 @@
                     <div class="swiper-button-next"></div>
 
                 </div>
-                <?php// endif; ?>
+                <?php // endif; ?>
             </div>
 
             <ul class="p-top-page-sub-banner-list">
