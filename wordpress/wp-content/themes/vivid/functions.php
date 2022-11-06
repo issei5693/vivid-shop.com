@@ -482,7 +482,7 @@ function get_json_ld_breadcrumb() {
         'itemListElement'   =>   '',
     );
 
-    $ListItem = function( $position, $id='', $name){
+    $ListItem = function( $position, $id='', $name='' ){
         return array(
             '@type'     =>  'ListItem',
             'position'  =>  $position, // 1
