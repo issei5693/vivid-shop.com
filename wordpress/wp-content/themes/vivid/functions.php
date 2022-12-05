@@ -11,7 +11,7 @@
 /**
  * gutenbergの使用停止
  */
-add_filter('use_block_editor_for_post_type', 'disable_gutenberg', 10, 2);
+// add_filter('use_block_editor_for_post_type', 'disable_gutenberg', 10, 2);
 
 /**
  * 表示側のスクリプトファイルの読み込み順
