@@ -73,7 +73,7 @@
                                 <a
                                     href="<?php echo get_category_link($cat_id) . '?category=' . $tag->term_id; ?>"
                                     class="c-label<?php if(!empty($_GET['category']) && $_GET['category']==$tag->term_id) echo '--active'; ?>"
-                                    ><?php echo $tag->term_id; ?>
+                                    >
                                     <?php echo $tag->name; ?>(<?php echo $tag->cat_added_count; ?>)
                                 </a>
                             </li>
