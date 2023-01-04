@@ -574,8 +574,10 @@ function get_json_ld_breadcrumb() {
  * 関連商品のIDを取得
  */
 function get_relation_item_ids($post_meta){
-    // カンマ区切りをexplode
 
+    $normalized_ids = '';
+
+    // カンマ区切りをexplode
     $ids = explode(',', $post_meta);
 
     foreach($ids as $id){
@@ -647,9 +649,16 @@ function my_wpseo_title($title){
 
     if( is_category() || is_single() ){
         global $cat;
-        
-        $category = (is_single()) ? array_reverse(get_the_category())[0] : get_category($cat);
-        $categories = '';
+
+        // シングルページにおいてメインカテゴリ・サブカテゴリに関わらずparetnの値が大きいカテゴリを取得するソート
+        // (本来はメインカテゴリを設定しておくのがベターだが、そこまで設定してもらっていないのでカテゴリ階層を2階層までしか作成していないことを前提に対応)
+        $single_page_categories = get_the_category();
+        usort($single_page_categories, function($a,$b){
+            return $a->parent > $b->parent ? -1 : 1;
+        });
+
+        $category = (is_single()) ? $single_page_categories[0] : get_category($cat);
+        $categories = [];
         $categories = get_the_category_hierarchy($category->term_id, $categories);
 
         $count = 0;
