@@ -221,9 +221,12 @@ function get_wp_query_pagenation( $the_query, $number_display=5 ){
 
     // パラメータ付きのURLの場合最後にパラメータを付与しなおす
     $request_uri = $_SERVER["REQUEST_URI"];
-    preg_match('/\?(.*?)$/',$request_uri, $matches)[0];
+    // preg_match('/\?(.*?)$/',$request_uri, $matches)[0]; // preg_matchの返り値は1 or 0なので配列へのアクセスは不要
+    preg_match('/\?(.*?)$/',$request_uri, $matches);
 
-    $uri_param = $matches[0];
+    if(!empty($matches)){
+        $uri_param = $matches[0];
+    } 
 
     // ベースURLの設定(ページャーの発生する可能性のあるページ)
     $url = home_url();
