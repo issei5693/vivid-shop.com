@@ -649,7 +649,7 @@ function my_wpseo_title($title){
         global $cat;
         
         $category = (is_single()) ? array_reverse(get_the_category())[0] : get_category($cat);
-        $categories = get_the_category_hierarchy($category->term_id, $$categories);
+        $categories = get_the_category_hierarchy($category->term_id, $categories);
 
         $count = 0;
         foreach($categories as $category){
