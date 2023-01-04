@@ -224,9 +224,7 @@ function get_wp_query_pagenation( $the_query, $number_display=5 ){
     // preg_match('/\?(.*?)$/',$request_uri, $matches)[0]; // preg_matchの返り値は1 or 0なので配列へのアクセスは不要
     preg_match('/\?(.*?)$/',$request_uri, $matches);
 
-    if(!empty($matches)){
-        $uri_param = $matches[0];
-    } 
+    $uri_param = empty($matches) ? "": $matches[0];
 
     // ベースURLの設定(ページャーの発生する可能性のあるページ)
     $url = home_url();
