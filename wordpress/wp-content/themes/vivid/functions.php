@@ -171,6 +171,7 @@ function get_post_added_tags( $cat_id ) {
         'post_status'       => 'publish',
         'posts_per_page'    => -1,
         'cat'               => $cat_id,
+        'orderby'           => 'ID',
     );
 
     $the_query = new WP_Query($args);
