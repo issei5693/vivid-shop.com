@@ -92,7 +92,7 @@
                 $args = array(
                     'post_type'     => 'post',
                     'cat'           => $cat,
-                    'tag_id'        => $_GET['category'],
+                    'tag_id'        => empty($_GET['category']) ? "" : $_GET['category'],
                     'paged'         => $paged,
                     'meta_key'      => 'display_order',
                     'orderby'       => array(
