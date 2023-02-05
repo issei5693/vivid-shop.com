@@ -39,12 +39,16 @@
                             <tr>
                                 <th class="p-item__info-title">カテゴリ</th>
                                 <td class="p-item__info-data">
-                                    <?php foreach($tags as $tag){ echo $tag->name.'&nbsp;'; } ?>
+                                    <?php
+                                        if(!empty($tags)){
+                                            foreach($tags as $tag){ echo $tag->name.'&nbsp;'; }
+                                        }
+                                    ?>
                                 </td>
                             </tr>
                             <tr>
                                 <th class="p-item__info-title">通常価格</th>
-                                <td class="p-item__info-data"><s><?php echo number_format(get_field('list_price')); ?>円</s></td>
+                                <td class="p-item__info-data"><s><?php echo number_format((float)get_field('list_price')); ?>円</s></td>
                             </tr>
                             <tr>
                                 <th class="p-item__info-title">販売価格</th>
@@ -179,7 +183,7 @@
                                             <span class="c-lisence-card__section acji-item-name"><?php the_title(); ?></span>
                                         </h3>
                                         <p class="c-lisence-card__content">
-                                            <s class="c-lisence-card__section"><?php echo number_format(get_field('list_price')); ?>円</s>
+                                            <s class="c-lisence-card__section"><?php echo number_format((float)get_field('list_price')); ?>円</s>
                                             <span class="acji-item-off u-font-color--tomato"></span>
                                             <span class="c-lisence-card__price acji-item-price"></span>
                                         </p>
@@ -201,8 +205,11 @@
         <?php // 同じタグの商品 タグが2子以上ついている場合はor条件で絞り込み。全てのタグ商品を検索。
 
             $tag_ids = array();
-            foreach($tags as $tag){
-                $tag_ids[] = $tag->term_id;
+
+            if(!empty($tags)){
+                foreach($tags as $tag){
+                    $tag_ids[] = $tag->term_id;
+                }
             }
 
             $args = array(
