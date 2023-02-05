@@ -4,6 +4,7 @@ FROM amazonlinux:2
 RUN yum -y update && \
 	yum -y install vim git mysql
 
+
 # EPELを追加(Remi Repository追加に必要)
 RUN amazon-linux-extras install epel
 
