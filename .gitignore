@@ -5,6 +5,7 @@
 .htaccess
 .htpasswd
 wp-config-sample.php
+wp-config.php
 !/docker
 /docker/db
 !/wordpress/favicon.ico
