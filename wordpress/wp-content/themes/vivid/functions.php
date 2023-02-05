@@ -161,7 +161,7 @@ add_filter( 'widget_title', 'remove_widget_title_all' );
  * 指定のカテゴリIDの中の投稿に付与されているタグを件数付きで返却する
  */
 function get_post_added_tags( $cat_id ) {
-    $new_tags = "";
+    $new_tags = [];
     global $category;
     
     $cat_id = $category->parent == 0 ? $category->term_id : $category->parent;
