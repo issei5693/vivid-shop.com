@@ -2,12 +2,14 @@
 
 <?php
     // 応急処置。要修正
-    $categories = get_the_category();
+    $categories = get_the_category(); 
+    // 親カテゴリから順番に取得されているので配列の最後の要素を現在のカテゴリとして取得
+    $current_category = null;
     foreach( $categories as $category ){
         if( $category->parent != 0 ){
             $current_category = $category;
         }
-    }
+    };
     $current_category = is_null($current_category) ? $categories[0] : $current_category;
     
     $parent_cat = $current_category->parent == 0 ? $current_category : get_category($current_category->parent);

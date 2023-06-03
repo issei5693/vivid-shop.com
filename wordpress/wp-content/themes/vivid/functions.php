@@ -575,7 +575,7 @@ function get_json_ld_breadcrumb() {
  */
 function get_relation_item_ids($post_meta){
 
-    $normalized_ids = '';
+    $normalized_ids = [];
 
     // カンマ区切りをexplode
     $ids = explode(',', $post_meta);
