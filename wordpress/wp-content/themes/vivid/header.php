@@ -3,7 +3,8 @@
 <head>
     
     <?php get_template_part('git-ignore-part'); ?>
-
+    <meta name="referrer" content="no-referrer-when-downgrade"/>
+    
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
