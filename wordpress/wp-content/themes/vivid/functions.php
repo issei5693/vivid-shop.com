@@ -578,7 +578,7 @@ function get_relation_item_ids($post_meta){
     $normalized_ids = [];
 
     // カンマ区切りをexplode
-    $ids = explode(',', $post_meta);
+    $ids = is_null($post_meta) ? [] : explode(',', $post_meta);
 
     foreach($ids as $id){
         // 半角 or 全角スペース削除
