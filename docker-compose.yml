@@ -1,0 +1,56 @@
+services:
+  wordpress:
+    platform: "linux/amd64"
+    depends_on:
+      - db
+    image: wordpress:6.5.5-php8.2
+    ports:
+      - "8080:80"
+    volumes:
+      - ./wordpress/wp-content/themes/vivid:/var/www/html/wp-content/themes/vivid
+      - ./docker-data/wordpress/plugins:/var/www/html/wp-content/plugins
+      - ./docker-data/wordpress/uploads:/var/www/html/wp-content/uploads
+    restart: always
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_NAME: vivid-shop
+
+  db:
+    platform: "linux/amd64"
+    image: mysql:5.7
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./docker-data/mysql/dump.sql:/docker-entrypoint-initdb.d/dump.sql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: somewordpress
+      MYSQL_DATABASE: vivid-shop
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+
+  phpmyadmin:
+    platform: "linux/amd64"
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 8081:80
+    environment:
+      PMA_ARBITRARY: 1
+      PMA_HOST: db
+      PMA_USER: wordpress
+      PMA_PASSWORD: wordpress
+
+  node:
+    platform: "linux/amd64"
+    image: node:16
+    working_dir: /var/www/html/wp-content/themes/vivid-shop
+    volumes:
+      - ./:/var/www/html/wp-content/themes/vivid-shop
+    restart: "no"
+    depends_on:
+      - wordpress
+
+volumes:
+  db_data:
