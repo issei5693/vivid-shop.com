@@ -10,7 +10,6 @@ services:
       - ./wordpress/wp-content/themes/vivid:/var/www/html/wp-content/themes/vivid
       - ./docker-data/wordpress/plugins:/var/www/html/wp-content/plugins
       - ./docker-data/wordpress/uploads:/var/www/html/wp-content/uploads
-    restart: always
     environment:
       WORDPRESS_DB_HOST: db
       WORDPRESS_DB_USER: wordpress
@@ -23,7 +22,6 @@ services:
     volumes:
       - db_data:/var/lib/mysql
       - ./docker-data/mysql/dump.sql:/docker-entrypoint-initdb.d/dump.sql
-    restart: always
     environment:
       MYSQL_ROOT_PASSWORD: somewordpress
       MYSQL_DATABASE: vivid-shop
@@ -33,7 +31,6 @@ services:
   phpmyadmin:
     platform: "linux/amd64"
     image: phpmyadmin
-    restart: always
     ports:
       - 8081:80
     environment:
