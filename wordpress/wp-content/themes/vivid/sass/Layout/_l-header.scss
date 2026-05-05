@@ -11,7 +11,9 @@
     }
 
     &__primary-second {
-        margin-left:auto;
+        margin-left: auto;
+        display: flex;
+        align-items: center;
     }
 
     &__secondary {

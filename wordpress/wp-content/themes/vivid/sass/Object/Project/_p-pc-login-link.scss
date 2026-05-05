@@ -1,0 +1,21 @@
+@charset "utf-8";
+
+.p-pc-login-link {
+    display: none;
+
+    @include mq() {
+        display: flex;
+        align-items: center;
+        padding: 6px 14px;
+        font-size: $font_md;
+        color: $color_font;
+        border: solid 1px $color_gray;
+        border-radius: 3px;
+        white-space: nowrap;
+
+        &:hover {
+            text-decoration: none;
+            background-color: $color_thin_gray;
+        }
+    }
+}

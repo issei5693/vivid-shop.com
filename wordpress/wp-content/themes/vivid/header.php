@@ -27,6 +27,9 @@
                     'items_wrap'      => '%3$s'
                 ) );
             ?>
+            <li class="p-slide-gnav-list__item">
+                <a href="https://vivid-shop.shop-pro.jp/customer/login">ログイン</a>
+            </li>
         </ul>
     </div>
     <header class="l-header">
@@ -52,11 +55,20 @@
 
             </div>
             <div class="l-header__primary-second">
+                <a class="p-pc-login-link" href="https://vivid-shop.shop-pro.jp/customer/login">ログイン</a>
                 <form  class="p-pc-search-area" method="get" action="<?php echo home_url('/'); ?>">
                     <input class="p-pc-search-area__input" type="search" name="s" placeholder="キーワードを入力してください">
                     <button class="p-pc-search-area__submit" type="submit">検索</button>
                 </form>
                 <ul class="p-sp-header-nav-list">
+                    <li class="p-sp-header-nav-list__item">
+                        <a href="https://vivid-shop.shop-pro.jp/customer/login" class="c-icon">
+                            <svg class="c-icon__img--sm" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#444444">
+                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                            </svg>
+                            <span class="c-icon__ruby">ログイン</span>
+                        </a>
+                    </li>
                     <li class="p-sp-header-nav-list__item">
                         <a href="https://vivid-shop.shop-pro.jp/cart/" class="c-icon">
                             <img class="c-icon__img--sm" src="<?php echo get_template_directory_uri(); ?>/img/icon-cart.png" alt="買い物かごを見る">
