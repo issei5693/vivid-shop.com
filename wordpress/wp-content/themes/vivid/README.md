@@ -1,5 +1,39 @@
 # vivid テーマ 開発手順
 
+## サーバー SSH 接続
+
+### 初回セットアップ
+
+1. **秘密鍵をSSHディレクトリにコピー**（プロジェクトルートの `id_rsa` を使用）
+
+   ```bash
+   cp id_rsa ~/.ssh/id_rsa_vivid
+   chmod 600 ~/.ssh/id_rsa_vivid
+   ```
+
+2. **`~/.ssh/config` に以下を追記**
+
+   ```
+   Host colorme
+     HostName 183.90.183.152
+     User qqlnlljh
+     IdentityFile ~/.ssh/id_rsa_vivid
+     ServerAliveInterval 60
+   ```
+
+### 接続方法
+
+```bash
+ssh colorme
+```
+
+パスフレーズを求められたら入力してください（`ssh_credentials.txt` を参照）。
+
+> **注意:** `id_rsa` および `ssh_credentials.txt` は `.gitignore` で除外されています。  
+> これらのファイルはリポジトリにコミットせず、別途チームメンバーに共有してください。
+
+---
+
 ## 動作要件
 
 | ソフトウェア | バージョン |

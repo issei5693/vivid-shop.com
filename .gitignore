@@ -1,3 +1,5 @@
+id_rsa
+ssh_credentials.txt
 .DS_Store
 /vendor/*
 /wordpress/*
