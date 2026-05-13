@@ -23,7 +23,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
         if (scaleWindowW() < breakpoint && swiperRecommendItemList == undefined) {
             swiperRecommendItemList = new Swiper(swiperRecommendItemListEl, {
-                slidesPerView: 1.8,
+                slidesPerView: 2.5,
                 spaceBetween: 10,
                 preventClicks: false,
                 preventClicksPropagation: false,
@@ -75,7 +75,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
         if (scaleWindowW() < breakpoint && swiperPopularItemList == undefined) {
             swiperPopularItemList = new Swiper(swiperPopularItemListEl, {
-                slidesPerView: 1.8,
+                slidesPerView: 2.5,
                 spaceBetween: 10,
                 preventClicks: false, 
                 preventClicksPropagation: false, 

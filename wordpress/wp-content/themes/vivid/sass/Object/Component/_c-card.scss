@@ -54,6 +54,34 @@
         margin-right: 10px;
     }
 
+    @media screen and (max-width: 735px) {
+
+        padding: 3px;
+
+        &__link {
+            padding: 3px;
+        }
+
+        &__image {
+            margin-bottom: 6px;
+        }
+
+        &__title {
+            min-height: 34px;
+            font-size: $font_xs;
+        }
+
+        &__section {
+            font-size: $font_xs;
+        }
+
+        &__price {
+            font-size: 1rem;
+            margin-right: 5px;
+        }
+
+    }
+
     @include mq(){
 
     }
