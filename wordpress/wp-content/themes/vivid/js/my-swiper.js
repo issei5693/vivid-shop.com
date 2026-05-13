@@ -27,7 +27,6 @@ window.addEventListener('DOMContentLoaded', function() {
                 spaceBetween: 10,
                 preventClicks: false,
                 preventClicksPropagation: false,
-                centeredSlides : true,
                 navigation: {
                     nextEl: '.swiper-button-next',
                     prevEl: '.swiper-button-prev',
@@ -77,9 +76,8 @@ window.addEventListener('DOMContentLoaded', function() {
             swiperPopularItemList = new Swiper(swiperPopularItemListEl, {
                 slidesPerView: 2.5,
                 spaceBetween: 10,
-                preventClicks: false, 
-                preventClicksPropagation: false, 
-                centeredSlides : true,
+                preventClicks: false,
+                preventClicksPropagation: false,
                 navigation: {
                     nextEl: '.swiper-button-next',
                     prevEl: '.swiper-button-prev',
