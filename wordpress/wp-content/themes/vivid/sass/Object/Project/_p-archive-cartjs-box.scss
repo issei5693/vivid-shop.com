@@ -101,6 +101,41 @@
         }
     }
 
+    @media screen and (max-width: 735px) {
+
+        .cartjs_product_table {
+
+            th {
+                font-size: $font_xs;
+                padding: {
+                    right: 5px;
+                    bottom: 6px;
+                }
+            }
+
+            td {
+                font-size: $font_xs;
+
+                input {
+                    padding: 2px 4px;
+                    font-size: $font_xs;
+                }
+            }
+
+        }
+
+        .cartjs_option select {
+            font-size: $font_xs;
+            padding-right: 20px;
+        }
+
+        .cartjs_cart_in input {
+            padding: 5px 8px;
+            font-size: $font_xs;
+        }
+
+    }
+
     @include mq(){
         .cartjs_product_table {
             min-height: 100px;
