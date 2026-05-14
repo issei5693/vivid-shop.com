@@ -106,32 +106,32 @@
         .cartjs_product_table {
 
             th {
-                font-size: $font_xs;
+                font-size: 0.6rem;
                 padding: {
-                    right: 5px;
-                    bottom: 6px;
+                    right: 3px;
+                    bottom: 5px;
                 }
             }
 
             td {
-                font-size: $font_xs;
+                font-size: 0.6rem;
 
                 input {
                     padding: 2px 4px;
-                    font-size: $font_xs;
+                    font-size: 0.6rem;
                 }
             }
 
         }
 
         .cartjs_option select {
-            font-size: $font_xs;
+            font-size: 0.6rem;
             padding-right: 20px;
         }
 
         .cartjs_cart_in input {
             padding: 5px 8px;
-            font-size: $font_xs;
+            font-size: 0.6rem;
         }
 
     }
