@@ -101,41 +101,6 @@
         }
     }
 
-    @media screen and (max-width: 735px) {
-
-        .cartjs_product_table {
-
-            th {
-                font-size: 0.6rem;
-                padding: {
-                    right: 3px;
-                    bottom: 5px;
-                }
-            }
-
-            td {
-                font-size: 0.6rem;
-
-                input {
-                    padding: 2px 4px;
-                    font-size: 0.6rem;
-                }
-            }
-
-        }
-
-        .cartjs_option select {
-            font-size: 0.6rem;
-            padding-right: 20px;
-        }
-
-        .cartjs_cart_in input {
-            padding: 5px 8px;
-            font-size: 0.6rem;
-        }
-
-    }
-
     @include mq(){
         .cartjs_product_table {
             min-height: 100px;
@@ -163,4 +128,57 @@
 
     }
 
+}
+
+@media screen and (max-width: 735px) {
+    .swiper-recommend-itemlist,
+    .swiper-popular-itemlist {
+        padding-bottom: 32px !important;
+    }
+
+    .archive-cart-js-item {
+        .cartjs_header p {
+            padding: 0 !important;
+        }
+
+        .cartjs_block {
+            padding: 5px !important;
+        }
+
+        .cartjs_dtl_tbl {
+            margin-bottom: 6px !important;
+
+            th {
+                font-size: 0.7rem !important;
+                padding: 2px 3px !important;
+                white-space: nowrap;
+            }
+
+            td {
+                font-size: 0.7rem !important;
+                padding: 2px 3px !important;
+
+                .cartjs_product_price {
+                    font-size: 0.8rem !important;
+                    font-weight: bold !important;
+                }
+
+                input[type="number"] {
+                    font-size: 0.7rem !important;
+                    width: 40px !important;
+                }
+            }
+
+            select {
+                font-size: 0.7rem !important;
+            }
+        }
+
+        .cartjs_buy .cartjs_btn {
+            font-size: 0.75rem !important;
+            padding: 5px 3px !important;
+            width: 95% !important;
+            margin-bottom: 4px !important;
+        }
+    }
 }
