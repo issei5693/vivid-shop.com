@@ -3,7 +3,7 @@ services:
     platform: "linux/amd64"
     depends_on:
       - db
-    image: wordpress:6.5.5-php8.2
+    image: wordpress:6.5.5-php8.3
     ports:
       - "8080:80"
     volumes:
